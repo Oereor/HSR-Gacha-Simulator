@@ -497,7 +497,7 @@ namespace HSR_Gacha_Simulator
                 PathType.Nihility     => "Nihility",
                 PathType.Preservation => "Preservation",
                 PathType.Abundance    => "Abundance",
-                PathType.Memory       => "Memory",
+                PathType.Remembrance       => "Remembrance",
                 PathType.Elation      => "Elation",
                 _                     => "—"
             };

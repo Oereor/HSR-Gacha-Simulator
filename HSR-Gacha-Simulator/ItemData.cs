@@ -29,7 +29,7 @@ namespace HSR_Gacha_Simulator
         Nihility,
         Preservation,
         Abundance,
-        Memory,
+        Remembrance,
         Elation
     }
 

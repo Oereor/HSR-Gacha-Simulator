@@ -98,13 +98,13 @@ All gacha pools are defined as JSON files in `PoolConfigs/`. Each file is a JSON
     "type": "Avatar",
     "rarity": "Gold",
     "name": "Cyrene",
-    "path": "Memory",
+    "path": "Remembrance",
     "element-type": "Ice"
 }
 ```
 
 - **Light Cones** omit `element-type`
-- **Blue items** are all Light Cones (19 placeholder items)
+- **Blue items** are all Light Cones (real 3-star Light Cones)
 - **Event banners with no rate-up purples** (Archer/Saber) have JSON files containing only the gold event item — purple pools are left empty and the system falls back to the full standard purple pool
 
 To customize pools, edit the JSON files and rebuild. The `DataLoader` reads them at runtime from the `PoolConfigs/` directory next to the executable.

@@ -2,115 +2,151 @@
     {
         "type": "LightCone",
         "rarity": "Blue",
-        "name": "Blue Light Cone 1",
-        "path": "Destruction"
-    },
-    {
-        "type": "LightCone",
-        "rarity": "Blue",
-        "name": "Blue Light Cone 2",
+        "name": "Adversarial",
         "path": "TheHunt"
     },
     {
         "type": "LightCone",
         "rarity": "Blue",
-        "name": "Blue Light Cone 3",
-        "path": "Erudition"
-    },
-    {
-        "type": "LightCone",
-        "rarity": "Blue",
-        "name": "Blue Light Cone 4",
-        "path": "Harmony"
-    },
-    {
-        "type": "LightCone",
-        "rarity": "Blue",
-        "name": "Blue Light Cone 5",
-        "path": "Nihility"
-    },
-    {
-        "type": "LightCone",
-        "rarity": "Blue",
-        "name": "Blue Light Cone 6",
+        "name": "Amber",
         "path": "Preservation"
     },
     {
         "type": "LightCone",
         "rarity": "Blue",
-        "name": "Blue Light Cone 7",
+        "name": "Arrows",
+        "path": "TheHunt"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Blue",
+        "name": "Chorus",
+        "path": "Harmony"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Blue",
+        "name": "Collapsing Sky",
+        "path": "Destruction"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Blue",
+        "name": "Cornucopia",
         "path": "Abundance"
     },
     {
         "type": "LightCone",
         "rarity": "Blue",
-        "name": "Blue Light Cone 8",
-        "path": "Memory"
+        "name": "Darting Arrow",
+        "path": "TheHunt"
     },
     {
         "type": "LightCone",
         "rarity": "Blue",
-        "name": "Blue Light Cone 9",
+        "name": "Data Bank",
+        "path": "Erudition"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Blue",
+        "name": "Defense",
+        "path": "Preservation"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Blue",
+        "name": "Fine Fruit",
+        "path": "Abundance"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Blue",
+        "name": "Hidden Shadow",
+        "path": "Nihility"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Blue",
+        "name": "Lingering Tear",
         "path": "Elation"
     },
     {
         "type": "LightCone",
         "rarity": "Blue",
-        "name": "Blue Light Cone 10",
-        "path": "Destruction"
-    },
-    {
-        "type": "LightCone",
-        "rarity": "Blue",
-        "name": "Blue Light Cone 11",
-        "path": "TheHunt"
-    },
-    {
-        "type": "LightCone",
-        "rarity": "Blue",
-        "name": "Blue Light Cone 12",
-        "path": "Erudition"
-    },
-    {
-        "type": "LightCone",
-        "rarity": "Blue",
-        "name": "Blue Light Cone 13",
-        "path": "Harmony"
-    },
-    {
-        "type": "LightCone",
-        "rarity": "Blue",
-        "name": "Blue Light Cone 14",
+        "name": "Loop",
         "path": "Nihility"
     },
     {
         "type": "LightCone",
         "rarity": "Blue",
-        "name": "Blue Light Cone 15",
-        "path": "Preservation"
+        "name": "Mediation",
+        "path": "Harmony"
     },
     {
         "type": "LightCone",
         "rarity": "Blue",
-        "name": "Blue Light Cone 16",
+        "name": "Meshing Cogs",
+        "path": "Harmony"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Blue",
+        "name": "Multiplication",
         "path": "Abundance"
     },
     {
         "type": "LightCone",
         "rarity": "Blue",
-        "name": "Blue Light Cone 17",
-        "path": "Memory"
-    },
-    {
-        "type": "LightCone",
-        "rarity": "Blue",
-        "name": "Blue Light Cone 18",
+        "name": "Mutual Demise",
         "path": "Destruction"
     },
     {
         "type": "LightCone",
         "rarity": "Blue",
-        "name": "Blue Light Cone 19",
-        "path": "TheHunt"
+        "name": "Passkey",
+        "path": "Erudition"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Blue",
+        "name": "Pioneering",
+        "path": "Preservation"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Blue",
+        "name": "Reminiscence",
+        "path": "Remembrance"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Blue",
+        "name": "Sagacity",
+        "path": "Erudition"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Blue",
+        "name": "Shadowburn",
+        "path": "Remembrance"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Blue",
+        "name": "Sneering",
+        "path": "Elation"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Blue",
+        "name": "Shattered Home",
+        "path": "Destruction"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Blue",
+        "name": "Void",
+        "path": "Nihility"
     }
 ]
