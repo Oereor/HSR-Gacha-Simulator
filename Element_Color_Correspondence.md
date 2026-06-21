@@ -1,0 +1,7 @@
+- Physical -> Silver
+- Fire -> Red
+- Ice -> Blue
+- Lightning -> Light Purple (more like Pink)
+- Wind -> Green
+- Quantum -> Deep Purple (more like Blue)
+- Imaginary -> Yellow

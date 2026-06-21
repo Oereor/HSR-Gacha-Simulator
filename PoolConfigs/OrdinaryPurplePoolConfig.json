@@ -1,0 +1,337 @@
+[
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "March 7th",
+        "path": "Preservation",
+        "element-type": "Ice"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Dan Heng",
+        "path": "TheHunt",
+        "element-type": "Wind"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Arlan",
+        "path": "Destruction",
+        "element-type": "Lightning"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Asta",
+        "path": "Harmony",
+        "element-type": "Fire"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Herta",
+        "path": "Erudition",
+        "element-type": "Ice"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Natasha",
+        "path": "Abundance",
+        "element-type": "Physical"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Serval",
+        "path": "Erudition",
+        "element-type": "Lightning"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Pela",
+        "path": "Nihility",
+        "element-type": "Ice"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Sampo",
+        "path": "Nihility",
+        "element-type": "Wind"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Hook",
+        "path": "Destruction",
+        "element-type": "Fire"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Sushang",
+        "path": "TheHunt",
+        "element-type": "Physical"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Qingque",
+        "path": "Erudition",
+        "element-type": "Quantum"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Tingyun",
+        "path": "Harmony",
+        "element-type": "Lightning"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Yukong",
+        "path": "Harmony",
+        "element-type": "Imaginary"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Luka",
+        "path": "Nihility",
+        "element-type": "Physical"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Lynx",
+        "path": "Abundance",
+        "element-type": "Quantum"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Guinaifen",
+        "path": "Nihility",
+        "element-type": "Fire"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Hanya",
+        "path": "Harmony",
+        "element-type": "Physical"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Xueyi",
+        "path": "Destruction",
+        "element-type": "Quantum"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Misha",
+        "path": "Destruction",
+        "element-type": "Ice"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Gallagher",
+        "path": "Abundance",
+        "element-type": "Fire"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Moze",
+        "path": "TheHunt",
+        "element-type": "Lightning"
+    },
+
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Post-Op Conversation",
+        "path": "Abundance"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Good Night and Sleep Well",
+        "path": "Nihility"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Day One of My New Life",
+        "path": "Preservation"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Only Silence Remains",
+        "path": "TheHunt"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Memories of the Past",
+        "path": "Harmony"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "The Moles Welcome You",
+        "path": "Destruction"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "The Birth of the Self",
+        "path": "Erudition"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Shared Feeling",
+        "path": "Abundance"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Eyes of the Prey",
+        "path": "Nihility"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Landau's Choice",
+        "path": "Preservation"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Swordplay",
+        "path": "TheHunt"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Planetary Rendezvous",
+        "path": "Harmony"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "A Secret Vow",
+        "path": "Destruction"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Make the World Clamor",
+        "path": "Erudition"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Perfect Timing",
+        "path": "Abundance"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Resolution Shines As Pearls of Sweat",
+        "path": "Nihility"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Trend of the Universal Market",
+        "path": "Preservation"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Subscribe for More!",
+        "path": "TheHunt"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Dance! Dance! Dance!",
+        "path": "Harmony"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Under the Blue Sky",
+        "path": "Destruction"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Geniuses' Repose",
+        "path": "Erudition"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Indelible Promise",
+        "path": "Destruction"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Concert for Two",
+        "path": "Preservation"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Boundless Choreo",
+        "path": "Nihility"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "After the Charmony Fall",
+        "path": "Erudition"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Poised to Bloom",
+        "path": "Harmony"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Shadowed by Night",
+        "path": "TheHunt"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Dream's Montage",
+        "path": "Abundance"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Geniuses' Greetings",
+        "path": "Memory"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "The Story's Next Page",
+        "path": "Memory"
+    }
+]

@@ -1,0 +1,93 @@
+[
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Himeko",
+        "path": "Erudition",
+        "element-type": "Fire"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Welt",
+        "path": "Nihility",
+        "element-type": "Imaginary"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Bronya",
+        "path": "Harmony",
+        "element-type": "Wind"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Gepard",
+        "path": "Preservation",
+        "element-type": "Ice"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Clara",
+        "path": "Destruction",
+        "element-type": "Physical"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Yanqing",
+        "path": "TheHunt",
+        "element-type": "Ice"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Bailu",
+        "path": "Abundance",
+        "element-type": "Lightning"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Night on the Milky Way",
+        "path": "Erudition"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "In the Name of the World",
+        "path": "Nihility"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "But the Battle Isn't Over",
+        "path": "Harmony"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Moment of Victory",
+        "path": "Preservation"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Somethind Irreplaceable",
+        "path": "Destruction"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Sleep Like the Dead",
+        "path": "TheHunt"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Time Waits for No One",
+        "path": "Abundance"
+    }
+]

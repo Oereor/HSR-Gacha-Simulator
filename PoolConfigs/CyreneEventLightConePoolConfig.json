@@ -1,0 +1,26 @@
+[
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "This Love, Forever",
+        "path": "Memory"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "A Serect Vow",
+        "path": "Destruction"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Subscribe for More!",
+        "path": "TheHunt"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Purple",
+        "name": "Dance! Dance! Dance!",
+        "path": "Harmony"
+    }
+]

@@ -1,0 +1,30 @@
+[
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Cyrene",
+        "path": "Memory",
+        "element-type": "Ice"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "March 7th",
+        "path": "Preservation",
+        "element-type": "Ice"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Arlan",
+        "path": "Destruction",
+        "element-type": "Lightning"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Purple",
+        "name": "Yukong",
+        "path": "Harmony",
+        "element-type": "Imaginary"
+    }
+]
