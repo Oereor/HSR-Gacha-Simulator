@@ -1,0 +1,51 @@
+[
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Silver Wolf",
+        "path": "Nihility",
+        "element-type": "Quantum"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Welt",
+        "path": "Nihility",
+        "element-type": "Imaginary"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Bronya",
+        "path": "Harmony",
+        "element-type": "Wind"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Seele",
+        "path": "TheHunt",
+        "element-type": "Quantum"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Blade",
+        "path": "Destruction",
+        "element-type": "Wind"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Yunli",
+        "path": "Destruction",
+        "element-type": "Physical"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Argenti",
+        "path": "Erudition",
+        "element-type": "Physical"
+    }
+]

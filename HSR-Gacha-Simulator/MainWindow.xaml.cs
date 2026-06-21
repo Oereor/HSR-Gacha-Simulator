@@ -17,6 +17,10 @@ namespace HSR_Gacha_Simulator
         private GachaSystem phainonSystem = null!;
         private GachaSystem cyreneLightConeSystem = null!;
         private GachaSystem phainonLightConeSystem = null!;
+        private GachaSystem archerAvatarSystem = null!;
+        private GachaSystem archerLightConeSystem = null!;
+        private GachaSystem saberAvatarSystem = null!;
+        private GachaSystem saberLightConeSystem = null!;
         private GachaSystem currentSystem = null!;
 
         // ── Result-card navigation ───────────────────────────────
@@ -72,11 +76,14 @@ namespace HSR_Gacha_Simulator
             var goldAvatars    = ordinaryGoldRaw.Where(i => i.Type == ItemType.Avatar).ToList();
             var goldLightCones = ordinaryGoldRaw.Where(i => i.Type == ItemType.LightCone).ToList();
 
-            // 3. Split ordinary purple pool by type
+            // 3. Load celestial gold pool (used by EventAvatar banners for 50/50 losses)
+            var celestialGoldRaw = DataLoader.LoadFromFile(Path.Combine(poolDir, "CelestialGoldPoolConfig.json"));
+
+            // 4. Split ordinary purple pool by type
             var purpleAvatars    = ordinaryPurpleRaw.Where(i => i.Type == ItemType.Avatar).ToList();
             var purpleLightCones = ordinaryPurpleRaw.Where(i => i.Type == ItemType.LightCone).ToList();
 
-            // 4. Split event JSONs by rarity
+            // 4b. Split event JSONs by rarity
             var cyreneGold   = cyreneRaw.Where(i => i.Rarity == ItemRarity.Gold).ToList();
             var cyrenePurple = cyreneRaw.Where(i => i.Rarity == ItemRarity.Purple).ToList();
             var phainonGold   = phainonRaw.Where(i => i.Rarity == ItemRarity.Gold).ToList();
@@ -85,10 +92,11 @@ namespace HSR_Gacha_Simulator
             // Blue items need no splitting
             var blueItems = blueRaw.Where(i => i.Rarity == ItemRarity.Blue).ToList();
 
-            // 5. Create and load the three systems
+            // 5. Create and load the ordinary system
             ordinarySystem = GachaSystem.Create(GachaType.Ordinary);
             ordinarySystem.LoadPools(
                 goldAvatars, goldLightCones,
+                celestialGoldAvatars: new List<ItemData>(),
                 eventGoldItems:   new List<ItemData>(),
                 purpleAvatars, purpleLightCones,
                 eventPurpleItems: new List<ItemData>(),
@@ -97,6 +105,7 @@ namespace HSR_Gacha_Simulator
             cyreneSystem = GachaSystem.Create(GachaType.EventAvatar);
             cyreneSystem.LoadPools(
                 goldAvatars, goldLightCones,
+                celestialGoldRaw,
                 cyreneGold,
                 purpleAvatars, purpleLightCones,
                 cyrenePurple,
@@ -105,6 +114,7 @@ namespace HSR_Gacha_Simulator
             phainonSystem = GachaSystem.Create(GachaType.EventAvatar);
             phainonSystem.LoadPools(
                 goldAvatars, goldLightCones,
+                celestialGoldRaw,
                 phainonGold,
                 purpleAvatars, purpleLightCones,
                 phainonPurple,
@@ -123,6 +133,7 @@ namespace HSR_Gacha_Simulator
             cyreneLightConeSystem = GachaSystem.Create(GachaType.EventLightCone);
             cyreneLightConeSystem.LoadPools(
                 goldAvatars, goldLightCones,
+                new List<ItemData>(),
                 cyreneLCGold,
                 purpleAvatars, purpleLightCones,
                 cyreneLCPurple,
@@ -131,9 +142,58 @@ namespace HSR_Gacha_Simulator
             phainonLightConeSystem = GachaSystem.Create(GachaType.EventLightCone);
             phainonLightConeSystem.LoadPools(
                 goldAvatars, goldLightCones,
+                new List<ItemData>(),
                 phainonLCGold,
                 purpleAvatars, purpleLightCones,
                 phainonLCPurple,
+                blueItems);
+
+            // 8. Load Archer / Saber collaboration JSONs
+            var archerAvatarRaw = DataLoader.LoadFromFile(Path.Combine(poolDir, "ArcherEventAvatarPoolConfig.json"));
+            var archerLCRaw     = DataLoader.LoadFromFile(Path.Combine(poolDir, "ArcherEventLightConePoolConfig.json"));
+            var saberAvatarRaw  = DataLoader.LoadFromFile(Path.Combine(poolDir, "SaberEventAvatarPoolConfig.json"));
+            var saberLCRaw      = DataLoader.LoadFromFile(Path.Combine(poolDir, "SaberEventLightConePoolConfig.json"));
+
+            var archerAvatarGold = archerAvatarRaw.Where(i => i.Rarity == ItemRarity.Gold).ToList();
+            var archerLCGold     = archerLCRaw.Where(i => i.Rarity == ItemRarity.Gold).ToList();
+            var saberAvatarGold  = saberAvatarRaw.Where(i => i.Rarity == ItemRarity.Gold).ToList();
+            var saberLCGold      = saberLCRaw.Where(i => i.Rarity == ItemRarity.Gold).ToList();
+
+            // 9. Create Archer / Saber banner systems (no event purple items)
+            archerAvatarSystem = GachaSystem.Create(GachaType.EventAvatar);
+            archerAvatarSystem.LoadPools(
+                goldAvatars, goldLightCones,
+                celestialGoldRaw,
+                archerAvatarGold,
+                purpleAvatars, purpleLightCones,
+                new List<ItemData>(),
+                blueItems);
+
+            archerLightConeSystem = GachaSystem.Create(GachaType.EventLightCone);
+            archerLightConeSystem.LoadPools(
+                goldAvatars, goldLightCones,
+                new List<ItemData>(),
+                archerLCGold,
+                purpleAvatars, purpleLightCones,
+                new List<ItemData>(),
+                blueItems);
+
+            saberAvatarSystem = GachaSystem.Create(GachaType.EventAvatar);
+            saberAvatarSystem.LoadPools(
+                goldAvatars, goldLightCones,
+                celestialGoldRaw,
+                saberAvatarGold,
+                purpleAvatars, purpleLightCones,
+                new List<ItemData>(),
+                blueItems);
+
+            saberLightConeSystem = GachaSystem.Create(GachaType.EventLightCone);
+            saberLightConeSystem.LoadPools(
+                goldAvatars, goldLightCones,
+                new List<ItemData>(),
+                saberLCGold,
+                purpleAvatars, purpleLightCones,
+                new List<ItemData>(),
                 blueItems);
         }
 
@@ -155,6 +215,14 @@ namespace HSR_Gacha_Simulator
                 currentSystem = cyreneLightConeSystem;
             else if (rbPhainonLC.IsChecked == true)
                 currentSystem = phainonLightConeSystem;
+            else if (rbArcherAvatar.IsChecked == true)
+                currentSystem = archerAvatarSystem;
+            else if (rbArcherLC.IsChecked == true)
+                currentSystem = archerLightConeSystem;
+            else if (rbSaberAvatar.IsChecked == true)
+                currentSystem = saberAvatarSystem;
+            else if (rbSaberLC.IsChecked == true)
+                currentSystem = saberLightConeSystem;
 
             currentResultIndex = -1; // reset to latest
             RefreshHistory();
@@ -187,8 +255,16 @@ namespace HSR_Gacha_Simulator
             string bannerName = currentSystem.Type switch
             {
                 GachaType.Ordinary       => "Ordinary",
-                GachaType.EventAvatar    => currentSystem == cyreneSystem ? "Cyrene (Avatar)" : "Phainon (Avatar)",
-                GachaType.EventLightCone => currentSystem == cyreneLightConeSystem ? "Cyrene (LC)" : "Phainon (LC)",
+                GachaType.EventAvatar    => currentSystem == cyreneSystem ? "Cyrene (Avatar)"
+                                         : currentSystem == phainonSystem  ? "Phainon (Avatar)"
+                                         : currentSystem == archerAvatarSystem   ? "Archer (Avatar)"
+                                         : currentSystem == saberAvatarSystem    ? "Saber (Avatar)"
+                                         : "Event Avatar",
+                GachaType.EventLightCone => currentSystem == cyreneLightConeSystem  ? "Cyrene (LC)"
+                                         : currentSystem == phainonLightConeSystem  ? "Phainon (LC)"
+                                         : currentSystem == archerLightConeSystem   ? "Archer (LC)"
+                                         : currentSystem == saberLightConeSystem    ? "Saber (LC)"
+                                         : "Event Light Cone",
                 _                        => "this"
             };
 

@@ -218,33 +218,61 @@
 
         <!-- ── Row 0 : Banner Selection ──────────────────────── -->
         <GroupBox Grid.Row="0" Header="Banner Selection">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <RadioButton x:Name="rbOrdinary"
-                             Content="Ordinary"
-                             Style="{StaticResource RadioBannerStyle}"
-                             GroupName="Banner"
-                             IsChecked="True"
-                             Checked="Banner_Changed" />
-                <RadioButton x:Name="rbCyreneAvatar"
-                             Content="Cyrene (Avatar)"
-                             Style="{StaticResource RadioBannerStyle}"
-                             GroupName="Banner"
-                             Checked="Banner_Changed" />
-                <RadioButton x:Name="rbPhainonAvatar"
-                             Content="Phainon (Avatar)"
-                             Style="{StaticResource RadioBannerStyle}"
-                             GroupName="Banner"
-                             Checked="Banner_Changed" />
-                <RadioButton x:Name="rbCyreneLC"
-                             Content="Cyrene (LC)"
-                             Style="{StaticResource RadioBannerStyle}"
-                             GroupName="Banner"
-                             Checked="Banner_Changed" />
-                <RadioButton x:Name="rbPhainonLC"
-                             Content="Phainon (LC)"
-                             Style="{StaticResource RadioBannerStyle}"
-                             GroupName="Banner"
-                             Checked="Banner_Changed" />
+            <StackPanel>
+                <!-- Event Warps row -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <RadioButton x:Name="rbOrdinary"
+                                 Content="Ordinary"
+                                 Style="{StaticResource RadioBannerStyle}"
+                                 GroupName="Banner"
+                                 IsChecked="True"
+                                 Checked="Banner_Changed" />
+                    <RadioButton x:Name="rbCyreneAvatar"
+                                 Content="Cyrene (Avatar)"
+                                 Style="{StaticResource RadioBannerStyle}"
+                                 GroupName="Banner"
+                                 Checked="Banner_Changed" />
+                    <RadioButton x:Name="rbPhainonAvatar"
+                                 Content="Phainon (Avatar)"
+                                 Style="{StaticResource RadioBannerStyle}"
+                                 GroupName="Banner"
+                                 Checked="Banner_Changed" />
+                    <RadioButton x:Name="rbCyreneLC"
+                                 Content="Cyrene (LC)"
+                                 Style="{StaticResource RadioBannerStyle}"
+                                 GroupName="Banner"
+                                 Checked="Banner_Changed" />
+                    <RadioButton x:Name="rbPhainonLC"
+                                 Content="Phainon (LC)"
+                                 Style="{StaticResource RadioBannerStyle}"
+                                 GroupName="Banner"
+                                 Checked="Banner_Changed" />
+                </StackPanel>
+
+                <!-- Collab Warps row -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                            Margin="0,6,0,0">
+                    <RadioButton x:Name="rbArcherAvatar"
+                                 Content="Archer (Avatar)"
+                                 Style="{StaticResource RadioBannerStyle}"
+                                 GroupName="Banner"
+                                 Checked="Banner_Changed" />
+                    <RadioButton x:Name="rbArcherLC"
+                                 Content="Archer (LC)"
+                                 Style="{StaticResource RadioBannerStyle}"
+                                 GroupName="Banner"
+                                 Checked="Banner_Changed" />
+                    <RadioButton x:Name="rbSaberAvatar"
+                                 Content="Saber (Avatar)"
+                                 Style="{StaticResource RadioBannerStyle}"
+                                 GroupName="Banner"
+                                 Checked="Banner_Changed" />
+                    <RadioButton x:Name="rbSaberLC"
+                                 Content="Saber (LC)"
+                                 Style="{StaticResource RadioBannerStyle}"
+                                 GroupName="Banner"
+                                 Checked="Banner_Changed" />
+                </StackPanel>
             </StackPanel>
         </GroupBox>
 

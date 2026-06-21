@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -37,6 +37,7 @@ namespace HSR_Gacha_Simulator
         public void LoadPools(
             List<ItemData> goldAvatars,
             List<ItemData> goldLightCones,
+            List<ItemData> celestialGoldAvatars,
             List<ItemData> eventGoldItems,
             List<ItemData> purpleAvatars,
             List<ItemData> purpleLightCones,
@@ -45,6 +46,7 @@ namespace HSR_Gacha_Simulator
         {
             goldAvatarPool = goldAvatars;
             goldLightConePool = goldLightCones;
+            celestialGoldAvatarPool = celestialGoldAvatars;
             eventGoldItemPool = eventGoldItems;
             purpleAvatarPool = purpleAvatars;
             purpleLightConePool = purpleLightCones;
@@ -168,6 +170,8 @@ namespace HSR_Gacha_Simulator
 
         private List<ItemData> goldAvatarPool = new List<ItemData>();  // The ordinary gold avatar pool
 
+        private List<ItemData> celestialGoldAvatarPool = new List<ItemData>();  // When not trigger rate-up, randomly pick one from this pool
+
         private List<ItemData> goldLightConePool = new List<ItemData>();  // The ordinary gold light cone pool
 
         private List<ItemData> eventGoldItemPool = new List<ItemData>();
@@ -266,7 +270,7 @@ namespace HSR_Gacha_Simulator
             }
             if (type == GachaType.EventAvatar)
             {
-                List<ItemData> unionPool = [.. eventGoldItemPool, .. goldAvatarPool];
+                List<ItemData> unionPool = [.. eventGoldItemPool, .. celestialGoldAvatarPool];
                 if (IsEvent(true) || isRateUp)
                 {
                     return eventGoldItemPool[random.Next(eventGoldItemPool.Count)];
@@ -289,12 +293,12 @@ namespace HSR_Gacha_Simulator
         {
             List<ItemData> unionPool = [.. purpleAvatarPool, .. purpleLightConePool];
             if (type == GachaType.Ordinary)
-            { 
+            {
                 return unionPool[random.Next(unionPool.Count)];
             }
             if (type == GachaType.EventAvatar)
             {
-                if (IsEvent(true) || isRateUp)
+                if (eventPurpleItemPool.Count > 0 && (IsEvent(true) || isRateUp))
                 {
                     return eventPurpleItemPool[random.Next(eventPurpleItemPool.Count)];
                 }
@@ -302,7 +306,7 @@ namespace HSR_Gacha_Simulator
             }
             if (type == GachaType.EventLightCone)
             {
-                if (IsEvent(false) || isRateUp)
+                if (eventPurpleItemPool.Count > 0 && (IsEvent(false) || isRateUp))
                 {
                     return eventPurpleItemPool[random.Next(eventPurpleItemPool.Count)];
                 }
@@ -336,8 +340,8 @@ namespace HSR_Gacha_Simulator
 
         private int GetPurpleItemProbability(int failureCount)
         {
-            if (failureCount > PurpleItemRateUpThreshold) 
-            { 
+            if (failureCount > PurpleItemRateUpThreshold)
+            {
                 return PurpleItemBaseProbability + (failureCount + 1 - PurpleItemRateUpThreshold) * PurpleItemRateUpStep;
             }
             return PurpleItemBaseProbability;
