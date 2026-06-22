@@ -18,10 +18,22 @@ A **Honkai: Star Rail** warp (gacha) simulator built with WPF on .NET. Simulate 
 - **Per-banner independent state** — pity counters, guarantee flags, and history are tracked separately for each banner
 - **Pull history** — scrollable list with rarity-colored stars, element-colored text, and full item details
 - **Statistics panel** — total pulls and rarity distribution (5★/4★/3★ counts + rates) per banner
-- **Result card** — latest pull displayed with rarity border glow and element coloring
+- **Result card** — latest pull displayed with rarity border glow, Path and Element icons flanking the item, and element-colored text
 - **10-pull enforcement** — every 10-pull batch guarantees at least one 4★ or better
 - **Banner reset** — reset any banner to fresh state (with confirmation dialog)
+- **Internationalization** — English and Chinese (简体中文) support with runtime language switching; all UI labels, item names, paths, elements, and dialog text are localized
 - **Dark theme** — matches HSR's in-game aesthetic
+
+## Internationalization
+
+The simulator supports English and Chinese, switchable at any time via the language selector in the status bar.
+
+- **Runtime switching** — change language without restarting; all visible UI updates instantly
+- **Item name translation** — gacha results and history rows display translated names (e.g., "姬子" for "Himeko" in Chinese)
+- **Extensible** — adding a third language requires only data changes in `LanguageConfigs/TextMap.json`; no code edits needed
+- The user's language preference is persisted across sessions
+
+See [INTERNATIONALIZATION_LOCALIZATION.md](INTERNATIONALIZATION_LOCALIZATION.md) for the full design and architecture.
 
 ## Element Color Coding
 
@@ -39,7 +51,7 @@ A **Honkai: Star Rail** warp (gacha) simulator built with WPF on .NET. Simulate 
 
 - **.NET 10.0** (Windows)
 - **WPF** (Windows Presentation Foundation)
-- **System.Text.Json** for pool data deserialization
+- **System.Text.Json** for pool data and textmap deserialization
 - No external dependencies
 
 ## Getting Started
@@ -76,15 +88,42 @@ Or open `HSR-Gacha-Simulator.slnx` in Visual Studio / JetBrains Rider and press 
 │   ├── ArcherEventLightConePoolConfig.json
 │   ├── SaberEventAvatarPoolConfig.json
 │   └── SaberEventLightConePoolConfig.json
+├── LanguageConfigs/                      # Localization data
+│   ├── TextMap.json                      # Unified EN/ZH translation file (loaded at runtime)
+│   ├── BlueItemsTextmap.json             # Reference: 3★ light cone name translations
+│   ├── GoldItemsTextmap.json             # Reference: 5★ item name translations
+│   ├── PurpleItemsTextmap.json           # Reference: 4★ item name translations
+│   └── MetaDataTextmap.json              # Reference: path/element/metadata translations
+├── Icons/                                # Path and Element icon assets (16 PNGs)
+│   ├── Path_Destruction.png
+│   ├── Path_TheHunt.png
+│   ├── Path_Erudition.png
+│   ├── Path_Harmony.png
+│   ├── Path_Nihility.png
+│   ├── Path_Preservation.png
+│   ├── Path_Abundance.png
+│   ├── Path_Remembrance.png
+│   ├── Path_Elation.png
+│   ├── Element_Physical.png
+│   ├── Element_Fire.png
+│   ├── Element_Ice.png
+│   ├── Element_Lightning.png
+│   ├── Element_Wind.png
+│   ├── Element_Quantum.png
+│   └── Element_Imaginary.png
 ├── HSR-Gacha-Simulator/
 │   ├── ItemData.cs                       # Data model (enums + ItemData class)
 │   ├── GachaSystem.cs                    # Core gacha engine (probability, pity, pulls)
 │   ├── DataLoader.cs                     # JSON deserialization
+│   ├── LocalizationService.cs            # Localization singleton (TextMap loader, lookup, persistence)
+│   ├── LocExtension.cs                   # WPF markup extension for {local:Loc key}
 │   ├── MainWindow.xaml                   # UI layout
 │   ├── MainWindow.xaml.cs                # UI logic & wiring
 │   ├── HistoryItemDisplay.cs             # ListView binding model
 │   ├── ElementTypeToBrushConverter.cs    # Element → color converter
 │   └── RarityConverters.cs               # Rarity → brush converters
+├── INTERNATIONALIZATION_LOCALIZATION.md  # i18n/l10n design & implementation spec
+├── RESULT_CARD_ICONS.md                  # Result card icon feature spec
 ├── Element_Color_Correspondence.md       # Element color reference
 └── README.md
 ```
@@ -108,6 +147,14 @@ All gacha pools are defined as JSON files in `PoolConfigs/`. Each file is a JSON
 - **Event banners with no rate-up purples** (Archer/Saber) have JSON files containing only the gold event item — purple pools are left empty and the system falls back to the full standard purple pool
 
 To customize pools, edit the JSON files and rebuild. The `DataLoader` reads them at runtime from the `PoolConfigs/` directory next to the executable.
+
+## Adding a New Language
+
+1. Add the language code (e.g., `"jp"`) to `meta.languages` in `LanguageConfigs/TextMap.json`.
+2. Add translations for every key in the `entries` dictionary under the new language code.
+3. Rebuild. The language selector picks up the new option automatically.
+
+No C# or XAML changes required. See [INTERNATIONALIZATION_LOCALIZATION.md](INTERNATIONALIZATION_LOCALIZATION.md) §7 for details.
 
 ## Mechanics Reference
 
