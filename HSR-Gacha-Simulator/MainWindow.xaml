@@ -588,12 +588,25 @@
                                        FontWeight="Bold"
                                        HorizontalAlignment="Center"
                                        Margin="0,0,0,4" />
-                            <TextBlock x:Name="txtResultName"
-                                       Text="{local:Loc ui.result.default}"
-                                       FontSize="22"
-                                       FontWeight="Bold"
-                                       Foreground="#e0e0e0"
-                                       HorizontalAlignment="Center" />
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center">
+                                <Image x:Name="imgResultPath"
+                                       Width="32" Height="32"
+                                       Margin="0,0,8,0"
+                                       VerticalAlignment="Center"
+                                       Visibility="Visible" />
+                                <TextBlock x:Name="txtResultName"
+                                           Text="{local:Loc ui.result.default}"
+                                           FontSize="22"
+                                           FontWeight="Bold"
+                                           Foreground="#e0e0e0"
+                                           HorizontalAlignment="Center" />
+                                <Image x:Name="imgResultElement"
+                                       Width="32" Height="32"
+                                       Margin="8,0,0,0"
+                                       VerticalAlignment="Center"
+                                       Visibility="Visible" />
+                            </StackPanel>
                             <StackPanel Orientation="Horizontal"
                                         HorizontalAlignment="Center"
                                         Margin="0,4,0,0">

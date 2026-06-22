@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace HSR_Gacha_Simulator
 {
@@ -28,6 +29,9 @@ namespace HSR_Gacha_Simulator
 
         // ── History data binding ─────────────────────────────────
         private readonly ObservableCollection<HistoryItemDisplay> historyItems = new();
+
+        // ── Icon cache ────────────────────────────────────────────
+        private static readonly Dictionary<string, BitmapImage> IconCache = new();
 
         // Prevents event handlers from running before initialisation is complete.
         private bool initialising;
@@ -410,6 +414,46 @@ namespace HSR_Gacha_Simulator
             // Use translated item name
             txtResultName.Text = L10n.GetItemName(item.Name);
 
+            // ── Icons ─────────────────────────────────────────
+            string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            string iconsDir = Path.Combine(baseDir, "Icons");
+
+            // Path icon
+            string pathFileName = $"Path_{item.Path}.png";
+            string pathFullPath = Path.Combine(iconsDir, pathFileName);
+            if (File.Exists(pathFullPath))
+            {
+                imgResultPath.Source = LoadIcon(pathFullPath);
+                imgResultPath.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                imgResultPath.Source = null;
+                imgResultPath.Visibility = Visibility.Collapsed;
+            }
+
+            // Element icon
+            if (item.Type == ItemType.LightCone || item.ElementType == ElementType.Unknown)
+            {
+                imgResultElement.Source = null;
+                imgResultElement.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                string elemFileName = $"Element_{item.ElementType}.png";
+                string elemFullPath = Path.Combine(iconsDir, elemFileName);
+                if (File.Exists(elemFullPath))
+                {
+                    imgResultElement.Source = LoadIcon(elemFullPath);
+                    imgResultElement.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    imgResultElement.Source = null;
+                    imgResultElement.Visibility = Visibility.Collapsed;
+                }
+            }
+
             // Type label
             txtResultType.Text = item.Type == ItemType.Avatar
                 ? L10n.Get("ui.result.type.avatar")
@@ -450,6 +494,10 @@ namespace HSR_Gacha_Simulator
             txtResultElement.Text = "";
             txtResultPullNum.Text = "";
             txtResultIndex.Text = "";
+            imgResultPath.Source = null;
+            imgResultPath.Visibility = Visibility.Collapsed;
+            imgResultElement.Source = null;
+            imgResultElement.Visibility = Visibility.Collapsed;
             resultCardBorder.BorderBrush = new SolidColorBrush(Color.FromRgb(0x3A, 0x3A, 0x6E));
             dotElement.Visibility = Visibility.Visible;
             txtResultElement.Visibility = Visibility.Visible;
@@ -528,6 +576,28 @@ namespace HSR_Gacha_Simulator
             if (element == ElementType.Unknown)
                 return "—";
             return L10n[$"element.{element}"];
+        }
+
+        // ═══════════════════════════════════════════════════════════
+        //  Icon loading
+        // ═══════════════════════════════════════════════════════════
+
+        /// <summary>
+        /// Loads a PNG icon from disk, caching the result.
+        /// </summary>
+        private static BitmapImage LoadIcon(string fullPath)
+        {
+            if (IconCache.TryGetValue(fullPath, out var cached))
+                return cached;
+
+            var bmp = new BitmapImage();
+            bmp.BeginInit();
+            bmp.UriSource = new Uri(fullPath);
+            bmp.CacheOption = BitmapCacheOption.OnLoad;
+            bmp.EndInit();
+            bmp.Freeze(); // make cross-thread safe
+            IconCache[fullPath] = bmp;
+            return bmp;
         }
     }
 }
