@@ -582,60 +582,65 @@
                             MinWidth="400"
                             MaxWidth="600">
                         <StackPanel HorizontalAlignment="Center">
-                            <TextBlock x:Name="txtResultRarity"
-                                       Text="★★★★★"
-                                       FontSize="20"
-                                       FontWeight="Bold"
-                                       HorizontalAlignment="Center"
-                                       Margin="0,0,0,4" />
                             <StackPanel Orientation="Horizontal"
                                         HorizontalAlignment="Center">
+                                <!-- Left: Path icon -->
                                 <Image x:Name="imgResultPath"
-                                       Width="32" Height="32"
-                                       Margin="0,0,8,0"
+                                       Width="48" Height="48"
+                                       Margin="0,0,12,0"
                                        VerticalAlignment="Center"
                                        Visibility="Visible" />
-                                <TextBlock x:Name="txtResultName"
-                                           Text="{local:Loc ui.result.default}"
-                                           FontSize="22"
-                                           FontWeight="Bold"
-                                           Foreground="#e0e0e0"
-                                           HorizontalAlignment="Center" />
+                                <!-- Center: text stack -->
+                                <StackPanel HorizontalAlignment="Center">
+                                    <TextBlock x:Name="txtResultRarity"
+                                               Text="★★★★★"
+                                               FontSize="20"
+                                               FontWeight="Bold"
+                                               HorizontalAlignment="Center"
+                                               Margin="0,0,0,4" />
+                                    <TextBlock x:Name="txtResultName"
+                                               Text="{local:Loc ui.result.default}"
+                                               FontSize="22"
+                                               FontWeight="Bold"
+                                               Foreground="#e0e0e0"
+                                               HorizontalAlignment="Center" />
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Center"
+                                                Margin="0,4,0,0">
+                                        <TextBlock x:Name="txtResultType"
+                                                   Text=""
+                                                   FontSize="14"
+                                                   Foreground="#c0c0c0" />
+                                        <TextBlock Text="{local:Loc ui.result.separator}"
+                                                   FontSize="14"
+                                                   Foreground="#b0b0b0" />
+                                        <TextBlock x:Name="txtResultPath"
+                                                   Text=""
+                                                   FontSize="14"
+                                                   Foreground="#c0c0c0" />
+                                        <TextBlock Text="{local:Loc ui.result.separator}"
+                                                   FontSize="14"
+                                                   Foreground="#b0b0b0"
+                                                   x:Name="dotElement" />
+                                        <TextBlock x:Name="txtResultElement"
+                                                   Text=""
+                                                   FontSize="14"
+                                                   FontWeight="SemiBold" />
+                                    </StackPanel>
+                                    <TextBlock x:Name="txtResultPullNum"
+                                               Text=""
+                                               FontSize="12"
+                                               Foreground="#b0b0b0"
+                                               HorizontalAlignment="Center"
+                                               Margin="0,6,0,0" />
+                                </StackPanel>
+                                <!-- Right: Element icon -->
                                 <Image x:Name="imgResultElement"
-                                       Width="32" Height="32"
-                                       Margin="8,0,0,0"
+                                       Width="48" Height="48"
+                                       Margin="12,0,0,0"
                                        VerticalAlignment="Center"
                                        Visibility="Visible" />
                             </StackPanel>
-                            <StackPanel Orientation="Horizontal"
-                                        HorizontalAlignment="Center"
-                                        Margin="0,4,0,0">
-                                <TextBlock x:Name="txtResultType"
-                                           Text=""
-                                           FontSize="14"
-                                           Foreground="#c0c0c0" />
-                                <TextBlock Text="{local:Loc ui.result.separator}"
-                                           FontSize="14"
-                                           Foreground="#b0b0b0" />
-                                <TextBlock x:Name="txtResultPath"
-                                           Text=""
-                                           FontSize="14"
-                                           Foreground="#c0c0c0" />
-                                <TextBlock Text="{local:Loc ui.result.separator}"
-                                           FontSize="14"
-                                           Foreground="#b0b0b0"
-                                           x:Name="dotElement" />
-                                <TextBlock x:Name="txtResultElement"
-                                           Text=""
-                                           FontSize="14"
-                                           FontWeight="SemiBold" />
-                            </StackPanel>
-                            <TextBlock x:Name="txtResultPullNum"
-                                       Text=""
-                                       FontSize="12"
-                                       Foreground="#b0b0b0"
-                                       HorizontalAlignment="Center"
-                                       Margin="0,6,0,0" />
                         </StackPanel>
                     </Border>
 
