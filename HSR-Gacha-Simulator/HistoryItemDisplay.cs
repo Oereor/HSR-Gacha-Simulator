@@ -1,4 +1,3 @@
-using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -104,14 +103,14 @@ namespace HSR_Gacha_Simulator
             };
         }
 
-        private static string FormatPath(PathType path)
+        public static string FormatPath(PathType path)
         {
             if (path == PathType.Unknown)
                 return "—";
             return L10n[$"path.{path}"];
         }
 
-        private static string FormatElement(ElementType element, ItemType type)
+        public static string FormatElement(ElementType element, ItemType type)
         {
             if (type == ItemType.LightCone || element == ElementType.Unknown)
                 return "—";

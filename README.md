@@ -47,6 +47,14 @@ See [INTERNATIONALIZATION_LOCALIZATION.md](INTERNATIONALIZATION_LOCALIZATION.md)
 | Quantum | Deep Purple |
 | Imaginary | Yellow |
 
+## Architecture
+
+The presentation layer uses the **MVVM** (Model–View–ViewModel) pattern:
+
+- **Model** — `GachaSystem`, `ItemData`, `DataLoader`, `LocalizationService` (pure logic, no UI dependencies)
+- **ViewModel** — `MainViewModel` exposes UI-bound state via `INotifyPropertyChanged`; history is an `ObservableCollection<HistoryItemDisplay>` for incremental updates without full-list rebuilds
+- **View** — `MainWindow.xaml` uses WPF data binding, value converters, and `{local:Loc}` markup extensions to render the ViewModel state; the code-behind (`MainWindow.xaml.cs`) is a thin layer of event handlers that delegate to the ViewModel
+
 ## Tech Stack
 
 - **.NET 10.0** (Windows)
@@ -117,14 +125,15 @@ Or open `HSR-Gacha-Simulator.slnx` in Visual Studio / JetBrains Rider and press 
 │   ├── DataLoader.cs                     # JSON deserialization
 │   ├── LocalizationService.cs            # Localization singleton (TextMap loader, lookup, persistence)
 │   ├── LocExtension.cs                   # WPF markup extension for {local:Loc key}
-│   ├── MainWindow.xaml                   # UI layout
-│   ├── MainWindow.xaml.cs                # UI logic & wiring
+│   ├── MainViewModel.cs                  # MVVM ViewModel — UI state, data binding, navigation
+│   ├── IconLoader.cs                     # Cached PNG icon loading for path/element assets
+│   ├── MainWindow.xaml                   # UI layout (WPF data binding)
+│   ├── MainWindow.xaml.cs                # UI event handlers (thin code-behind)
 │   ├── HistoryItemDisplay.cs             # ListView binding model
 │   ├── ElementTypeToBrushConverter.cs    # Element → color converter
 │   └── RarityConverters.cs               # Rarity → brush converters
 ├── INTERNATIONALIZATION_LOCALIZATION.md  # i18n/l10n design & implementation spec
 ├── RESULT_CARD_ICONS.md                  # Result card icon feature spec
-├── Element_Color_Correspondence.md       # Element color reference
 └── README.md
 ```
 

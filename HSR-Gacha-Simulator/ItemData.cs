@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HSR_Gacha_Simulator
+﻿namespace HSR_Gacha_Simulator
 {
     public enum ItemType
     {

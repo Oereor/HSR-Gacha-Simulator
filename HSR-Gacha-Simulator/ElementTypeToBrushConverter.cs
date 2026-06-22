@@ -1,4 +1,3 @@
-using System;
 using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Media;
@@ -17,6 +16,18 @@ namespace HSR_Gacha_Simulator
     [ValueConversion(typeof(ElementType), typeof(Brush))]
     public class ElementTypeToBrushConverter : IValueConverter
     {
+        public static Brush GetBrush(ElementType element) => element switch
+        {
+            ElementType.Physical  => PhysicalBrush,
+            ElementType.Fire      => FireBrush,
+            ElementType.Ice       => IceBrush,
+            ElementType.Lightning => LightningBrush,
+            ElementType.Wind      => WindBrush,
+            ElementType.Quantum   => QuantumBrush,
+            ElementType.Imaginary => ImaginaryBrush,
+            _                     => DefaultBrush
+        };
+
         private static readonly Brush DefaultBrush = Brushes.Transparent;
 
         private static readonly Brush PhysicalBrush  = new SolidColorBrush(Color.FromRgb(0xC0, 0xC0, 0xC0));
@@ -30,19 +41,7 @@ namespace HSR_Gacha_Simulator
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is ElementType element)
-            {
-                return element switch
-                {
-                    ElementType.Physical  => PhysicalBrush,
-                    ElementType.Fire      => FireBrush,
-                    ElementType.Ice       => IceBrush,
-                    ElementType.Lightning => LightningBrush,
-                    ElementType.Wind      => WindBrush,
-                    ElementType.Quantum   => QuantumBrush,
-                    ElementType.Imaginary => ImaginaryBrush,
-                    _                     => DefaultBrush
-                };
-            }
+                return GetBrush(element);
             return DefaultBrush;
         }
 

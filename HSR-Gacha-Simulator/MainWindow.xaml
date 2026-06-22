@@ -302,8 +302,7 @@
     <DockPanel>
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem>
-                <TextBlock x:Name="txtStatus"
-                           Text="{local:Loc ui.status.ready}" />
+                <TextBlock Text="{Binding StatusText}" />
             </StatusBarItem>
             <StatusBarItem HorizontalAlignment="Right">
                 <StackPanel Orientation="Horizontal">
@@ -407,19 +406,16 @@
                     <StackPanel>
                         <!-- Buttons row -->
                         <StackPanel Orientation="Horizontal">
-                            <Button x:Name="btnWarp1"
-                                    Content="{local:Loc ui.button.warp_x1}"
+                            <Button Content="{local:Loc ui.button.warp_x1}"
                                     Style="{StaticResource WarpButtonStyle}"
                                     Click="BtnWarp1_Click" />
-                            <Button x:Name="btnWarp10"
-                                    Content="{local:Loc ui.button.warp_x10}"
+                            <Button Content="{local:Loc ui.button.warp_x10}"
                                     Style="{StaticResource WarpButtonStyle}"
                                     Margin="12,0,0,0"
                                     Click="BtnWarp10_Click" />
                         </StackPanel>
 
-                        <Button x:Name="btnReset"
-                                Content="{local:Loc ui.button.reset_banner}"
+                        <Button Content="{local:Loc ui.button.reset_banner}"
                                 Style="{StaticResource ResetButtonStyle}"
                                 Margin="0,8,0,0"
                                 HorizontalAlignment="Left"
@@ -432,8 +428,7 @@
                                 <TextBlock Text="{local:Loc ui.pity.gold_pity}"
                                            Style="{StaticResource PityTextStyle}"
                                            Foreground="#c0c0c0" />
-                                <TextBlock x:Name="txtGoldPity"
-                                           Text="0"
+                                <TextBlock Text="{Binding GoldPity}"
                                            Style="{StaticResource PityTextStyle}" />
                                 <TextBlock Text="{local:Loc ui.pity.gold_since}"
                                            Style="{StaticResource PityTextStyle}"
@@ -443,8 +438,8 @@
                                 <TextBlock Text="{local:Loc ui.pity.gold_guarantee}"
                                            Style="{StaticResource PityTextStyle}"
                                            Foreground="#c0c0c0" />
-                                <TextBlock x:Name="txtGoldGuarantee"
-                                           Text="{local:Loc ui.pity.not_guaranteed}"
+                                <TextBlock Text="{Binding GoldGuarantee}"
+                                           Foreground="{Binding GoldGuaranteeBrush}"
                                            Style="{StaticResource PityTextStyle}" />
                             </StackPanel>
                             <!-- Purple row -->
@@ -452,8 +447,7 @@
                                 <TextBlock Text="{local:Loc ui.pity.purple_pity}"
                                            Style="{StaticResource PityTextStyle}"
                                            Foreground="#c0c0c0" />
-                                <TextBlock x:Name="txtPurplePity"
-                                           Text="0"
+                                <TextBlock Text="{Binding PurplePity}"
                                            Style="{StaticResource PityTextStyle}" />
                                 <TextBlock Text="{local:Loc ui.pity.purple_since}"
                                            Style="{StaticResource PityTextStyle}"
@@ -463,8 +457,8 @@
                                 <TextBlock Text="{local:Loc ui.pity.purple_guarantee}"
                                            Style="{StaticResource PityTextStyle}"
                                            Foreground="#c0c0c0" />
-                                <TextBlock x:Name="txtPurpleGuarantee"
-                                           Text="{local:Loc ui.pity.not_guaranteed}"
+                                <TextBlock Text="{Binding PurpleGuarantee}"
+                                           Foreground="{Binding PurpleGuaranteeBrush}"
                                            Style="{StaticResource PityTextStyle}" />
                             </StackPanel>
                         </StackPanel>
@@ -476,8 +470,7 @@
                           Header="{local:Loc ui.group.statistics}">
                     <StackPanel>
                         <!-- Total pulls -->
-                        <TextBlock x:Name="txtTotalPulls"
-                                   Text=""
+                        <TextBlock Text="{Binding TotalPulls}"
                                    FontSize="14"
                                    FontWeight="SemiBold"
                                    Foreground="#e0e0e0"
@@ -486,8 +479,7 @@
                         <!-- Rarity breakdown -->
                         <!-- 5★ row -->
                         <StackPanel Orientation="Horizontal" Margin="0,1,0,0">
-                            <TextBlock x:Name="txtGoldStars"
-                                       Text="★★★★★"
+                            <TextBlock Text="★★★★★"
                                        FontWeight="Bold"
                                        FontSize="14"
                                        Foreground="#ffd700"
@@ -497,14 +489,12 @@
                                        FontSize="14"
                                        VerticalAlignment="Center"
                                        MinWidth="80" />
-                            <TextBlock x:Name="txtGoldCount"
-                                       Text="0"
+                            <TextBlock Text="{Binding GoldCount}"
                                        Foreground="#ffd700"
                                        FontWeight="SemiBold"
                                        FontSize="14"
                                        VerticalAlignment="Center" />
-                            <TextBlock x:Name="txtGoldRate"
-                                       Text="  (—)"
+                            <TextBlock Text="{Binding GoldRate}"
                                        Foreground="#b0b0b0"
                                        FontSize="14"
                                        VerticalAlignment="Center" />
@@ -521,14 +511,12 @@
                                        FontSize="14"
                                        VerticalAlignment="Center"
                                        MinWidth="80" />
-                            <TextBlock x:Name="txtPurpleCount"
-                                       Text="0"
+                            <TextBlock Text="{Binding PurpleCount}"
                                        Foreground="#c77dff"
                                        FontWeight="SemiBold"
                                        FontSize="14"
                                        VerticalAlignment="Center" />
-                            <TextBlock x:Name="txtPurpleRate"
-                                       Text="  (—)"
+                            <TextBlock Text="{Binding PurpleRate}"
                                        Foreground="#b0b0b0"
                                        FontSize="14"
                                        VerticalAlignment="Center" />
@@ -545,14 +533,12 @@
                                        FontSize="14"
                                        VerticalAlignment="Center"
                                        MinWidth="80" />
-                            <TextBlock x:Name="txtBlueCount"
-                                       Text="0"
+                            <TextBlock Text="{Binding BlueCount}"
                                        Foreground="#6090ff"
                                        FontWeight="SemiBold"
                                        FontSize="14"
                                        VerticalAlignment="Center" />
-                            <TextBlock x:Name="txtBlueRate"
-                                       Text="  (—)"
+                            <TextBlock Text="{Binding BlueRate}"
                                        Foreground="#b0b0b0"
                                        FontSize="14"
                                        VerticalAlignment="Center" />
@@ -571,8 +557,7 @@
                     </Grid.RowDefinitions>
 
                     <!-- Result card -->
-                    <Border x:Name="resultCardBorder"
-                            Grid.Row="0"
+                    <Border Grid.Row="0"
                             Background="#16213e"
                             BorderThickness="3"
                             CornerRadius="8"
@@ -580,26 +565,26 @@
                             MinHeight="80"
                             HorizontalAlignment="Center"
                             MinWidth="400"
-                            MaxWidth="600">
+                            MaxWidth="600"
+                            BorderBrush="{Binding ResultCardBorderBrush}">
                         <StackPanel HorizontalAlignment="Center">
                             <StackPanel Orientation="Horizontal"
                                         HorizontalAlignment="Center">
                                 <!-- Left: Path icon -->
-                                <Image x:Name="imgResultPath"
-                                       Width="48" Height="48"
+                                <Image Width="48" Height="48"
                                        Margin="0,0,12,0"
                                        VerticalAlignment="Center"
-                                       Visibility="Visible" />
+                                       Source="{Binding ResultPathIcon}"
+                                       Visibility="{Binding ResultPathIconVisibility}" />
                                 <!-- Center: text stack -->
                                 <StackPanel HorizontalAlignment="Center">
-                                    <TextBlock x:Name="txtResultRarity"
-                                               Text="★★★★★"
+                                    <TextBlock Text="{Binding ResultRarity}"
                                                FontSize="20"
                                                FontWeight="Bold"
                                                HorizontalAlignment="Center"
-                                               Margin="0,0,0,4" />
-                                    <TextBlock x:Name="txtResultName"
-                                               Text="{local:Loc ui.result.default}"
+                                               Margin="0,0,0,4"
+                                               Foreground="{Binding ResultRarityBrush}" />
+                                    <TextBlock Text="{Binding ResultName}"
                                                FontSize="22"
                                                FontWeight="Bold"
                                                Foreground="#e0e0e0"
@@ -607,39 +592,32 @@
                                     <StackPanel Orientation="Horizontal"
                                                 HorizontalAlignment="Center"
                                                 Margin="0,4,0,0">
-                                        <TextBlock x:Name="txtResultType"
-                                                   Text=""
+                                        <TextBlock Text="{Binding ResultType}"
                                                    FontSize="14"
                                                    Foreground="#c0c0c0" />
                                         <TextBlock Text="{local:Loc ui.result.separator}"
                                                    FontSize="14"
                                                    Foreground="#b0b0b0" />
-                                        <TextBlock x:Name="txtResultPath"
-                                                   Text=""
+                                        <TextBlock Text="{Binding ResultPath}"
                                                    FontSize="14"
                                                    Foreground="#c0c0c0" />
                                         <TextBlock Text="{local:Loc ui.result.separator}"
                                                    FontSize="14"
                                                    Foreground="#b0b0b0"
-                                                   x:Name="dotElement" />
-                                        <TextBlock x:Name="txtResultElement"
-                                                   Text=""
+                                                   Visibility="{Binding DotElementVisibility}" />
+                                        <TextBlock Text="{Binding ResultElement}"
                                                    FontSize="14"
-                                                   FontWeight="SemiBold" />
+                                                   FontWeight="SemiBold"
+                                                   Foreground="{Binding ResultElementBrush}"
+                                                   Visibility="{Binding ResultElementTextVisibility}" />
                                     </StackPanel>
-                                    <TextBlock x:Name="txtResultPullNum"
-                                               Text=""
-                                               FontSize="12"
-                                               Foreground="#b0b0b0"
-                                               HorizontalAlignment="Center"
-                                               Margin="0,6,0,0" />
                                 </StackPanel>
                                 <!-- Right: Element icon -->
-                                <Image x:Name="imgResultElement"
-                                       Width="48" Height="48"
+                                <Image Width="48" Height="48"
                                        Margin="12,0,0,0"
                                        VerticalAlignment="Center"
-                                       Visibility="Visible" />
+                                       Source="{Binding ResultElementIcon}"
+                                       Visibility="{Binding ResultElementIconVisibility}" />
                             </StackPanel>
                         </StackPanel>
                     </Border>
@@ -652,8 +630,7 @@
                         <Button Content="{local:Loc ui.button.prev_page}"
                                 Style="{StaticResource NavButtonStyle}"
                                 Click="BtnPrevResult_Click" />
-                        <TextBlock x:Name="txtResultIndex"
-                                   Text=""
+                        <TextBlock Text="{Binding ResultIndexText}"
                                    Foreground="#c0c0c0"
                                    FontSize="14"
                                    VerticalAlignment="Center"

@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace HSR_Gacha_Simulator
 {
     public enum GachaType
@@ -16,6 +12,9 @@ namespace HSR_Gacha_Simulator
         public List<ItemData> History { get; private set; } = new List<ItemData>();
 
         public GachaType Type { get; set; }
+
+        /// <summary>Raised after History changes (pull, 10-pull, or reset).</summary>
+        public event Action? HistoryChanged;
 
         private readonly ItemData EmptyItem = new ItemData { Type = ItemType.Unknown, Rarity = ItemRarity.Unknown, Name = "EmptyItem", Path = PathType.Unknown, ElementType = ElementType.Unknown };
 
@@ -59,6 +58,7 @@ namespace HSR_Gacha_Simulator
         {
             ItemData item = DoGacha(Type);
             History.Add(item);
+            HistoryChanged?.Invoke();
             return item;
         }
 
@@ -89,11 +89,12 @@ namespace HSR_Gacha_Simulator
                     eventNonPurpleGachaCount = 0;
 
                 ItemData forcedPurple = GetPurpleItem(Type, missedPurpleEventItem);
-                missedPurpleEventItem = !eventPurpleItemPool.Contains(forcedPurple);
+                missedPurpleEventItem = (eventPurpleItemPool.Count > 0) && (!eventPurpleItemPool.Contains(forcedPurple));
                 results[9] = forcedPurple;
             }
 
             History.AddRange(results);
+            HistoryChanged?.Invoke();
             return results;
         }
 
@@ -111,6 +112,7 @@ namespace HSR_Gacha_Simulator
             eventNonPurpleGachaCount = 0;
             ordinaryNonGoldGachaCount = 0;
             ordinaryNonPurpleGachaCount = 0;
+            HistoryChanged?.Invoke();
         }
 
         /// <summary>Number of pulls since the last 5★ item.</summary>
