@@ -32,6 +32,9 @@ namespace HSR_Gacha_Simulator
         // Prevents event handlers from running before initialisation is complete.
         private bool initialising;
 
+        // ── Localisation shorthand ───────────────────────────────
+        private static LocalizationService L10n => LocalizationService.Instance;
+
         public MainWindow()
         {
             initialising = true;
@@ -45,14 +48,16 @@ namespace HSR_Gacha_Simulator
                 initialising = false;
                 UpdatePityDisplay();
                 UpdateStatistics();
-                txtStatus.Text = "Ready";
+                txtStatus.Text = L10n.Get("ui.status.ready");
             }
             catch (Exception ex)
             {
                 initialising = false;
-                MessageBox.Show($"Failed to initialise: {ex.Message}", "Error",
-                                MessageBoxButton.OK, MessageBoxImage.Error);
-                txtStatus.Text = "Initialisation failed";
+                MessageBox.Show(
+                    L10n.Get("dialog.error.init_failed", ex.Message),
+                    L10n.Get("dialog.error.title"),
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                txtStatus.Text = L10n.Get("ui.status.init_failed");
             }
         }
 
@@ -235,7 +240,7 @@ namespace HSR_Gacha_Simulator
         {
             if (initialising) return;
 
-            txtStatus.Text = "Pulling...";
+            txtStatus.Text = L10n.Get("ui.status.pulling");
             var item = currentSystem.Pull();
             currentResultIndex = currentSystem.History.Count - 1; // latest
             AfterPull();
@@ -243,7 +248,7 @@ namespace HSR_Gacha_Simulator
 
         private void BtnWarp10_Click(object sender, RoutedEventArgs e)
         {
-            txtStatus.Text = "Pulling ×10...";
+            txtStatus.Text = L10n.Get("ui.status.pulling_x10");
             var items = currentSystem.Pull10();
             // Show the last of the 10 pulls in the result card
             currentResultIndex = currentSystem.History.Count - 1;
@@ -252,25 +257,12 @@ namespace HSR_Gacha_Simulator
 
         private void BtnReset_Click(object sender, RoutedEventArgs e)
         {
-            string bannerName = currentSystem.Type switch
-            {
-                GachaType.Ordinary       => "Ordinary",
-                GachaType.EventAvatar    => currentSystem == cyreneSystem ? "Cyrene (Avatar)"
-                                         : currentSystem == phainonSystem  ? "Phainon (Avatar)"
-                                         : currentSystem == archerAvatarSystem   ? "Archer (Avatar)"
-                                         : currentSystem == saberAvatarSystem    ? "Saber (Avatar)"
-                                         : "Event Avatar",
-                GachaType.EventLightCone => currentSystem == cyreneLightConeSystem  ? "Cyrene (LC)"
-                                         : currentSystem == phainonLightConeSystem  ? "Phainon (LC)"
-                                         : currentSystem == archerLightConeSystem   ? "Archer (LC)"
-                                         : currentSystem == saberLightConeSystem    ? "Saber (LC)"
-                                         : "Event Light Cone",
-                _                        => "this"
-            };
+            string bannerKey = GetBannerKey();
+            string bannerName = L10n.Get(bannerKey);
 
             var result = MessageBox.Show(
-                $"Reset the {bannerName} banner? All pull history and pity for this banner will be lost.",
-                "Reset Banner",
+                L10n.Get("dialog.reset_banner.message", bannerName),
+                L10n.Get("dialog.reset_banner.title"),
                 MessageBoxButton.OKCancel,
                 MessageBoxImage.Warning);
 
@@ -283,7 +275,7 @@ namespace HSR_Gacha_Simulator
             RefreshHistory();
             UpdatePityDisplay();
             UpdateStatistics();
-            txtStatus.Text = $"{bannerName} banner reset";
+            txtStatus.Text = L10n.Get("ui.status.banner_reset", bannerName);
         }
 
         private void BtnPrevResult_Click(object sender, RoutedEventArgs e)
@@ -320,7 +312,7 @@ namespace HSR_Gacha_Simulator
             UpdatePityDisplay();
             UpdateStatistics();
             ShowLatestOrStoredResult();
-            txtStatus.Text = "Ready";
+            txtStatus.Text = L10n.Get("ui.status.ready");
         }
 
         private void UpdatePityDisplay()
@@ -328,8 +320,8 @@ namespace HSR_Gacha_Simulator
             // Gold pity + guarantee
             txtGoldPity.Text = currentSystem.NonGoldGachaCount.ToString();
             txtGoldGuarantee.Text = currentSystem.IsGuaranteed
-                ? "✅ Guaranteed"
-                : "Not Guaranteed";
+                ? L10n.Get("ui.pity.guaranteed")
+                : L10n.Get("ui.pity.not_guaranteed");
             txtGoldGuarantee.Foreground = currentSystem.IsGuaranteed
                 ? new SolidColorBrush(Color.FromRgb(0xFF, 0xD7, 0x00))
                 : new SolidColorBrush(Color.FromRgb(0xC0, 0xC0, 0xC0));
@@ -337,8 +329,8 @@ namespace HSR_Gacha_Simulator
             // Purple pity + guarantee
             txtPurplePity.Text = currentSystem.NonPurpleGachaCount.ToString();
             txtPurpleGuarantee.Text = currentSystem.IsPurpleGuaranteed
-                ? "✅ Guaranteed"
-                : "Not Guaranteed";
+                ? L10n.Get("ui.pity.guaranteed")
+                : L10n.Get("ui.pity.not_guaranteed");
             txtPurpleGuarantee.Foreground = currentSystem.IsPurpleGuaranteed
                 ? new SolidColorBrush(Color.FromRgb(0xFF, 0xD7, 0x00))
                 : new SolidColorBrush(Color.FromRgb(0xC0, 0xC0, 0xC0));
@@ -347,7 +339,7 @@ namespace HSR_Gacha_Simulator
         private void UpdateStatistics()
         {
             int total = currentSystem.TotalPulls;
-            txtTotalPulls.Text = $"Total Pulls: {total}";
+            txtTotalPulls.Text = L10n.Get("ui.stats.total_pulls", total);
 
             if (total == 0)
             {
@@ -415,8 +407,14 @@ namespace HSR_Gacha_Simulator
             txtResultRarity.Text = stars;
             txtResultRarity.Foreground = RarityToBrush(item.Rarity);
 
-            txtResultName.Text = item.Name;
-            txtResultType.Text = item.Type == ItemType.Avatar ? "Avatar" : "Light Cone";
+            // Use translated item name
+            txtResultName.Text = L10n.GetItemName(item.Name);
+
+            // Type label
+            txtResultType.Text = item.Type == ItemType.Avatar
+                ? L10n.Get("ui.result.type.avatar")
+                : L10n.Get("ui.result.type.lightcone");
+
             txtResultPath.Text = PathToLabel(item.Path);
 
             // Element — coloured per element type, or "—" for Light Cones
@@ -424,7 +422,7 @@ namespace HSR_Gacha_Simulator
             {
                 txtResultElement.Text = "—";
                 txtResultElement.Foreground = new SolidColorBrush(Color.FromRgb(0xC0, 0xC0, 0xC0));
-                dotElement.Visibility = Visibility.Collapsed;
+                dotElement.Visibility = Visibility.Visible;
                 txtResultElement.Visibility = Visibility.Visible;
             }
             else
@@ -435,8 +433,9 @@ namespace HSR_Gacha_Simulator
                 txtResultElement.Visibility = Visibility.Visible;
             }
 
-            txtResultPullNum.Text = $"Pull #{index + 1} of {currentSystem.History.Count}";
-            txtResultIndex.Text = $"Pull #{index + 1} of {currentSystem.History.Count}";
+            string pullNumText = L10n.Get("ui.result.pull_number", index + 1, currentSystem.History.Count);
+            txtResultPullNum.Text = pullNumText;
+            txtResultIndex.Text = pullNumText;
 
             // Rarity‑coloured card border
             resultCardBorder.BorderBrush = RarityToBrush(item.Rarity);
@@ -445,7 +444,7 @@ namespace HSR_Gacha_Simulator
         private void ClearResultCard()
         {
             txtResultRarity.Text = "";
-            txtResultName.Text = "Pull to begin";
+            txtResultName.Text = L10n.Get("ui.result.default");
             txtResultType.Text = "";
             txtResultPath.Text = "";
             txtResultElement.Text = "";
@@ -454,6 +453,37 @@ namespace HSR_Gacha_Simulator
             resultCardBorder.BorderBrush = new SolidColorBrush(Color.FromRgb(0x3A, 0x3A, 0x6E));
             dotElement.Visibility = Visibility.Visible;
             txtResultElement.Visibility = Visibility.Visible;
+        }
+
+        // ═══════════════════════════════════════════════════════════
+        //  Banner key helper
+        // ═══════════════════════════════════════════════════════════
+
+        /// <summary>
+        /// Returns the <c>ui.banner.*</c> localisation key for the current system.
+        /// </summary>
+        private string GetBannerKey()
+        {
+            if (currentSystem == ordinarySystem)
+                return "ui.banner.ordinary";
+            if (currentSystem == cyreneSystem)
+                return "ui.banner.cyrene_avatar";
+            if (currentSystem == phainonSystem)
+                return "ui.banner.phainon_avatar";
+            if (currentSystem == cyreneLightConeSystem)
+                return "ui.banner.cyrene_lc";
+            if (currentSystem == phainonLightConeSystem)
+                return "ui.banner.phainon_lc";
+            if (currentSystem == archerAvatarSystem)
+                return "ui.banner.archer_avatar";
+            if (currentSystem == archerLightConeSystem)
+                return "ui.banner.archer_lc";
+            if (currentSystem == saberAvatarSystem)
+                return "ui.banner.saber_avatar";
+            if (currentSystem == saberLightConeSystem)
+                return "ui.banner.saber_lc";
+
+            return "ui.banner.ordinary";
         }
 
         // ═══════════════════════════════════════════════════════════
@@ -488,34 +518,16 @@ namespace HSR_Gacha_Simulator
 
         private static string PathToLabel(PathType path)
         {
-            return path switch
-            {
-                PathType.Destruction  => "Destruction",
-                PathType.TheHunt      => "The Hunt",
-                PathType.Erudition    => "Erudition",
-                PathType.Harmony      => "Harmony",
-                PathType.Nihility     => "Nihility",
-                PathType.Preservation => "Preservation",
-                PathType.Abundance    => "Abundance",
-                PathType.Remembrance       => "Remembrance",
-                PathType.Elation      => "Elation",
-                _                     => "—"
-            };
+            if (path == PathType.Unknown)
+                return "—";
+            return L10n[$"path.{path}"];
         }
 
         private static string FormatElement(ElementType element)
         {
-            return element switch
-            {
-                ElementType.Physical  => "Physical",
-                ElementType.Fire      => "Fire",
-                ElementType.Ice       => "Ice",
-                ElementType.Lightning => "Lightning",
-                ElementType.Wind      => "Wind",
-                ElementType.Quantum   => "Quantum",
-                ElementType.Imaginary => "Imaginary",
-                _                     => "—"
-            };
+            if (element == ElementType.Unknown)
+                return "—";
+            return L10n[$"element.{element}"];
         }
     }
 }

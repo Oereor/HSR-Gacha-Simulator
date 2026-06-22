@@ -1,0 +1,138 @@
+[
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Himeko",
+        "name-ZH": "姬子"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Welt",
+        "name-ZH": "瓦尔特"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Bronya",
+        "name-ZH": "布洛妮娅"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Gepard",
+        "name-ZH": "杰帕德"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Clara",
+        "name-ZH": "克拉拉"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Yanqing",
+        "name-ZH": "彦卿"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Bailu",
+        "name-ZH": "白露"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Silver Wolf",
+        "name-ZH": "银狼"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Seele",
+        "name-ZH": "希儿"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Blade",
+        "name-ZH": "刃"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Yunli",
+        "name-ZH": "云璃"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Argenti",
+        "name-ZH": "银枝"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Cyrene",
+        "name-ZH": "昔涟"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Phainon",
+        "name-ZH": "白厄"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Archer",
+        "name-ZH": "Archer"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Saber", 
+        "name-ZH": "Saber"
+    },
+    
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Night on the Milky Way",
+        "name-ZH": "银河铁道之夜"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "In the Name of the World",
+        "name-ZH": "以世界之名"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "But the Battle Isn't Over",
+        "name-ZH": "但战斗还未结束"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Moment of Victory",
+        "name-ZH": "制胜的瞬间"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Something Irreplaceable",
+        "name-ZH": "无可取代的东西"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Sleep Like the Dead",
+        "name-ZH": "如泥酣眠"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Time Waits for No One",
+        "name-ZH": "时节不居"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "This Love, Forever",
+        "name-ZH": "爱如此刻永恒"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Thus Burns the Dawn",
+        "name-ZH": "黎明恰如此燃烧"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "The Hell Where Ideals Burn",
+        "name-ZH": "理想燃烧的地狱"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "A Thankless Coronation",
+        "name-ZH": "没有回报的加冕"
+    }
+]

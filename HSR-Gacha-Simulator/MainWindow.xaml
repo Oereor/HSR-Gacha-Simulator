@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HSR_Gacha_Simulator"
         mc:Ignorable="d"
-        Title="HSR Gacha Simulator"
-        Height="1100" Width="900"
-        MinHeight="600" MinWidth="800"
+        Title="{local:Loc ui.window.title}"
+        Height="750" Width="850"
+        MinHeight="550" MinWidth="700"
         Background="#1a1a2e"
         WindowStartupLocation="CenterScreen">
 
@@ -192,382 +192,511 @@
             </Style.Triggers>
         </Style>
 
+        <!-- ── ComboBoxItem (dropdown items) ─────────────────── -->
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Background"       Value="#16213e" />
+            <Setter Property="Foreground"       Value="#e0e0e0" />
+            <Setter Property="Padding"          Value="4,2" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBoxItem">
+                        <Border x:Name="border"
+                                Background="{TemplateBinding Background}"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsHighlighted" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#3a3a6e" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#3a3a6e" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- ── ComboBox (dark-themed, non-editable) ──────────── -->
+        <Style TargetType="ComboBox">
+            <Setter Property="Background"       Value="#16213e" />
+            <Setter Property="Foreground"       Value="#ffffff" />
+            <Setter Property="BorderBrush"      Value="#3a3a6e" />
+            <Setter Property="BorderThickness"  Value="1" />
+            <Setter Property="Padding"          Value="4,2" />
+            <Setter Property="FontSize"         Value="13" />
+            <Setter Property="Cursor"           Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <ToggleButton x:Name="toggle"
+                                          Background="{TemplateBinding Background}"
+                                          BorderBrush="{TemplateBinding BorderBrush}"
+                                          BorderThickness="{TemplateBinding BorderThickness}"
+                                          IsChecked="{Binding IsDropDownOpen, Mode=TwoWay,
+                                              RelativeSource={RelativeSource TemplatedParent}}"
+                                          Focusable="False"
+                                          ClickMode="Press">
+                                <ToggleButton.Template>
+                                    <ControlTemplate TargetType="ToggleButton">
+                                        <Border Background="{TemplateBinding Background}"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}"
+                                                CornerRadius="3">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="20" />
+                                                </Grid.ColumnDefinitions>
+                                                <ContentPresenter Grid.Column="0"
+                                                                  Margin="6,2,0,2"
+                                                                  VerticalAlignment="Center"
+                                                                  HorizontalAlignment="Left"
+                                                                  Content="{Binding RelativeSource={RelativeSource TemplatedParent},
+                                                                      Path=(ComboBox.SelectionBoxItem)}"
+                                                                  ContentTemplate="{TemplateBinding ComboBox.SelectionBoxItemTemplate}"
+                                                                  TextBlock.Foreground="#ffffff" />
+                                                <Path Grid.Column="1"
+                                                      Data="M 0 0 L 4 4 L 8 0 Z"
+                                                      Fill="#c0c0c0"
+                                                      HorizontalAlignment="Center"
+                                                      VerticalAlignment="Center"
+                                                      StrokeThickness="0" />
+                                            </Grid>
+                                        </Border>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+                            </ToggleButton>
+                            <Popup x:Name="popup"
+                                   IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                                   Placement="Bottom"
+                                   AllowsTransparency="True"
+                                   Focusable="False"
+                                   PopupAnimation="Slide">
+                                <Border Background="#16213e"
+                                        BorderBrush="#3a3a6e"
+                                        BorderThickness="1"
+                                        CornerRadius="3"
+                                        Margin="0,1,0,0">
+                                    <ScrollViewer MaxHeight="200">
+                                        <ItemsPresenter />
+                                    </ScrollViewer>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <!-- ── Rarity → Brush converter for result card border ── -->
         <local:RarityToBorderBrushConverter x:Key="RarityBorderConverter" />
         <local:RarityToForegroundConverter x:Key="RarityForegroundConverter" />
     </Window.Resources>
 
     <!-- ═══════════════════════════════════════════════════════════ -->
-    <!--  Main Layout                                                -->
+    <!--  Main Layout  (REVISION_10: single-column + ScrollViewer)  -->
     <!-- ═══════════════════════════════════════════════════════════ -->
     <DockPanel>
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem>
-                <TextBlock x:Name="txtStatus" Text="Ready" />
+                <TextBlock x:Name="txtStatus"
+                           Text="{local:Loc ui.status.ready}" />
+            </StatusBarItem>
+            <StatusBarItem HorizontalAlignment="Right">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{local:Loc ui.lang.selector}"
+                               VerticalAlignment="Center"
+                               Foreground="#c0c0c0"
+                               FontSize="13"
+                               Margin="0,0,6,0" />
+                    <ComboBox x:Name="cmbLanguage"
+                              Width="72"
+                              Height="24"
+                              SelectedItem="{Binding Source={x:Static local:LocalizationService.Instance},
+                                                     Path=CurrentLanguage,
+                                                     Mode=TwoWay}"
+                              ItemsSource="{Binding Source={x:Static local:LocalizationService.Instance},
+                                                    Path=AvailableLanguages}" />
+                </StackPanel>
             </StatusBarItem>
         </StatusBar>
 
-        <Grid Margin="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />   <!-- 0: Banner Selection -->
-                <RowDefinition Height="Auto" />   <!-- 1: Pull Controls   -->
-                <RowDefinition Height="Auto" />   <!-- 2: Statistics      -->
-                <RowDefinition Height="Auto" />   <!-- 3: Result Card     -->
-                <RowDefinition Height="*"    />   <!-- 4: History List    -->
-            </Grid.RowDefinitions>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />   <!-- 0: Banner Selection -->
+                    <RowDefinition Height="Auto" />   <!-- 1: Controls + Stats -->
+                    <RowDefinition Height="Auto" />   <!-- 2: Latest Pull Result -->
+                    <RowDefinition Height="*" />      <!-- 3: Pull History -->
+                </Grid.RowDefinitions>
 
-        <!-- ── Row 0 : Banner Selection ──────────────────────── -->
-        <GroupBox Grid.Row="0" Header="Banner Selection">
-            <StackPanel>
-                <!-- Event Warps row -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <RadioButton x:Name="rbOrdinary"
-                                 Content="Ordinary"
-                                 Style="{StaticResource RadioBannerStyle}"
-                                 GroupName="Banner"
-                                 IsChecked="True"
-                                 Checked="Banner_Changed" />
-                    <RadioButton x:Name="rbCyreneAvatar"
-                                 Content="Cyrene (Avatar)"
-                                 Style="{StaticResource RadioBannerStyle}"
-                                 GroupName="Banner"
-                                 Checked="Banner_Changed" />
-                    <RadioButton x:Name="rbPhainonAvatar"
-                                 Content="Phainon (Avatar)"
-                                 Style="{StaticResource RadioBannerStyle}"
-                                 GroupName="Banner"
-                                 Checked="Banner_Changed" />
-                    <RadioButton x:Name="rbCyreneLC"
-                                 Content="Cyrene (LC)"
-                                 Style="{StaticResource RadioBannerStyle}"
-                                 GroupName="Banner"
-                                 Checked="Banner_Changed" />
-                    <RadioButton x:Name="rbPhainonLC"
-                                 Content="Phainon (LC)"
-                                 Style="{StaticResource RadioBannerStyle}"
-                                 GroupName="Banner"
-                                 Checked="Banner_Changed" />
+            <!-- ── Row 0 : Banner Selection ──────────────────────── -->
+            <GroupBox Grid.Row="0"
+                      Header="{local:Loc ui.group.banner_selection}">
+                <StackPanel>
+                    <!-- Event Warps row -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <RadioButton x:Name="rbOrdinary"
+                                     Content="{local:Loc ui.banner.ordinary}"
+                                     Style="{StaticResource RadioBannerStyle}"
+                                     GroupName="Banner"
+                                     IsChecked="True"
+                                     Checked="Banner_Changed" />
+                        <RadioButton x:Name="rbCyreneAvatar"
+                                     Content="{local:Loc ui.banner.cyrene_avatar}"
+                                     Style="{StaticResource RadioBannerStyle}"
+                                     GroupName="Banner"
+                                     Checked="Banner_Changed" />
+                        <RadioButton x:Name="rbPhainonAvatar"
+                                     Content="{local:Loc ui.banner.phainon_avatar}"
+                                     Style="{StaticResource RadioBannerStyle}"
+                                     GroupName="Banner"
+                                     Checked="Banner_Changed" />
+                        <RadioButton x:Name="rbCyreneLC"
+                                     Content="{local:Loc ui.banner.cyrene_lc}"
+                                     Style="{StaticResource RadioBannerStyle}"
+                                     GroupName="Banner"
+                                     Checked="Banner_Changed" />
+                        <RadioButton x:Name="rbPhainonLC"
+                                     Content="{local:Loc ui.banner.phainon_lc}"
+                                     Style="{StaticResource RadioBannerStyle}"
+                                     GroupName="Banner"
+                                     Checked="Banner_Changed" />
+                    </StackPanel>
+
+                    <!-- Collab Warps row -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                                Margin="0,6,0,0">
+                        <RadioButton x:Name="rbArcherAvatar"
+                                     Content="{local:Loc ui.banner.archer_avatar}"
+                                     Style="{StaticResource RadioBannerStyle}"
+                                     GroupName="Banner"
+                                     Checked="Banner_Changed" />
+                        <RadioButton x:Name="rbArcherLC"
+                                     Content="{local:Loc ui.banner.archer_lc}"
+                                     Style="{StaticResource RadioBannerStyle}"
+                                     GroupName="Banner"
+                                     Checked="Banner_Changed" />
+                        <RadioButton x:Name="rbSaberAvatar"
+                                     Content="{local:Loc ui.banner.saber_avatar}"
+                                     Style="{StaticResource RadioBannerStyle}"
+                                     GroupName="Banner"
+                                     Checked="Banner_Changed" />
+                        <RadioButton x:Name="rbSaberLC"
+                                     Content="{local:Loc ui.banner.saber_lc}"
+                                     Style="{StaticResource RadioBannerStyle}"
+                                     GroupName="Banner"
+                                     Checked="Banner_Changed" />
+                    </StackPanel>
                 </StackPanel>
+            </GroupBox>
 
-                <!-- Collab Warps row -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
-                            Margin="0,6,0,0">
-                    <RadioButton x:Name="rbArcherAvatar"
-                                 Content="Archer (Avatar)"
-                                 Style="{StaticResource RadioBannerStyle}"
-                                 GroupName="Banner"
-                                 Checked="Banner_Changed" />
-                    <RadioButton x:Name="rbArcherLC"
-                                 Content="Archer (LC)"
-                                 Style="{StaticResource RadioBannerStyle}"
-                                 GroupName="Banner"
-                                 Checked="Banner_Changed" />
-                    <RadioButton x:Name="rbSaberAvatar"
-                                 Content="Saber (Avatar)"
-                                 Style="{StaticResource RadioBannerStyle}"
-                                 GroupName="Banner"
-                                 Checked="Banner_Changed" />
-                    <RadioButton x:Name="rbSaberLC"
-                                 Content="Saber (LC)"
-                                 Style="{StaticResource RadioBannerStyle}"
-                                 GroupName="Banner"
-                                 Checked="Banner_Changed" />
-                </StackPanel>
-            </StackPanel>
-        </GroupBox>
-
-        <!-- ── Row 1 : Pull Controls ─────────────────────────── -->
-        <GroupBox Grid.Row="1" Header="Pull Controls">
-            <Grid>
+            <!-- ── Row 1 : Pull Controls + Statistics side by side ── -->
+            <Grid Grid.Row="1" Margin="5">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <StackPanel Orientation="Horizontal" Grid.Column="0">
-                    <Button x:Name="btnWarp1"
-                            Content="Warp ×1"
-                            Style="{StaticResource WarpButtonStyle}"
-                            Click="BtnWarp1_Click" />
-                    <Button x:Name="btnWarp10"
-                            Content="Warp ×10"
-                            Style="{StaticResource WarpButtonStyle}"
-                            Margin="12,0,0,0"
-                            Click="BtnWarp10_Click" />
-                    <Button x:Name="btnReset"
-                            Content="Reset Banner"
-                            Style="{StaticResource ResetButtonStyle}"
-                            Margin="16,0,0,0"
-                            Click="BtnReset_Click" />
-                </StackPanel>
-
-                <StackPanel Grid.Column="2" HorizontalAlignment="Right"
-                            VerticalAlignment="Center">
-                    <!-- Gold row -->
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Gold pity:"
-                                   Style="{StaticResource PityTextStyle}"
-                                   Foreground="#c0c0c0" />
-                        <TextBlock x:Name="txtGoldPity"
-                                   Text="0"
-                                   Style="{StaticResource PityTextStyle}" />
-                        <TextBlock Text="pulls since last 5★"
-                                   Style="{StaticResource PityTextStyle}"
-                                   Foreground="#b0b0b0" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
-                        <TextBlock Text="Gold guarantee:"
-                                   Style="{StaticResource PityTextStyle}"
-                                   Foreground="#c0c0c0" />
-                        <TextBlock x:Name="txtGoldGuarantee"
-                                   Text="Not Guaranteed"
-                                   Style="{StaticResource PityTextStyle}" />
-                    </StackPanel>
-                    <!-- Purple row -->
-                    <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
-                        <TextBlock Text="Purple pity:"
-                                   Style="{StaticResource PityTextStyle}"
-                                   Foreground="#c0c0c0" />
-                        <TextBlock x:Name="txtPurplePity"
-                                   Text="0"
-                                   Style="{StaticResource PityTextStyle}" />
-                        <TextBlock Text="pulls since last 4★"
-                                   Style="{StaticResource PityTextStyle}"
-                                   Foreground="#b0b0b0" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
-                        <TextBlock Text="Purple guarantee:"
-                                   Style="{StaticResource PityTextStyle}"
-                                   Foreground="#c0c0c0" />
-                        <TextBlock x:Name="txtPurpleGuarantee"
-                                   Text="Not Guaranteed"
-                                   Style="{StaticResource PityTextStyle}" />
-                    </StackPanel>
-                </StackPanel>
-            </Grid>
-        </GroupBox>
-
-        <!-- ── Row 2 : Statistics ──────────────────────────────── -->
-        <GroupBox Grid.Row="2" Header="Statistics">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-
-                <!-- Total pulls -->
-                <TextBlock x:Name="txtTotalPulls"
-                           Grid.Row="0"
-                           Text="Total Pulls: 0"
-                           FontSize="14"
-                           FontWeight="SemiBold"
-                           Foreground="#e0e0e0"
-                           Margin="0,0,0,6" />
-
-                <!-- Rarity breakdown -->
-                <StackPanel Grid.Row="1">
-                    <!-- 5★ row -->
-                    <StackPanel Orientation="Horizontal" Margin="0,1,0,0">
-                        <TextBlock x:Name="txtGoldStars"
-                                   Text="★★★★★"
-                                   FontWeight="Bold"
-                                   FontSize="14"
-                                   Foreground="#ffd700"
-                                   VerticalAlignment="Center" />
-                        <TextBlock Text=" 5★ Gold    "
-                                   Foreground="#c0c0c0"
-                                   FontSize="14"
-                                   VerticalAlignment="Center" />
-                        <TextBlock x:Name="txtGoldCount"
-                                   Text="0"
-                                   Foreground="#ffd700"
-                                   FontWeight="SemiBold"
-                                   FontSize="14"
-                                   VerticalAlignment="Center" />
-                        <TextBlock x:Name="txtGoldRate"
-                                   Text="  (—)"
-                                   Foreground="#b0b0b0"
-                                   FontSize="14"
-                                   VerticalAlignment="Center" />
-                    </StackPanel>
-                    <!-- 4★ row -->
-                    <StackPanel Orientation="Horizontal" Margin="0,1,0,0">
-                        <TextBlock Text="★★★★"
-                                   FontWeight="Bold"
-                                   FontSize="14"
-                                   Foreground="#c77dff"
-                                   VerticalAlignment="Center" />
-                        <TextBlock Text="  4★ Purple  "
-                                   Foreground="#c0c0c0"
-                                   FontSize="14"
-                                   VerticalAlignment="Center" />
-                        <TextBlock x:Name="txtPurpleCount"
-                                   Text="0"
-                                   Foreground="#c77dff"
-                                   FontWeight="SemiBold"
-                                   FontSize="14"
-                                   VerticalAlignment="Center" />
-                        <TextBlock x:Name="txtPurpleRate"
-                                   Text="  (—)"
-                                   Foreground="#b0b0b0"
-                                   FontSize="14"
-                                   VerticalAlignment="Center" />
-                    </StackPanel>
-                    <!-- 3★ row -->
-                    <StackPanel Orientation="Horizontal" Margin="0,1,0,0">
-                        <TextBlock Text="★★★"
-                                   FontWeight="Bold"
-                                   FontSize="14"
-                                   Foreground="#6090ff"
-                                   VerticalAlignment="Center" />
-                        <TextBlock Text="   3★ Blue    "
-                                   Foreground="#c0c0c0"
-                                   FontSize="14"
-                                   VerticalAlignment="Center" />
-                        <TextBlock x:Name="txtBlueCount"
-                                   Text="0"
-                                   Foreground="#6090ff"
-                                   FontWeight="SemiBold"
-                                   FontSize="14"
-                                   VerticalAlignment="Center" />
-                        <TextBlock x:Name="txtBlueRate"
-                                   Text="  (—)"
-                                   Foreground="#b0b0b0"
-                                   FontSize="14"
-                                   VerticalAlignment="Center" />
-                    </StackPanel>
-                </StackPanel>
-            </Grid>
-        </GroupBox>
-
-        <!-- ── Row 3 : Latest Pull Result ────────────────────── -->
-        <GroupBox Grid.Row="3" Header="Latest Pull Result">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-
-                <!-- Result card -->
-                <Border x:Name="resultCardBorder"
-                        Grid.Row="0"
-                        Background="#16213e"
-                        BorderThickness="3"
-                        CornerRadius="8"
-                        Padding="20,16"
-                        MinHeight="80"
-                        HorizontalAlignment="Center"
-                        MinWidth="400"
-                        MaxWidth="600">
-                    <StackPanel HorizontalAlignment="Center">
-                        <TextBlock x:Name="txtResultRarity"
-                                   Text="★★★★★"
-                                   FontSize="20"
-                                   FontWeight="Bold"
-                                   HorizontalAlignment="Center"
-                                   Margin="0,0,0,4" />
-                        <TextBlock x:Name="txtResultName"
-                                   Text="Pull to begin"
-                                   FontSize="22"
-                                   FontWeight="Bold"
-                                   Foreground="#e0e0e0"
-                                   HorizontalAlignment="Center" />
-                        <StackPanel Orientation="Horizontal"
-                                    HorizontalAlignment="Center"
-                                    Margin="0,4,0,0">
-                            <TextBlock x:Name="txtResultType"
-                                       Text=""
-                                       FontSize="14"
-                                       Foreground="#c0c0c0" />
-                            <TextBlock Text=" · "
-                                       FontSize="14"
-                                       Foreground="#b0b0b0" />
-                            <TextBlock x:Name="txtResultPath"
-                                       Text=""
-                                       FontSize="14"
-                                       Foreground="#c0c0c0" />
-                            <TextBlock Text=" · "
-                                       FontSize="14"
-                                       Foreground="#b0b0b0"
-                                       x:Name="dotElement" />
-                            <TextBlock x:Name="txtResultElement"
-                                       Text=""
-                                       FontSize="14"
-                                       FontWeight="SemiBold" />
+                <!-- Pull Controls (left) -->
+                <GroupBox Grid.Column="0"
+                          Header="{local:Loc ui.group.pull_controls}">
+                    <StackPanel>
+                        <!-- Buttons row -->
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="btnWarp1"
+                                    Content="{local:Loc ui.button.warp_x1}"
+                                    Style="{StaticResource WarpButtonStyle}"
+                                    Click="BtnWarp1_Click" />
+                            <Button x:Name="btnWarp10"
+                                    Content="{local:Loc ui.button.warp_x10}"
+                                    Style="{StaticResource WarpButtonStyle}"
+                                    Margin="12,0,0,0"
+                                    Click="BtnWarp10_Click" />
                         </StackPanel>
-                        <TextBlock x:Name="txtResultPullNum"
-                                   Text=""
-                                   FontSize="12"
-                                   Foreground="#b0b0b0"
-                                   HorizontalAlignment="Center"
-                                   Margin="0,6,0,0" />
+
+                        <Button x:Name="btnReset"
+                                Content="{local:Loc ui.button.reset_banner}"
+                                Style="{StaticResource ResetButtonStyle}"
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Left"
+                                Click="BtnReset_Click" />
+
+                        <!-- Pity display -->
+                        <StackPanel Margin="0,8,0,0">
+                            <!-- Gold row -->
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{local:Loc ui.pity.gold_pity}"
+                                           Style="{StaticResource PityTextStyle}"
+                                           Foreground="#c0c0c0" />
+                                <TextBlock x:Name="txtGoldPity"
+                                           Text="0"
+                                           Style="{StaticResource PityTextStyle}" />
+                                <TextBlock Text="{local:Loc ui.pity.gold_since}"
+                                           Style="{StaticResource PityTextStyle}"
+                                           Foreground="#b0b0b0" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                <TextBlock Text="{local:Loc ui.pity.gold_guarantee}"
+                                           Style="{StaticResource PityTextStyle}"
+                                           Foreground="#c0c0c0" />
+                                <TextBlock x:Name="txtGoldGuarantee"
+                                           Text="{local:Loc ui.pity.not_guaranteed}"
+                                           Style="{StaticResource PityTextStyle}" />
+                            </StackPanel>
+                            <!-- Purple row -->
+                            <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+                                <TextBlock Text="{local:Loc ui.pity.purple_pity}"
+                                           Style="{StaticResource PityTextStyle}"
+                                           Foreground="#c0c0c0" />
+                                <TextBlock x:Name="txtPurplePity"
+                                           Text="0"
+                                           Style="{StaticResource PityTextStyle}" />
+                                <TextBlock Text="{local:Loc ui.pity.purple_since}"
+                                           Style="{StaticResource PityTextStyle}"
+                                           Foreground="#b0b0b0" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                <TextBlock Text="{local:Loc ui.pity.purple_guarantee}"
+                                           Style="{StaticResource PityTextStyle}"
+                                           Foreground="#c0c0c0" />
+                                <TextBlock x:Name="txtPurpleGuarantee"
+                                           Text="{local:Loc ui.pity.not_guaranteed}"
+                                           Style="{StaticResource PityTextStyle}" />
+                            </StackPanel>
+                        </StackPanel>
                     </StackPanel>
-                </Border>
+                </GroupBox>
 
-                <!-- Navigation buttons -->
-                <StackPanel Grid.Row="1"
-                            Orientation="Horizontal"
-                            HorizontalAlignment="Center"
-                            Margin="0,8,0,0">
-                    <Button Content="◄ Previous"
-                            Style="{StaticResource NavButtonStyle}"
-                            Click="BtnPrevResult_Click" />
-                    <TextBlock x:Name="txtResultIndex"
-                               Text=""
-                               Foreground="#c0c0c0"
-                               FontSize="14"
-                               VerticalAlignment="Center"
-                               Margin="16,0"
-                               MinWidth="100"
-                               TextAlignment="Center" />
-                    <Button Content="Next ►"
-                            Style="{StaticResource NavButtonStyle}"
-                            Click="BtnNextResult_Click" />
-                </StackPanel>
+                <!-- Statistics (right) -->
+                <GroupBox Grid.Column="1"
+                          Header="{local:Loc ui.group.statistics}">
+                    <StackPanel>
+                        <!-- Total pulls -->
+                        <TextBlock x:Name="txtTotalPulls"
+                                   Text=""
+                                   FontSize="14"
+                                   FontWeight="SemiBold"
+                                   Foreground="#e0e0e0"
+                                   Margin="0,0,0,6" />
+
+                        <!-- Rarity breakdown -->
+                        <!-- 5★ row -->
+                        <StackPanel Orientation="Horizontal" Margin="0,1,0,0">
+                            <TextBlock x:Name="txtGoldStars"
+                                       Text="★★★★★"
+                                       FontWeight="Bold"
+                                       FontSize="14"
+                                       Foreground="#ffd700"
+                                       VerticalAlignment="Center" />
+                            <TextBlock Text="{local:Loc ui.stats.rarity_5star}"
+                                       Foreground="#c0c0c0"
+                                       FontSize="14"
+                                       VerticalAlignment="Center"
+                                       MinWidth="80" />
+                            <TextBlock x:Name="txtGoldCount"
+                                       Text="0"
+                                       Foreground="#ffd700"
+                                       FontWeight="SemiBold"
+                                       FontSize="14"
+                                       VerticalAlignment="Center" />
+                            <TextBlock x:Name="txtGoldRate"
+                                       Text="  (—)"
+                                       Foreground="#b0b0b0"
+                                       FontSize="14"
+                                       VerticalAlignment="Center" />
+                        </StackPanel>
+                        <!-- 4★ row -->
+                        <StackPanel Orientation="Horizontal" Margin="0,1,0,0">
+                            <TextBlock Text="★★★★"
+                                       FontWeight="Bold"
+                                       FontSize="14"
+                                       Foreground="#c77dff"
+                                       VerticalAlignment="Center" />
+                            <TextBlock Text="{local:Loc ui.stats.rarity_4star}"
+                                       Foreground="#c0c0c0"
+                                       FontSize="14"
+                                       VerticalAlignment="Center"
+                                       MinWidth="80" />
+                            <TextBlock x:Name="txtPurpleCount"
+                                       Text="0"
+                                       Foreground="#c77dff"
+                                       FontWeight="SemiBold"
+                                       FontSize="14"
+                                       VerticalAlignment="Center" />
+                            <TextBlock x:Name="txtPurpleRate"
+                                       Text="  (—)"
+                                       Foreground="#b0b0b0"
+                                       FontSize="14"
+                                       VerticalAlignment="Center" />
+                        </StackPanel>
+                        <!-- 3★ row -->
+                        <StackPanel Orientation="Horizontal" Margin="0,1,0,0">
+                            <TextBlock Text="★★★"
+                                       FontWeight="Bold"
+                                       FontSize="14"
+                                       Foreground="#6090ff"
+                                       VerticalAlignment="Center" />
+                            <TextBlock Text="{local:Loc ui.stats.rarity_3star}"
+                                       Foreground="#c0c0c0"
+                                       FontSize="14"
+                                       VerticalAlignment="Center"
+                                       MinWidth="80" />
+                            <TextBlock x:Name="txtBlueCount"
+                                       Text="0"
+                                       Foreground="#6090ff"
+                                       FontWeight="SemiBold"
+                                       FontSize="14"
+                                       VerticalAlignment="Center" />
+                            <TextBlock x:Name="txtBlueRate"
+                                       Text="  (—)"
+                                       Foreground="#b0b0b0"
+                                       FontSize="14"
+                                       VerticalAlignment="Center" />
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
             </Grid>
-        </GroupBox>
 
-        <!-- ── Row 4 : Pull History ──────────────────────────── -->
-        <GroupBox Grid.Row="4" Header="Pull History">
-            <ListView x:Name="lvHistory"
-                      HorizontalContentAlignment="Stretch">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="#" Width="50"
-                                        DisplayMemberBinding="{Binding Index}" />
-                        <GridViewColumn Header="Name" Width="180"
-                                        DisplayMemberBinding="{Binding Name}" />
-                        <GridViewColumn Header="Rarity" Width="90">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding RarityStars}"
-                                               Foreground="{Binding Rarity,
-                                                   Converter={StaticResource RarityForegroundConverter}}"
-                                               FontWeight="Bold"
-                                               VerticalAlignment="Center" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="Type" Width="60"
-                                        DisplayMemberBinding="{Binding TypeLabel}" />
-                        <GridViewColumn Header="Path" Width="90"
-                                        DisplayMemberBinding="{Binding PathLabel}" />
-                        <GridViewColumn Header="Element" Width="80">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding ElementLabel}"
-                                               Foreground="{Binding ElementType,
-                                                   Converter={StaticResource ElementBrushConverter}}"
-                                               FontWeight="SemiBold"
-                                               VerticalAlignment="Center" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </GroupBox>
-        </Grid>
+            <!-- ── Row 2 : Latest Pull Result ────────────────────── -->
+            <GroupBox Grid.Row="2"
+                      Header="{local:Loc ui.group.latest_result}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Result card -->
+                    <Border x:Name="resultCardBorder"
+                            Grid.Row="0"
+                            Background="#16213e"
+                            BorderThickness="3"
+                            CornerRadius="8"
+                            Padding="20,16"
+                            MinHeight="80"
+                            HorizontalAlignment="Center"
+                            MinWidth="400"
+                            MaxWidth="600">
+                        <StackPanel HorizontalAlignment="Center">
+                            <TextBlock x:Name="txtResultRarity"
+                                       Text="★★★★★"
+                                       FontSize="20"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,0,0,4" />
+                            <TextBlock x:Name="txtResultName"
+                                       Text="{local:Loc ui.result.default}"
+                                       FontSize="22"
+                                       FontWeight="Bold"
+                                       Foreground="#e0e0e0"
+                                       HorizontalAlignment="Center" />
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        Margin="0,4,0,0">
+                                <TextBlock x:Name="txtResultType"
+                                           Text=""
+                                           FontSize="14"
+                                           Foreground="#c0c0c0" />
+                                <TextBlock Text="{local:Loc ui.result.separator}"
+                                           FontSize="14"
+                                           Foreground="#b0b0b0" />
+                                <TextBlock x:Name="txtResultPath"
+                                           Text=""
+                                           FontSize="14"
+                                           Foreground="#c0c0c0" />
+                                <TextBlock Text="{local:Loc ui.result.separator}"
+                                           FontSize="14"
+                                           Foreground="#b0b0b0"
+                                           x:Name="dotElement" />
+                                <TextBlock x:Name="txtResultElement"
+                                           Text=""
+                                           FontSize="14"
+                                           FontWeight="SemiBold" />
+                            </StackPanel>
+                            <TextBlock x:Name="txtResultPullNum"
+                                       Text=""
+                                       FontSize="12"
+                                       Foreground="#b0b0b0"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,6,0,0" />
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Navigation buttons -->
+                    <StackPanel Grid.Row="1"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Margin="0,8,0,0">
+                        <Button Content="{local:Loc ui.button.prev_page}"
+                                Style="{StaticResource NavButtonStyle}"
+                                Click="BtnPrevResult_Click" />
+                        <TextBlock x:Name="txtResultIndex"
+                                   Text=""
+                                   Foreground="#c0c0c0"
+                                   FontSize="14"
+                                   VerticalAlignment="Center"
+                                   Margin="16,0"
+                                   MinWidth="100"
+                                   TextAlignment="Center" />
+                        <Button Content="{local:Loc ui.button.next_page}"
+                                Style="{StaticResource NavButtonStyle}"
+                                Click="BtnNextResult_Click" />
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+
+            <!-- ── Row 3 : Pull History ──────────────────────────── -->
+            <GroupBox Grid.Row="3"
+                      Header="{local:Loc ui.group.pull_history}">
+                <ListView x:Name="lvHistory"
+                          HorizontalContentAlignment="Stretch">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="{local:Loc ui.history.header.number}"
+                                            Width="50"
+                                            DisplayMemberBinding="{Binding Index}" />
+                            <GridViewColumn Header="{local:Loc ui.history.header.name}"
+                                            Width="180"
+                                            DisplayMemberBinding="{Binding Name}" />
+                            <GridViewColumn Header="{local:Loc ui.history.header.rarity}"
+                                            Width="90">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding RarityStars}"
+                                                   Foreground="{Binding Rarity,
+                                                       Converter={StaticResource RarityForegroundConverter}}"
+                                                   FontWeight="Bold"
+                                                   VerticalAlignment="Center" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="{local:Loc ui.history.header.type}"
+                                            Width="60"
+                                            DisplayMemberBinding="{Binding TypeLabel}" />
+                            <GridViewColumn Header="{local:Loc ui.history.header.path}"
+                                            Width="90"
+                                            DisplayMemberBinding="{Binding PathLabel}" />
+                            <GridViewColumn Header="{local:Loc ui.history.header.element}"
+                                            Width="80">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding ElementLabel}"
+                                                   Foreground="{Binding ElementType,
+                                                       Converter={StaticResource ElementBrushConverter}}"
+                                                   FontWeight="SemiBold"
+                                                   VerticalAlignment="Center" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </GroupBox>
+            </Grid>
+        </ScrollViewer>
     </DockPanel>
 </Window>

@@ -1,0 +1,127 @@
+[
+    {
+        "text-type": "MetaInfo", 
+        "name-EN": "Path",
+        "name-ZH": "命途"
+    },
+    {
+        "text-type": "MetaInfo", 
+        "name-EN": "Element",
+        "name-ZH": "属性"
+    },
+    {
+        "text-type": "MetaInfo", 
+        "name-EN": "Rarity",
+        "name-ZH": "稀有度"
+    },
+    {
+        "text-type": "MetaInfo", 
+        "name-EN": "Pool",
+        "name-ZH": "卡池"
+    },
+    {
+        "text-type": "MetaInfo", 
+        "name-EN": "Ordinary Pool",
+        "name-ZH": "常驻卡池"
+    },
+    {
+        "text-type": "MetaInfo", 
+        "name-EN": "Event Pool",
+        "name-ZH": "活动卡池"
+    },
+    {
+        "text-type": "MetaInfo", 
+        "name-EN": "Warp",
+        "name-ZH": "跃迁"
+    },
+    {
+        "text-type": "MetaInfo", 
+        "name-EN": "Avatar",
+        "name-ZH": "角色"
+    },
+    {
+        "text-type": "MetaInfo", 
+        "name-EN": "Light Cone",
+        "name-ZH": "光锥"
+    },
+    {
+        "text-type": "PathName", 
+        "name-EN": "Destruction",
+        "name-ZH": "毁灭"
+    },
+    {
+        "text-type": "PathName", 
+        "name-EN": "Harmony",
+        "name-ZH": "同谐"
+    },
+    {
+        "text-type": "PathName", 
+        "name-EN": "Abundance",
+        "name-ZH": "丰饶"
+    },
+    {
+        "text-type": "PathName", 
+        "name-EN": "Nihility",
+        "name-ZH": "虚无"
+    },
+    {
+        "text-type": "PathName", 
+        "name-EN": "Preservation",
+        "name-ZH": "存护"
+    },
+    {
+        "text-type": "PathName", 
+        "name-EN": "Erudition",
+        "name-ZH": "智识"
+    },
+    {
+        "text-type": "PathName", 
+        "name-EN": "TheHunt",
+        "name-ZH": "巡猎"
+    },
+    {
+        "text-type": "PathName", 
+        "name-EN": "Rememberance",
+        "name-ZH": "记忆"
+    },
+    {
+        "text-type": "PathName", 
+        "name-EN": "Elation",
+        "name-ZH": "欢愉"
+    },
+    {
+        "text-type": "ElementName", 
+        "name-EN": "Physical",
+        "name-ZH": "物理"
+    },
+    {
+        "text-type": "ElementName", 
+        "name-EN": "Fire",
+        "name-ZH": "火"
+    },
+    {
+        "text-type": "ElementName", 
+        "name-EN": "Ice",
+        "name-ZH": "冰"
+    },
+    {
+        "text-type": "ElementName", 
+        "name-EN": "Imaginary",
+        "name-ZH": "虚数"
+    },
+    {
+        "text-type": "ElementName", 
+        "name-EN": "Quantum",
+        "name-ZH": "量子"
+    },
+    {
+        "text-type": "ElementName", 
+        "name-EN": "Lightning",
+        "name-ZH": "雷"
+    },
+    {
+        "text-type": "ElementName", 
+        "name-EN": "Wind",
+        "name-ZH": "风"
+    }
+]

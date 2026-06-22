@@ -1,0 +1,749 @@
+{
+  "meta": {
+    "version": 1,
+    "languages": ["en", "zh"],
+    "defaultLanguage": "en"
+  },
+  "entries": {
+    "avatar.Himeko": {
+      "en": "Himeko",
+      "zh": "姬子"
+    },
+    "avatar.Welt": {
+      "en": "Welt",
+      "zh": "瓦尔特"
+    },
+    "avatar.Bronya": {
+      "en": "Bronya",
+      "zh": "布洛妮娅"
+    },
+    "avatar.Gepard": {
+      "en": "Gepard",
+      "zh": "杰帕德"
+    },
+    "avatar.Clara": {
+      "en": "Clara",
+      "zh": "克拉拉"
+    },
+    "avatar.Yanqing": {
+      "en": "Yanqing",
+      "zh": "彦卿"
+    },
+    "avatar.Bailu": {
+      "en": "Bailu",
+      "zh": "白露"
+    },
+    "avatar.Silver Wolf": {
+      "en": "Silver Wolf",
+      "zh": "银狼"
+    },
+    "avatar.Seele": {
+      "en": "Seele",
+      "zh": "希儿"
+    },
+    "avatar.Blade": {
+      "en": "Blade",
+      "zh": "刃"
+    },
+    "avatar.Yunli": {
+      "en": "Yunli",
+      "zh": "云璃"
+    },
+    "avatar.Argenti": {
+      "en": "Argenti",
+      "zh": "银枝"
+    },
+    "avatar.Cyrene": {
+      "en": "Cyrene",
+      "zh": "昔涟"
+    },
+    "avatar.Phainon": {
+      "en": "Phainon",
+      "zh": "白厄"
+    },
+    "avatar.Archer": {
+      "en": "Archer",
+      "zh": "Archer"
+    },
+    "avatar.Saber": {
+      "en": "Saber",
+      "zh": "Saber"
+    },
+    "avatar.March 7th": {
+      "en": "March 7th",
+      "zh": "三月七"
+    },
+    "avatar.Dan Heng": {
+      "en": "Dan Heng",
+      "zh": "丹恒"
+    },
+    "avatar.Arlan": {
+      "en": "Arlan",
+      "zh": "阿兰"
+    },
+    "avatar.Asta": {
+      "en": "Asta",
+      "zh": "艾丝妲"
+    },
+    "avatar.Herta": {
+      "en": "Herta",
+      "zh": "黑塔"
+    },
+    "avatar.Natasha": {
+      "en": "Natasha",
+      "zh": "娜塔莎"
+    },
+    "avatar.Serval": {
+      "en": "Serval",
+      "zh": "希露瓦"
+    },
+    "avatar.Pela": {
+      "en": "Pela",
+      "zh": "佩拉"
+    },
+    "avatar.Sampo": {
+      "en": "Sampo",
+      "zh": "桑博"
+    },
+    "avatar.Hook": {
+      "en": "Hook",
+      "zh": "虎克"
+    },
+    "avatar.Sushang": {
+      "en": "Sushang",
+      "zh": "素裳"
+    },
+    "avatar.Qingque": {
+      "en": "Qingque",
+      "zh": "青雀"
+    },
+    "avatar.Tingyun": {
+      "en": "Tingyun",
+      "zh": "停云"
+    },
+    "avatar.Yukong": {
+      "en": "Yukong",
+      "zh": "驭空"
+    },
+    "avatar.Luka": {
+      "en": "Luka",
+      "zh": "卢卡"
+    },
+    "avatar.Lynx": {
+      "en": "Lynx",
+      "zh": "玲可"
+    },
+    "avatar.Guinaifen": {
+      "en": "Guinaifen",
+      "zh": "桂乃芬"
+    },
+    "avatar.Hanya": {
+      "en": "Hanya",
+      "zh": "寒鸦"
+    },
+    "avatar.Xueyi": {
+      "en": "Xueyi",
+      "zh": "雪衣"
+    },
+    "avatar.Misha": {
+      "en": "Misha",
+      "zh": "米沙"
+    },
+    "avatar.Gallagher": {
+      "en": "Gallagher",
+      "zh": "加拉赫"
+    },
+    "avatar.Moze": {
+      "en": "Moze",
+      "zh": "貊泽"
+    },
+    "lightcone.Night on the Milky Way": {
+      "en": "Night on the Milky Way",
+      "zh": "银河铁道之夜"
+    },
+    "lightcone.In the Name of the World": {
+      "en": "In the Name of the World",
+      "zh": "以世界之名"
+    },
+    "lightcone.But the Battle Isn't Over": {
+      "en": "But the Battle Isn't Over",
+      "zh": "但战斗还未结束"
+    },
+    "lightcone.Moment of Victory": {
+      "en": "Moment of Victory",
+      "zh": "制胜的瞬间"
+    },
+    "lightcone.Something Irreplaceable": {
+      "en": "Something Irreplaceable",
+      "zh": "无可取代的东西"
+    },
+    "lightcone.Sleep Like the Dead": {
+      "en": "Sleep Like the Dead",
+      "zh": "如泥酣眠"
+    },
+    "lightcone.Time Waits for No One": {
+      "en": "Time Waits for No One",
+      "zh": "时节不居"
+    },
+    "lightcone.This Love, Forever": {
+      "en": "This Love, Forever",
+      "zh": "爱如此刻永恒"
+    },
+    "lightcone.Thus Burns the Dawn": {
+      "en": "Thus Burns the Dawn",
+      "zh": "黎明恰如此燃烧"
+    },
+    "lightcone.The Hell Where Ideals Burn": {
+      "en": "The Hell Where Ideals Burn",
+      "zh": "理想燃烧的地狱"
+    },
+    "lightcone.A Thankless Coronation": {
+      "en": "A Thankless Coronation",
+      "zh": "没有回报的加冕"
+    },
+    "lightcone.Post-Op Conversation": {
+      "en": "Post-Op Conversation",
+      "zh": "一场术后对话"
+    },
+    "lightcone.Good Night and Sleep Well": {
+      "en": "Good Night and Sleep Well",
+      "zh": "晚安与睡颜"
+    },
+    "lightcone.Day One of My New Life": {
+      "en": "Day One of My New Life",
+      "zh": "余生的第一天"
+    },
+    "lightcone.Only Silence Remains": {
+      "en": "Only Silence Remains",
+      "zh": "唯有沉默"
+    },
+    "lightcone.Memories of the Past": {
+      "en": "Memories of the Past",
+      "zh": "记忆中的模样"
+    },
+    "lightcone.The Moles Welcome You": {
+      "en": "The Moles Welcome You",
+      "zh": "鼹鼠党欢迎你"
+    },
+    "lightcone.The Birth of the Self": {
+      "en": "The Birth of the Self",
+      "zh": "「我」的诞生"
+    },
+    "lightcone.Shared Feeling": {
+      "en": "Shared Feeling",
+      "zh": "同一种心情"
+    },
+    "lightcone.Eyes of the Prey": {
+      "en": "Eyes of the Prey",
+      "zh": "猎物的视线"
+    },
+    "lightcone.Landau's Choice": {
+      "en": "Landau's Choice",
+      "zh": "朗道的选择"
+    },
+    "lightcone.Swordplay": {
+      "en": "Swordplay",
+      "zh": "论剑"
+    },
+    "lightcone.Planetary Rendezvous": {
+      "en": "Planetary Rendezvous",
+      "zh": "与行星相会"
+    },
+    "lightcone.A Secret Vow": {
+      "en": "A Secret Vow",
+      "zh": "秘密誓心"
+    },
+    "lightcone.A Serect Vow": {
+      "en": "A Secret Vow",
+      "zh": "秘密誓心"
+    },
+    "lightcone.Make the World Clamor": {
+      "en": "Make the World Clamor",
+      "zh": "别让世界静下来"
+    },
+    "lightcone.Perfect Timing": {
+      "en": "Perfect Timing",
+      "zh": "此时恰好"
+    },
+    "lightcone.Resolution Shines As Pearls of Sweat": {
+      "en": "Resolution Shines As Pearls of Sweat",
+      "zh": "决心如汗珠般闪耀"
+    },
+    "lightcone.Trend of the Universal Market": {
+      "en": "Trend of the Universal Market",
+      "zh": "宇宙市场趋势"
+    },
+    "lightcone.Subscribe for More!": {
+      "en": "Subscribe for More!",
+      "zh": "点个关注吧！"
+    },
+    "lightcone.Dance! Dance! Dance!": {
+      "en": "Dance! Dance! Dance!",
+      "zh": "舞！舞！舞！"
+    },
+    "lightcone.Under the Blue Sky": {
+      "en": "Under the Blue Sky",
+      "zh": "在蓝天下"
+    },
+    "lightcone.Geniuses' Repose": {
+      "en": "Geniuses' Repose",
+      "zh": "天才们的休憩"
+    },
+    "lightcone.Indelible Promise": {
+      "en": "Indelible Promise",
+      "zh": "铭记于心的约定"
+    },
+    "lightcone.Concert for Two": {
+      "en": "Concert for Two",
+      "zh": "两个人的演唱会"
+    },
+    "lightcone.Boundless Choreo": {
+      "en": "Boundless Choreo",
+      "zh": "无边曼舞"
+    },
+    "lightcone.After the Charmony Fall": {
+      "en": "After the Charmony Fall",
+      "zh": "谐乐静默之后"
+    },
+    "lightcone.Poised to Bloom": {
+      "en": "Poised to Bloom",
+      "zh": "芳华待灼"
+    },
+    "lightcone.Shadowed by Night": {
+      "en": "Shadowed by Night",
+      "zh": "黑夜如影随形"
+    },
+    "lightcone.Dream's Montage": {
+      "en": "Dream's Montage",
+      "zh": "梦的蒙太奇"
+    },
+    "lightcone.Geniuses' Greetings": {
+      "en": "Geniuses' Greetings",
+      "zh": "天才们的问候"
+    },
+    "lightcone.The Story's Next Page": {
+      "en": "The Story's Next Page",
+      "zh": "故事的下一页"
+    },
+    "lightcone.Adversarial": {
+      "en": "Adversarial",
+      "zh": "相抗"
+    },
+    "lightcone.Amber": {
+      "en": "Amber",
+      "zh": "琥珀"
+    },
+    "lightcone.Arrows": {
+      "en": "Arrows",
+      "zh": "锋镝"
+    },
+    "lightcone.Chorus": {
+      "en": "Chorus",
+      "zh": "齐颂"
+    },
+    "lightcone.Collapsing Sky": {
+      "en": "Collapsing Sky",
+      "zh": "天倾"
+    },
+    "lightcone.Cornucopia": {
+      "en": "Cornucopia",
+      "zh": "物穰"
+    },
+    "lightcone.Darting Arrow": {
+      "en": "Darting Arrow",
+      "zh": "离弦"
+    },
+    "lightcone.Data Bank": {
+      "en": "Data Bank",
+      "zh": "智库"
+    },
+    "lightcone.Defense": {
+      "en": "Defense",
+      "zh": "戍御"
+    },
+    "lightcone.Fine Fruit": {
+      "en": "Fine Fruit",
+      "zh": "嘉果"
+    },
+    "lightcone.Hidden Shadow": {
+      "en": "Hidden Shadow",
+      "zh": "匿影"
+    },
+    "lightcone.Lingering Tear": {
+      "en": "Lingering Tear",
+      "zh": "残泪"
+    },
+    "lightcone.Loop": {
+      "en": "Loop",
+      "zh": "渊环"
+    },
+    "lightcone.Mediation": {
+      "en": "Mediation",
+      "zh": "调和"
+    },
+    "lightcone.Meshing Cogs": {
+      "en": "Meshing Cogs",
+      "zh": "轮契"
+    },
+    "lightcone.Multiplication": {
+      "en": "Multiplication",
+      "zh": "蕃息"
+    },
+    "lightcone.Mutual Demise": {
+      "en": "Mutual Demise",
+      "zh": "俱殁"
+    },
+    "lightcone.Passkey": {
+      "en": "Passkey",
+      "zh": "灵钥"
+    },
+    "lightcone.Pioneering": {
+      "en": "Pioneering",
+      "zh": "开疆"
+    },
+    "lightcone.Reminiscence": {
+      "en": "Reminiscence",
+      "zh": "溯忆"
+    },
+    "lightcone.Sagacity": {
+      "en": "Sagacity",
+      "zh": "睿见"
+    },
+    "lightcone.Shadowburn": {
+      "en": "Shadowburn",
+      "zh": "焚影"
+    },
+    "lightcone.Sneering": {
+      "en": "Sneering",
+      "zh": "嗤笑"
+    },
+    "lightcone.Shattered Home": {
+      "en": "Shattered Home",
+      "zh": "乐圮"
+    },
+    "lightcone.Void": {
+      "en": "Void",
+      "zh": "幽邃"
+    },
+    "path.Destruction": {
+      "en": "Destruction",
+      "zh": "毁灭"
+    },
+    "path.TheHunt": {
+      "en": "The Hunt",
+      "zh": "巡猎"
+    },
+    "path.Erudition": {
+      "en": "Erudition",
+      "zh": "智识"
+    },
+    "path.Harmony": {
+      "en": "Harmony",
+      "zh": "同谐"
+    },
+    "path.Nihility": {
+      "en": "Nihility",
+      "zh": "虚无"
+    },
+    "path.Preservation": {
+      "en": "Preservation",
+      "zh": "存护"
+    },
+    "path.Abundance": {
+      "en": "Abundance",
+      "zh": "丰饶"
+    },
+    "path.Remembrance": {
+      "en": "Remembrance",
+      "zh": "记忆"
+    },
+    "path.Elation": {
+      "en": "Elation",
+      "zh": "欢愉"
+    },
+    "element.Physical": {
+      "en": "Physical",
+      "zh": "物理"
+    },
+    "element.Fire": {
+      "en": "Fire",
+      "zh": "火"
+    },
+    "element.Ice": {
+      "en": "Ice",
+      "zh": "冰"
+    },
+    "element.Lightning": {
+      "en": "Lightning",
+      "zh": "雷"
+    },
+    "element.Wind": {
+      "en": "Wind",
+      "zh": "风"
+    },
+    "element.Quantum": {
+      "en": "Quantum",
+      "zh": "量子"
+    },
+    "element.Imaginary": {
+      "en": "Imaginary",
+      "zh": "虚数"
+    },
+    "meta.path": {
+      "en": "Path",
+      "zh": "命途"
+    },
+    "meta.element": {
+      "en": "Element",
+      "zh": "属性"
+    },
+    "meta.rarity": {
+      "en": "Rarity",
+      "zh": "稀有度"
+    },
+    "meta.pool": {
+      "en": "Pool",
+      "zh": "卡池"
+    },
+    "meta.ordinary_pool": {
+      "en": "Ordinary Pool",
+      "zh": "常驻卡池"
+    },
+    "meta.event_pool": {
+      "en": "Event Pool",
+      "zh": "活动卡池"
+    },
+    "meta.warp": {
+      "en": "Warp",
+      "zh": "跃迁"
+    },
+    "meta.avatar": {
+      "en": "Avatar",
+      "zh": "角色"
+    },
+    "meta.light_cone": {
+      "en": "Light Cone",
+      "zh": "光锥"
+    },
+    "ui.window.title": {
+      "en": "HSR Gacha Simulator",
+      "zh": "星穹铁道抽卡模拟器"
+    },
+    "ui.group.banner_selection": {
+      "en": "Banner Selection",
+      "zh": "卡池选择"
+    },
+    "ui.group.pull_controls": {
+      "en": "Pull Controls",
+      "zh": "跃迁控制"
+    },
+    "ui.group.statistics": {
+      "en": "Statistics",
+      "zh": "统计数据"
+    },
+    "ui.group.latest_result": {
+      "en": "Latest Pull Result",
+      "zh": "最新跃迁结果"
+    },
+    "ui.group.pull_history": {
+      "en": "Pull History",
+      "zh": "跃迁历史"
+    },
+    "ui.banner.ordinary": {
+      "en": "Ordinary",
+      "zh": "常驻"
+    },
+    "ui.banner.cyrene_avatar": {
+      "en": "Cyrene (Avatar)",
+      "zh": "昔涟（角色）"
+    },
+    "ui.banner.phainon_avatar": {
+      "en": "Phainon (Avatar)",
+      "zh": "白厄（角色）"
+    },
+    "ui.banner.cyrene_lc": {
+      "en": "Cyrene (LC)",
+      "zh": "昔涟（光锥）"
+    },
+    "ui.banner.phainon_lc": {
+      "en": "Phainon (LC)",
+      "zh": "白厄（光锥）"
+    },
+    "ui.banner.archer_avatar": {
+      "en": "Archer (Avatar)",
+      "zh": "Archer（角色）"
+    },
+    "ui.banner.archer_lc": {
+      "en": "Archer (LC)",
+      "zh": "Archer（光锥）"
+    },
+    "ui.banner.saber_avatar": {
+      "en": "Saber (Avatar)",
+      "zh": "Saber（角色）"
+    },
+    "ui.banner.saber_lc": {
+      "en": "Saber (LC)",
+      "zh": "Saber（光锥）"
+    },
+    "ui.button.warp_x1": {
+      "en": "Warp ×1",
+      "zh": "跃迁×1"
+    },
+    "ui.button.warp_x10": {
+      "en": "Warp ×10",
+      "zh": "跃迁×10"
+    },
+    "ui.button.reset_banner": {
+      "en": "Reset Banner",
+      "zh": "重置卡池"
+    },
+    "ui.button.prev_page": {
+      "en": "◄ Previous",
+      "zh": "◄ 上一个"
+    },
+    "ui.button.next_page": {
+      "en": "Next ►",
+      "zh": "下一个 ►"
+    },
+    "ui.pity.gold_pity": {
+      "en": "Gold pity:",
+      "zh": "五星保底："
+    },
+    "ui.pity.gold_since": {
+      "en": "pulls since last 5★",
+      "zh": "抽未出五星"
+    },
+    "ui.pity.gold_guarantee": {
+      "en": "Gold guarantee:",
+      "zh": "五星保底状态："
+    },
+    "ui.pity.purple_pity": {
+      "en": "Purple pity:",
+      "zh": "四星保底："
+    },
+    "ui.pity.purple_since": {
+      "en": "pulls since last 4★",
+      "zh": "抽未出四星"
+    },
+    "ui.pity.purple_guarantee": {
+      "en": "Purple guarantee:",
+      "zh": "四星保底状态："
+    },
+    "ui.pity.guaranteed": {
+      "en": "✅ Guaranteed",
+      "zh": "✅ 已保底"
+    },
+    "ui.pity.not_guaranteed": {
+      "en": "Not Guaranteed",
+      "zh": "未保底"
+    },
+    "ui.stats.total_pulls": {
+      "en": "Total Pulls: {0}",
+      "zh": "总跃迁次数：{0}"
+    },
+    "ui.stats.rarity_5star": {
+      "en": "5★ Gold",
+      "zh": "5★ 金"
+    },
+    "ui.stats.rarity_4star": {
+      "en": "4★ Purple",
+      "zh": "4★ 紫"
+    },
+    "ui.stats.rarity_3star": {
+      "en": "3★ Blue",
+      "zh": "3★ 蓝"
+    },
+    "ui.result.default": {
+      "en": "Pull to begin",
+      "zh": "点击跃迁开始"
+    },
+    "ui.result.pull_number": {
+      "en": "Pull #{0} of {1}",
+      "zh": "第{0}抽 / 共{1}抽"
+    },
+    "ui.result.separator": {
+      "en": " · ",
+      "zh": " · "
+    },
+    "ui.result.type.avatar": {
+      "en": "Avatar",
+      "zh": "角色"
+    },
+    "ui.result.type.lightcone": {
+      "en": "Light Cone",
+      "zh": "光锥"
+    },
+    "ui.history.header.number": {
+      "en": "#",
+      "zh": "#"
+    },
+    "ui.history.header.name": {
+      "en": "Name",
+      "zh": "名称"
+    },
+    "ui.history.header.rarity": {
+      "en": "Rarity",
+      "zh": "稀有度"
+    },
+    "ui.history.header.type": {
+      "en": "Type",
+      "zh": "类型"
+    },
+    "ui.history.header.path": {
+      "en": "Path",
+      "zh": "命途"
+    },
+    "ui.history.header.element": {
+      "en": "Element",
+      "zh": "属性"
+    },
+    "ui.history.type.avatar": {
+      "en": "Avatar",
+      "zh": "角色"
+    },
+    "ui.history.type.lightcone_short": {
+      "en": "L.Cone",
+      "zh": "光锥"
+    },
+    "ui.status.ready": {
+      "en": "Ready",
+      "zh": "就绪"
+    },
+    "ui.status.pulling": {
+      "en": "Pulling...",
+      "zh": "跃迁中…"
+    },
+    "ui.status.pulling_x10": {
+      "en": "Pulling ×10...",
+      "zh": "跃迁×10中…"
+    },
+    "ui.status.init_failed": {
+      "en": "Initialisation failed",
+      "zh": "初始化失败"
+    },
+    "ui.status.banner_reset": {
+      "en": "{0} banner reset",
+      "zh": "{0}卡池已重置"
+    },
+    "ui.lang.selector": {
+      "en": "Language",
+      "zh": "语言"
+    },
+    "dialog.reset_banner.title": {
+      "en": "Reset Banner",
+      "zh": "重置卡池"
+    },
+    "dialog.reset_banner.message": {
+      "en": "Reset the {0} banner? All pull history and pity for this banner will be lost.",
+      "zh": "确定重置{0}卡池？该卡池的所有跃迁记录和保底数据将被清除。"
+    },
+    "dialog.error.title": {
+      "en": "Error",
+      "zh": "错误"
+    },
+    "dialog.error.init_failed": {
+      "en": "Failed to initialise: {0}",
+      "zh": "初始化失败：{0}"
+    }
+  }
+}

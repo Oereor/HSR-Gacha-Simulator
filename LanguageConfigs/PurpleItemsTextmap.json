@@ -1,0 +1,262 @@
+[
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "March 7th",
+        "name-ZH": "三月七"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Dan Heng",
+        "name-ZH": "丹恒"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Arlan",
+        "name-ZH": "阿兰"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Asta",
+        "name-ZH": "艾丝妲"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Herta",
+        "name-ZH": "黑塔"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Natasha",
+        "name-ZH": "娜塔莎"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Serval",
+        "name-ZH": "希露瓦"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Pela",
+        "name-ZH": "佩拉"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Sampo",
+        "name-ZH": "桑博"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Hook",
+        "name-ZH": "虎克"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Sushang",
+        "name-ZH": "素裳"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Qingque",
+        "name-ZH": "青雀"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Tingyun",
+        "name-ZH": "停云"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Yukong",
+        "name-ZH": "驭空"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Luka",
+        "name-ZH": "卢卡"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Lynx",
+        "name-ZH": "玲可"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Guinaifen",
+        "name-ZH": "桂乃芬"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Hanya",
+        "name-ZH": "寒鸦"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Xueyi",
+        "name-ZH": "雪衣"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Misha",
+        "name-ZH": "米沙"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Gallagher",
+        "name-ZH": "加拉赫"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Moze",
+        "name-ZH": "貊泽"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Post-Op Conversation",
+        "name-ZH": "一场术后对话"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Good Night and Sleep Well",
+        "name-ZH": "晚安与睡颜"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Day One of My New Life",
+        "name-ZH": "余生的第一天"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Only Silence Remains",
+        "name-ZH": "唯有沉默"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Memories of the Past",
+        "name-ZH": "记忆中的模样"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "The Moles Welcome You",
+        "name-ZH": "鼹鼠党欢迎你"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "The Birth of the Self",
+        "name-ZH": "「我」的诞生"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Shared Feeling",
+        "name-ZH": "同一种心情"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Eyes of the Prey",
+        "name-ZH": "猎物的视线"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Landau's Choice",
+        "name-ZH": "朗道的选择"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Swordplay",
+        "name-ZH": "论剑"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Planetary Rendezvous",
+        "name-ZH": "与行星相会"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "A Secret Vow",
+        "name-ZH": "秘密誓心"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Make the World Clamor",
+        "name-ZH": "别让世界静下来"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Perfect Timing",
+        "name-ZH": "此时恰好"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Resolution Shines As Pearls of Sweat",
+        "name-ZH": "决心如汗珠般闪耀"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Trend of the Universal Market",
+        "name-ZH": "宇宙市场趋势"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Subscribe for More!",
+        "name-ZH": "点个关注吧！"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Dance! Dance! Dance!",
+        "name-ZH": "舞！舞！舞！"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Under the Blue Sky",
+        "name-ZH": "在蓝天下"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Geniuses' Repose",
+        "name-ZH": "天才们的休憩"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Indelible Promise",
+        "name-ZH": "铭记于心的约定"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Concert for Two",
+        "name-ZH": "两个人的演唱会"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Boundless Choreo",
+        "name-ZH": "无边曼舞"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "After the Charmony Fall",
+        "name-ZH": "谐乐静默之后"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Poised to Bloom",
+        "name-ZH": "芳华待灼"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Shadowed by Night",
+        "name-ZH": "黑夜如影随形"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Dream's Montage",
+        "name-ZH": "梦的蒙太奇"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Geniuses' Greetings",
+        "name-ZH": "天才们的问候"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "The Story's Next Page",
+        "name-ZH": "故事的下一页"
+    }
+]

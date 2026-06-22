@@ -68,6 +68,10 @@ namespace HSR_Gacha_Simulator
             set { _elementLabel = value; OnPropertyChanged(); }
         }
 
+        // ── Localisation shorthand ──────────────────────────────
+
+        private static LocalizationService L10n => LocalizationService.Instance;
+
         // ── Factory ─────────────────────────────────────────────
 
         public static HistoryItemDisplay FromItemData(ItemData item, int index)
@@ -75,10 +79,12 @@ namespace HSR_Gacha_Simulator
             return new HistoryItemDisplay
             {
                 Index        = index,
-                Name         = item.Name,
+                Name         = L10n.GetItemName(item.Name),
                 RarityStars  = RarityToStars(item.Rarity),
                 Rarity       = item.Rarity,
-                TypeLabel    = item.Type == ItemType.Avatar ? "Avatar" : "L.Cone",
+                TypeLabel    = item.Type == ItemType.Avatar
+                    ? L10n.Get("ui.history.type.avatar")
+                    : L10n.Get("ui.history.type.lightcone_short"),
                 PathLabel    = FormatPath(item.Path),
                 ElementType  = item.ElementType,
                 ElementLabel = FormatElement(item.ElementType, item.Type)
@@ -100,19 +106,9 @@ namespace HSR_Gacha_Simulator
 
         private static string FormatPath(PathType path)
         {
-            return path switch
-            {
-                PathType.Destruction  => "Destruction",
-                PathType.TheHunt      => "The Hunt",
-                PathType.Erudition    => "Erudition",
-                PathType.Harmony      => "Harmony",
-                PathType.Nihility     => "Nihility",
-                PathType.Preservation => "Preserv.",
-                PathType.Abundance    => "Abundance",
-                PathType.Remembrance       => "Remembrance",
-                PathType.Elation      => "Elation",
-                _                     => "—"
-            };
+            if (path == PathType.Unknown)
+                return "—";
+            return L10n[$"path.{path}"];
         }
 
         private static string FormatElement(ElementType element, ItemType type)
@@ -120,17 +116,7 @@ namespace HSR_Gacha_Simulator
             if (type == ItemType.LightCone || element == ElementType.Unknown)
                 return "—";
 
-            return element switch
-            {
-                ElementType.Physical  => "Physical",
-                ElementType.Fire      => "Fire",
-                ElementType.Ice       => "Ice",
-                ElementType.Lightning => "Lightning",
-                ElementType.Wind      => "Wind",
-                ElementType.Quantum   => "Quantum",
-                ElementType.Imaginary => "Imaginary",
-                _                     => "—"
-            };
+            return L10n[$"element.{element}"];
         }
 
         // ── INotifyPropertyChanged ──────────────────────────────

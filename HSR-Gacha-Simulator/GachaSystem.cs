@@ -229,7 +229,7 @@ namespace HSR_Gacha_Simulator
                     eventNonPurpleGachaCount = 0;
                     eventNonGoldGachaAvatarCount++;
                     ItemData item = GetPurpleItem(type, missedPurpleEventItem);
-                    missedPurpleEventItem = !eventPurpleItemPool.Contains(item);
+                    missedPurpleEventItem = (eventPurpleItemPool.Count > 0) && (!eventPurpleItemPool.Contains(item));
                     return item;
                 }
                 eventNonGoldGachaAvatarCount++;
@@ -251,7 +251,7 @@ namespace HSR_Gacha_Simulator
                     eventNonPurpleGachaCount = 0;
                     eventNonGoldGachaLightConeCount++;
                     ItemData item = GetPurpleItem(type, missedPurpleEventItem);
-                    missedPurpleEventItem = !eventPurpleItemPool.Contains(item);
+                    missedPurpleEventItem = (eventPurpleItemPool.Count > 0) && (!eventPurpleItemPool.Contains(item));
                     return item;
                 }
                 eventNonGoldGachaLightConeCount++;
