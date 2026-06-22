@@ -29,7 +29,7 @@ The `<EnumValue>` portion matches the C# enum member name exactly (PascalCase):
 | `Path_Nihility.png` | `PathType.Nihility` |
 | `Path_Preservation.png` | `PathType.Preservation` |
 | `Path_Abundance.png` | `PathType.Abundance` |
-| `Path_Rememberance.png` | `PathType.Remembrance` ⚠️ |
+| `Path_Remembrance.png` | `PathType.Remembrance` |
 | `Path_Elation.png` | `PathType.Elation` |
 | `Element_Physical.png` | `ElementType.Physical` |
 | `Element_Fire.png` | `ElementType.Fire` |
@@ -38,8 +38,6 @@ The `<EnumValue>` portion matches the C# enum member name exactly (PascalCase):
 | `Element_Wind.png` | `ElementType.Wind` |
 | `Element_Quantum.png` | `ElementType.Quantum` |
 | `Element_Imaginary.png` | `ElementType.Imaginary` |
-
-> ⚠️ **Filename mismatch:** The icon file is named `Path_Rememberance.png` (with an 'a') but the C# enum is `PathType.Remembrance` (no 'a'). The icon-loading code must account for this discrepancy — either rename the file or handle the mapping in code. **Prefer renaming the file** to `Path_Remembrance.png` so the naming rule is consistent and no special-case code is needed.
 
 ### 1.3 Build Output
 
@@ -189,7 +187,6 @@ This is an optimization detail and not required for correctness — direct file 
 
 | File | Action |
 |---|---|
-| `Icons\Path_Rememberance.png` | **RENAME** → `Path_Remembrance.png` |
 | `HSR-Gacha-Simulator\HSR-Gacha-Simulator.csproj` | **MODIFY** — add `Icons\*.*` as content |
 | `HSR-Gacha-Simulator\MainWindow.xaml` | **MODIFY** — restructure name row to include icon Images |
 | `HSR-Gacha-Simulator\MainWindow.xaml.cs` | **MODIFY** — set icon sources in `ShowResultAtIndex` / `ClearResultCard` |
