@@ -157,6 +157,178 @@
       "en": "Moze",
       "zh": "貊泽"
     },
+    "avatar.Acheron": {
+      "en": "Acheron",
+      "zh": "黄泉"
+    },
+    "avatar.Aglaea": {
+      "en": "Aglaea",
+      "zh": "阿格莱雅"
+    },
+    "avatar.Anaxa": {
+      "en": "Anaxa",
+      "zh": "那刻夏"
+    },
+    "avatar.Ashveil": {
+      "en": "Ashveil",
+      "zh": "不死途"
+    },
+    "avatar.Aventurine": {
+      "en": "Aventurine",
+      "zh": "砂金"
+    },
+    "avatar.Black Swan": {
+      "en": "Black Swan",
+      "zh": "黑天鹅"
+    },
+    "avatar.Boothill": {
+      "en": "Boothill",
+      "zh": "波提欧"
+    },
+    "avatar.Castorice": {
+      "en": "Castorice",
+      "zh": "遐蝶"
+    },
+    "avatar.Cerydra": {
+      "en": "Cerydra",
+      "zh": "刻律德菈"
+    },
+    "avatar.Cipher": {
+      "en": "Cipher",
+      "zh": "赛飞儿"
+    },
+    "avatar.Dan Heng (Imbititor Lunae)": {
+      "en": "Dan Heng (Imbititor Lunae)",
+      "zh": "丹恒·饮月"
+    },
+    "avatar.Dan Heng (Permansor Terrae)": {
+      "en": "Dan Heng (Permansor Terrae)",
+      "zh": "丹恒·腾荒"
+    },
+    "avatar.Dr. Ratio": {
+      "en": "Dr. Ratio",
+      "zh": "真理医生"
+    },
+    "avatar.Evanescia": {
+      "en": "Evanescia",
+      "zh": "绯英"
+    },
+    "avatar.Evernight": {
+      "en": "Evernight",
+      "zh": "长夜月"
+    },
+    "avatar.Feixiao": {
+      "en": "Feixiao",
+      "zh": "飞霄"
+    },
+    "avatar.Firefly": {
+      "en": "Firefly",
+      "zh": "流萤"
+    },
+    "avatar.Fu Xuan": {
+      "en": "Fu Xuan",
+      "zh": "符玄"
+    },
+    "avatar.Fugue": {
+      "en": "Fugue",
+      "zh": "忘归人"
+    },
+    "avatar.Huohuo": {
+      "en": "Huohuo",
+      "zh": "藿藿"
+    },
+    "avatar.Hyacine": {
+      "en": "Hyacine",
+      "zh": "风堇"
+    },
+    "avatar.Hysilens": {
+      "en": "Hysilens",
+      "zh": "海瑟音"
+    },
+    "avatar.Jade": {
+      "en": "Jade",
+      "zh": "翡翠"
+    },
+    "avatar.Jiaoqiu": {
+      "en": "Jiaoqiu",
+      "zh": "椒丘"
+    },
+    "avatar.Jing Yuan": {
+      "en": "Jing Yuan",
+      "zh": "景元"
+    },
+    "avatar.Jingliu": {
+      "en": "Jingliu",
+      "zh": "镜流"
+    },
+    "avatar.Kafka": {
+      "en": "Kafka",
+      "zh": "卡芙卡"
+    },
+    "avatar.Lingsha": {
+      "en": "Lingsha",
+      "zh": "灵砂"
+    },
+    "avatar.Luocha": {
+      "en": "Luocha",
+      "zh": "罗刹"
+    },
+    "avatar.Mortenax Blade": {
+      "en": "Mortenax Blade",
+      "zh": "千冶·刃"
+    },
+    "avatar.Mydei": {
+      "en": "Mydei",
+      "zh": "万敌"
+    },
+    "avatar.Rappa": {
+      "en": "Rappa",
+      "zh": "乱破"
+    },
+    "avatar.Robin": {
+      "en": "Robin",
+      "zh": "知更鸟"
+    },
+    "avatar.Ruan Mei": {
+      "en": "Ruan Mei",
+      "zh": "阮·梅"
+    },
+    "avatar.Silver Wolf LV.999": {
+      "en": "Silver Wolf LV.999",
+      "zh": "银狼 LV.999"
+    },
+    "avatar.Sparkle": {
+      "en": "Sparkle",
+      "zh": "花火"
+    },
+    "avatar.Sparxie": {
+      "en": "Sparxie",
+      "zh": "火花"
+    },
+    "avatar.Sunday": {
+      "en": "Sunday",
+      "zh": "星期日"
+    },
+    "avatar.The Dahlia": {
+      "en": "The Dahlia",
+      "zh": "大丽花"
+    },
+    "avatar.The Herta": {
+      "en": "The Herta",
+      "zh": "大黑塔"
+    },
+    "avatar.Topaz & Numby": {
+      "en": "Topaz & Numby",
+      "zh": "托帕&账账"
+    },
+    "avatar.Tribbie": {
+      "en": "Tribbie",
+      "zh": "缇宝"
+    },
+    "avatar.Yaoguang": {
+      "en": "Yaoguang",
+      "zh": "爻光"
+    },
     "lightcone.Night on the Milky Way": {
       "en": "Night on the Milky Way",
       "zh": "银河铁道之夜"
@@ -200,6 +372,198 @@
     "lightcone.A Thankless Coronation": {
       "en": "A Thankless Coronation",
       "zh": "没有回报的加冕"
+    },
+    "lightcone.A Grounded Ascent": {
+      "en": "A Grounded Ascent",
+      "zh": "回到大地的飞行"
+    },
+    "lightcone.Along the Passing Shore": {
+      "en": "Along the Passing Shore",
+      "zh": "行于流逝的岸"
+    },
+    "lightcone.An Instant Before A Gaze": {
+      "en": "An Instant Before A Gaze",
+      "zh": "片刻，留在眼底"
+    },
+    "lightcone.Baptism of Pure Thought": {
+      "en": "Baptism of Pure Thought",
+      "zh": "纯粹思维的洗礼"
+    },
+    "lightcone.Before Dawn": {
+      "en": "Before Dawn",
+      "zh": "拂晓之前"
+    },
+    "lightcone.Brighter than the Sun": {
+      "en": "Brighter than the Sun",
+      "zh": "比阳光更明亮的"
+    },
+    "lightcone.Dance at Sunset": {
+      "en": "Dance at Sunset",
+      "zh": "落日时起舞"
+    },
+    "lightcone.Dazzled by a Flowery World": {
+      "en": "Dazzled by a Flowery World",
+      "zh": "花花世界迷人眼"
+    },
+    "lightcone.Earthly Escapade": {
+      "en": "Earthly Escapade",
+      "zh": "游戏尘寰"
+    },
+    "lightcone.Echoes of the Coffin": {
+      "en": "Echoes of the Coffin",
+      "zh": "棺的回响"
+    },
+    "lightcone.Epoch Etched in Golden Blood": {
+      "en": "Epoch Etched in Golden Blood",
+      "zh": "金血铭刻的时代"
+    },
+    "lightcone.Flame of Blood, Blaze My Path": {
+      "en": "Flame of Blood, Blaze My Path",
+      "zh": "血火啊，燃烧前路"
+    },
+    "lightcone.Flowing Nightglow": {
+      "en": "Flowing Nightglow",
+      "zh": "夜色流光溢彩"
+    },
+    "lightcone.I Shall Be My Own Sword": {
+      "en": "I Shall Be My Own Sword",
+      "zh": "此身为剑"
+    },
+    "lightcone.I Venture Forth to Hunt": {
+      "en": "I Venture Forth to Hunt",
+      "zh": "我将，巡征追猎"
+    },
+    "lightcone.If Time Were a Flower": {
+      "en": "If Time Were a Flower",
+      "zh": "如果时间是一朵花"
+    },
+    "lightcone.In The Night": {
+      "en": "In The Night",
+      "zh": "于夜色中"
+    },
+    "lightcone.Incessant Rain": {
+      "en": "Incessant Rain",
+      "zh": "雨一直下"
+    },
+    "lightcone.Inherently Unjust Destiny": {
+      "en": "Inherently Unjust Destiny",
+      "zh": "命运从未公平"
+    },
+    "lightcone.Into the Unreachable Veil": {
+      "en": "Into the Unreachable Veil",
+      "zh": "向着不可追问处"
+    },
+    "lightcone.Lies Dance on the Breeze": {
+      "en": "Lies Dance on the Breeze",
+      "zh": "谎言在风中飘扬"
+    },
+    "lightcone.Life Should Be Cast to Flames": {
+      "en": "Life Should Be Cast to Flames",
+      "zh": "生命当付之一炬"
+    },
+    "lightcone.Long May Rainbows Adorn the Sky": {
+      "en": "Long May Rainbows Adorn the Sky",
+      "zh": "愿虹光永驻天空"
+    },
+    "lightcone.Long Road Leads Home": {
+      "en": "Long Road Leads Home",
+      "zh": "长路终有归途"
+    },
+    "lightcone.Make Farewells More Beautiful": {
+      "en": "Make Farewells More Beautiful",
+      "zh": "让告别，更美一些"
+    },
+    "lightcone.Never Forget Her Flame": {
+      "en": "Never Forget Her Flame",
+      "zh": "勿忘她的火焰"
+    },
+    "lightcone.Night of Fright": {
+      "en": "Night of Fright",
+      "zh": "惊魂夜"
+    },
+    "lightcone.Ninjutsu Inscription: Dazzling Evilbreaker": {
+      "en": "Ninjutsu Inscription: Dazzling Evilbreaker",
+      "zh": "忍法帖·缭乱破魔"
+    },
+    "lightcone.Past Self in Mirror": {
+      "en": "Past Self in Mirror",
+      "zh": "镜中故我"
+    },
+    "lightcone.Patience Is All You Need": {
+      "en": "Patience Is All You Need",
+      "zh": "只需等待"
+    },
+    "lightcone.Reforged Remembrance": {
+      "en": "Reforged Remembrance",
+      "zh": "重塑时光之忆"
+    },
+    "lightcone.Reforged in Hellfire": {
+      "en": "Reforged in Hellfire",
+      "zh": "灼尽炼狱的新骸"
+    },
+    "lightcone.Sailing Towards a Second Life": {
+      "en": "Sailing Towards a Second Life",
+      "zh": "驶向第二次生命"
+    },
+    "lightcone.Scent Alone Stays True": {
+      "en": "Scent Alone Stays True",
+      "zh": "唯有香如故"
+    },
+    "lightcone.She Already Shut Her Eyes": {
+      "en": "She Already Shut Her Eyes",
+      "zh": "她已闭上双眼"
+    },
+    "lightcone.The Finale of a Lie": {
+      "en": "The Finale of a Lie",
+      "zh": "一场谎言的终幕"
+    },
+    "lightcone.The Unreachable Side": {
+      "en": "The Unreachable Side",
+      "zh": "到不了的彼岸"
+    },
+    "lightcone.Those Many Springs": {
+      "en": "Those Many Springs",
+      "zh": "那无数个春天"
+    },
+    "lightcone.Though Worlds Apart": {
+      "en": "Though Worlds Apart",
+      "zh": "纵然山河万程"
+    },
+    "lightcone.Time Woven Into Gold": {
+      "en": "Time Woven Into Gold",
+      "zh": "将光阴织成黄金"
+    },
+    "lightcone.To Evernight's Stars": {
+      "en": "To Evernight's Stars",
+      "zh": "致长夜的星光"
+    },
+    "lightcone.Until the Flowers Bloom Again": {
+      "en": "Until the Flowers Bloom Again",
+      "zh": "邂逅于下一个花季"
+    },
+    "lightcone.Welcome to the Cosmic City": {
+      "en": "Welcome to the Cosmic City",
+      "zh": "欢迎来到银河城"
+    },
+    "lightcone.When She Decided to See": {
+      "en": "When She Decided to See",
+      "zh": "当她决定看见"
+    },
+    "lightcone.Whereabouts Should Dreams Rest": {
+      "en": "Whereabouts Should Dreams Rest",
+      "zh": "梦应归于何处"
+    },
+    "lightcone.Why Does the Ocean Sing": {
+      "en": "Why Does the Ocean Sing",
+      "zh": "海洋为何而歌"
+    },
+    "lightcone.Worrisome, Blissful": {
+      "en": "Worrisome, Blissful",
+      "zh": "烦恼着，幸福着"
+    },
+    "lightcone.Yet Hope Is Priceless": {
+      "en": "Yet Hope Is Priceless",
+      "zh": "偏偏希望无价"
     },
     "lightcone.Post-Op Conversation": {
       "en": "Post-Op Conversation",
@@ -584,6 +948,10 @@
     "ui.banner.saber_lc": {
       "en": "Saber (LC)",
       "zh": "Saber（光锥）"
+    },
+    "ui.banner.all_gold": {
+      "en": "All Gold (Expanded Pool)",
+      "zh": "全五星（扩充池）"
     },
     "ui.button.warp_x1": {
       "en": "Warp ×1",
