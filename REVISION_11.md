@@ -244,7 +244,7 @@ From `GoldItemsTextmap.json`, all light cone entries. Common new additions:
 - `lightcone.An Instant Before A Gaze` → "片刻，留在眼底"
 - `lightcone.Baptism of Pure Thought` → "纯粹思维的洗礼"
 - `lightcone.Before Dawn` → "拂晓之前"
-- `lightcone.Brighter than the Sun` → "比阳光更明亮的"
+- `lightcone.Brighter Than the Sun` → "比阳光更明亮的"
 - `lightcone.Dance at Sunset` → "落日时起舞"
 - `lightcone.Dazzled by a Flowery World` → "花花世界迷人眼"
 - `lightcone.Earthly Escapade` → "游戏尘寰"
