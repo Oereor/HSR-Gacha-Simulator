@@ -36,6 +36,221 @@
     },
     {
         "text-type": "AvatarName", 
+        "name-EN": "Acheron",
+        "name-ZH": "黄泉"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Aglaea",
+        "name-ZH": "阿格莱雅"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Anaxa",
+        "name-ZH": "那刻夏"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Ashveil",
+        "name-ZH": "不死途"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Aventurine",
+        "name-ZH": "砂金"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Black Swan",
+        "name-ZH": "黑天鹅"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Boothill",
+        "name-ZH": "波提欧"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Castorice",
+        "name-ZH": "遐蝶"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Cerydra",
+        "name-ZH": "刻律德菈"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Cipher",
+        "name-ZH": "赛飞儿"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Dan Heng (Imbititor Lunae)",
+        "name-ZH": "丹恒·饮月"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Dan Heng (Permansor Terrae)",
+        "name-ZH": "丹恒·腾荒"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Dr. Ratio",
+        "name-ZH": "真理医生"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Evanescia",
+        "name-ZH": "绯英"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Evernight",
+        "name-ZH": "长夜月"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Feixiao",
+        "name-ZH": "飞霄"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Firefly",
+        "name-ZH": "流萤"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Fu Xuan",
+        "name-ZH": "符玄"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Fugue",
+        "name-ZH": "忘归人"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Huohuo",
+        "name-ZH": "藿藿"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Hyacine",
+        "name-ZH": "风堇"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Hysilens",
+        "name-ZH": "海瑟音"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Jade",
+        "name-ZH": "翡翠"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Jiaoqiu",
+        "name-ZH": "椒丘"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Jing Yuan",
+        "name-ZH": "景元"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Jingliu",
+        "name-ZH": "镜流"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Kafka",
+        "name-ZH": "卡芙卡"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Lingsha",
+        "name-ZH": "灵砂"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Luocha",
+        "name-ZH": "罗刹"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Mortenax Blade",
+        "name-ZH": "千冶·刃"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Mydei",
+        "name-ZH": "万敌"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Rappa",
+        "name-ZH": "乱破"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Robin",
+        "name-ZH": "知更鸟"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Ruan Mei",
+        "name-ZH": "阮·梅"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Silver Wolf LV.999",
+        "name-ZH": "银狼 LV.999"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Sparkle",
+        "name-ZH": "花火"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Sparxie",
+        "name-ZH": "火花"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Sunday",
+        "name-ZH": "星期日"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "The Dahlia",
+        "name-ZH": "大丽花"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "The Herta",
+        "name-ZH": "大黑塔"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Topaz & Numby",
+        "name-ZH": "托帕&账账"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Tribbie",
+        "name-ZH": "缇宝"
+    },
+    {
+        "text-type": "AvatarName", 
+        "name-EN": "Yaoguang",
+        "name-ZH": "爻光"
+    },
+    {
+        "text-type": "AvatarName", 
         "name-EN": "Silver Wolf",
         "name-ZH": "银狼"
     },
@@ -114,6 +329,246 @@
         "text-type": "LightConeName", 
         "name-EN": "Time Waits for No One",
         "name-ZH": "时节不居"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "A Grounded Ascent",
+        "name-ZH": "回到大地的飞行"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Along the Passing Shore",
+        "name-ZH": "行于流逝的岸"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "An Instant Before A Gaze",
+        "name-ZH": "片刻，留在眼底"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Baptism of Pure Thought",
+        "name-ZH": "纯粹思维的洗礼"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Before Dawn",
+        "name-ZH": "拂晓之前"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Brighter than the Sun",
+        "name-ZH": "比阳光更明亮的"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Dance at Sunset",
+        "name-ZH": "落日时起舞"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Dazzled by a Flowery World",
+        "name-ZH": "花花世界迷人眼"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Earthly Escapade",
+        "name-ZH": "游戏尘寰"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Echoes of the Coffin",
+        "name-ZH": "棺的回响"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Epoch Etched in Golden Blood",
+        "name-ZH": "金血铭刻的时代"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Flame of Blood, Blaze My Path",
+        "name-ZH": "血火啊，燃烧前路"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Flowing Nightglow",
+        "name-ZH": "夜色流光溢彩"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "I Shall Be My Own Sword",
+        "name-ZH": "此身为剑"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "I Venture Forth to Hunt",
+        "name-ZH": "我将，巡征追猎"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "If Time Were a Flower",
+        "name-ZH": "如果时间是一朵花"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "In The Night",
+        "name-ZH": "于夜色中"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Incessant Rain",
+        "name-ZH": "雨一直下"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Inherently Unjust Destiny",
+        "name-ZH": "命运从未公平"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Into the Unreachable Veil",
+        "name-ZH": "向着不可追问处"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Lies Dance on the Breeze",
+        "name-ZH": "谎言在风中飘扬"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Life Should Be Cast to Flames",
+        "name-ZH": "生命当付之一炬"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Long May Rainbows Adorn the Sky",
+        "name-ZH": "愿虹光永驻天空"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Long Road Leads Home",
+        "name-ZH": "长路终有归途"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Make Farewells More Beautiful",
+        "name-ZH": "让告别，更美一些"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Never Forget Her Flame",
+        "name-ZH": "勿忘她的火焰"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Night of Fright",
+        "name-ZH": "惊魂夜"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Ninjutsu Inscription: Dazzling Evilbreaker",
+        "name-ZH": "忍法帖·缭乱破魔"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Past Self in Mirror",
+        "name-ZH": "镜中故我"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Patience Is All You Need",
+        "name-ZH": "只需等待"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Reforged Remembrance",
+        "name-ZH": "重塑时光之忆"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Reforged in Hellfire",
+        "name-ZH": "灼尽炼狱的新骸"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Sailing Towards a Second Life",
+        "name-ZH": "驶向第二次生命"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Scent Alone Stays True",
+        "name-ZH": "唯有香如故"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "She Already Shut Her Eyes",
+        "name-ZH": "她已闭上双眼"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "The Finale of a Lie",
+        "name-ZH": "一场谎言的终幕"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "The Unreachable Side",
+        "name-ZH": "到不了的彼岸"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Those Many Springs",
+        "name-ZH": "那无数个春天"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Though Worlds Apart",
+        "name-ZH": "纵然山河万程"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Time Woven Into Gold",
+        "name-ZH": "将光阴织成黄金"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "To Evernight's Stars",
+        "name-ZH": "致长夜的星光"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Until the Flowers Bloom Again",
+        "name-ZH": "邂逅于下一个花季"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Welcome to the Cosmic City",
+        "name-ZH": "欢迎来到银河城"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "When She Decided to See",
+        "name-ZH": "当她决定看见"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Whereabouts Should Dreams Rest",
+        "name-ZH": "梦应归于何处"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Why Does the Ocean Sing",
+        "name-ZH": "海洋为何而歌"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Worrisome, Blissful",
+        "name-ZH": "烦恼着，幸福着"
+    },
+    {
+        "text-type": "LightConeName", 
+        "name-EN": "Yet Hope Is Priceless",
+        "name-ZH": "偏偏希望无价"
     },
     {
         "text-type": "LightConeName", 
