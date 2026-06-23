@@ -58,6 +58,10 @@
       <Link>PoolConfigs\SaberEventLightConePoolConfig.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\PoolConfigs\AllGoldPoolConfig.json">
+      <Link>PoolConfigs\AllGoldPoolConfig.json</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\LanguageConfigs\TextMap.json">
       <Link>LanguageConfigs\TextMap.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

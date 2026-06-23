@@ -390,6 +390,16 @@
                                      GroupName="Banner"
                                      Checked="Banner_Changed" />
                     </StackPanel>
+
+                    <!-- All Gold row -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                                Margin="0,6,0,0">
+                        <RadioButton x:Name="rbAllGold"
+                                     Content="{local:Loc ui.banner.all_gold}"
+                                     Style="{StaticResource RadioBannerStyle}"
+                                     GroupName="Banner"
+                                     Checked="Banner_Changed" />
+                    </StackPanel>
                 </StackPanel>
             </GroupBox>
 

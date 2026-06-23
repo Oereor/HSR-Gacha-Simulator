@@ -1,0 +1,770 @@
+[
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Himeko",
+        "path": "Erudition",
+        "element-type": "Fire"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Welt",
+        "path": "Nihility",
+        "element-type": "Imaginary"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Bronya",
+        "path": "Harmony",
+        "element-type": "Wind"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Gepard",
+        "path": "Preservation",
+        "element-type": "Ice"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Clara",
+        "path": "Destruction",
+        "element-type": "Physical"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Yanqing",
+        "path": "TheHunt",
+        "element-type": "Ice"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Bailu",
+        "path": "Abundance",
+        "element-type": "Lightning"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Acheron",
+        "path": "Nihility",
+        "element-type": "Lightning"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Aglaea",
+        "path": "Remembrance",
+        "element-type": "Lightning"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Anaxa",
+        "path": "Erudition",
+        "element-type": "Wind"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Archer",
+        "path": "TheHunt",
+        "element-type": "Quantum"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Argenti",
+        "path": "Erudition",
+        "element-type": "Physical"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Ashveil",
+        "path": "TheHunt",
+        "element-type": "Lightning"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Aventurine",
+        "path": "Preservation",
+        "element-type": "Imaginary"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Black Swan",
+        "path": "Nihility",
+        "element-type": "Wind"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Blade",
+        "path": "Destruction",
+        "element-type": "Wind"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Boothill",
+        "path": "TheHunt",
+        "element-type": "Physical"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Castorice",
+        "path": "Remembrance",
+        "element-type": "Quantum"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Cerydra",
+        "path": "Harmony",
+        "element-type": "Wind"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Cipher",
+        "path": "Nihility",
+        "element-type": "Quantum"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Cyrene",
+        "path": "Remembrance",
+        "element-type": "Ice"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Dan Heng (Imbititor Lunae)",
+        "path": "Destruction",
+        "element-type": "Imaginary"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Dan Heng (Permansor Terrae)",
+        "path": "Preservation",
+        "element-type": "Physical"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Dr. Ratio",
+        "path": "TheHunt",
+        "element-type": "Imaginary"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Evanescia",
+        "path": "Elation",
+        "element-type": "Physical"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Evernight",
+        "path": "Remembrance",
+        "element-type": "Ice"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Feixiao",
+        "path": "TheHunt",
+        "element-type": "Wind"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Firefly",
+        "path": "Destruction",
+        "element-type": "Fire"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Fu Xuan",
+        "path": "Preservation",
+        "element-type": "Quantum"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Fugue",
+        "path": "Nihility",
+        "element-type": "Fire"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Huohuo",
+        "path": "Abundance",
+        "element-type": "Wind"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Hyacine",
+        "path": "Remembrance",
+        "element-type": "Wind"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Hysilens",
+        "path": "Nihility",
+        "element-type": "Physical"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Jade",
+        "path": "Erudition",
+        "element-type": "Quantum"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Jiaoqiu",
+        "path": "Nihility",
+        "element-type": "Fire"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Jing Yuan",
+        "path": "Erudition",
+        "element-type": "Lightning"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Jingliu",
+        "path": "Destruction",
+        "element-type": "Ice"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Kafka",
+        "path": "Nihility",
+        "element-type": "Lightning"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Lingsha",
+        "path": "Abundance",
+        "element-type": "Fire"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Luocha",
+        "path": "Abundance",
+        "element-type": "Imaginary"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Mortenax Blade",
+        "path": "Nihility",
+        "element-type": "Fire"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Mydei",
+        "path": "Destruction",
+        "element-type": "Imaginary"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Phainon",
+        "path": "Destruction",
+        "element-type": "Physical"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Rappa",
+        "path": "Erudition",
+        "element-type": "Imaginary"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Robin",
+        "path": "Harmony",
+        "element-type": "Physical"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Ruan Mei",
+        "path": "Harmony",
+        "element-type": "Ice"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Saber",
+        "path": "Destruction",
+        "element-type": "Wind"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Seele",
+        "path": "TheHunt",
+        "element-type": "Quantum"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Silver Wolf",
+        "path": "Nihility",
+        "element-type": "Imaginary"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Silver Wolf LV.999",
+        "path": "Elation",
+        "element-type": "Imaginary"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Sparkle",
+        "path": "Harmony",
+        "element-type": "Quantum"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Sparxie",
+        "path": "Elation",
+        "element-type": "Fire"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Sunday",
+        "path": "Harmony",
+        "element-type": "Imaginary"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "The Dahlia",
+        "path": "Nihility",
+        "element-type": "Fire"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "The Herta",
+        "path": "Erudition",
+        "element-type": "Ice"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Topaz & Numby",
+        "path": "TheHunt",
+        "element-type": "Fire"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Tribbie",
+        "path": "Harmony",
+        "element-type": "Quantum"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Yaoguang",
+        "path": "Elation",
+        "element-type": "Physical"
+    },
+    {
+        "type": "Avatar",
+        "rarity": "Gold",
+        "name": "Yunli",
+        "path": "Destruction",
+        "element-type": "Physical"
+    },
+
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Night on the Milky Way",
+        "path": "Erudition"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "In the Name of the World",
+        "path": "Nihility"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "But the Battle Isn't Over",
+        "path": "Harmony"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Moment of Victory",
+        "path": "Preservation"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Something Irreplaceable",
+        "path": "Destruction"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Sleep Like the Dead",
+        "path": "TheHunt"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Time Waits for No One",
+        "path": "Abundance"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "A Grounded Ascent",
+        "path": "Harmony"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "A Thankless Coronation",
+        "path": "Destruction"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Along the Passing Shore",
+        "path": "Nihility"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "An Instant Before A Gaze",
+        "path": "Erudition"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Baptism of Pure Thought",
+        "path": "TheHunt"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Before Dawn",
+        "path": "Erudition"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Brighter than the Sun",
+        "path": "Destruction"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Dance at Sunset",
+        "path": "Destruction"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Dazzled by a Flowery World",
+        "path": "Elation"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Earthly Escapade",
+        "path": "Harmony"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Echoes of the Coffin",
+        "path": "Abundance"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Epoch Etched in Golden Blood",
+        "path": "Harmony"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Flame of Blood, Blaze My Path",
+        "path": "Destruction"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Flowing Nightglow",
+        "path": "Harmony"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "I Shall Be My Own Sword",
+        "path": "Destruction"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "I Venture Forth to Hunt",
+        "path": "TheHunt"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "If Time Were a Flower",
+        "path": "Harmony"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "In The Night",
+        "path": "TheHunt"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Incessant Rain",
+        "path": "Nihility"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Inherently Unjust Destiny",
+        "path": "Preservation"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Into the Unreachable Veil",
+        "path": "Erudition"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Lies Dance on the Breeze",
+        "path": "Nihility"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Life Should Be Cast to Flames",
+        "path": "Erudition"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Long May Rainbows Adorn the Sky",
+        "path": "Remembrance"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Long Road Leads Home",
+        "path": "Nihility"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Make Farewells More Beautiful",
+        "path": "Remembrance"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Never Forget Her Flame",
+        "path": "Nihility"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Night of Fright",
+        "path": "Abundance"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Ninjutsu Inscription: Dazzling Evilbreaker",
+        "path": "Erudition"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Past Self in Mirror",
+        "path": "Harmony"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Patience Is All You Need",
+        "path": "Nihility"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Reforged Remembrance",
+        "path": "Nihility"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Reforged in Hellfire",
+        "path": "Nihility"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Sailing Towards a Second Life",
+        "path": "TheHunt"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Scent Alone Stays True",
+        "path": "Abundance"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "She Already Shut Her Eyes",
+        "path": "Preservation"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "The Finale of a Lie",
+        "path": "TheHunt"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "The Hell Where Ideals Burn",
+        "path": "TheHunt"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "The Unreachable Side",
+        "path": "Destruction"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "This Love, Forever",
+        "path": "Remembrance"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Those Many Springs",
+        "path": "Nihility"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Though Worlds Apart",
+        "path": "Preservation"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Thus Burns the Dawn",
+        "path": "Destruction"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Time Woven Into Gold",
+        "path": "Remembrance"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "To Evernight's Stars",
+        "path": "Remembrance"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Until the Flowers Bloom Again",
+        "path": "Elation"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Welcome to the Cosmic City",
+        "path": "Elation"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "When She Decided to See",
+        "path": "Elation"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Whereabouts Should Dreams Rest",
+        "path": "Destruction"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Why Does the Ocean Sing",
+        "path": "Nihility"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Worrisome, Blissful",
+        "path": "TheHunt"
+    },
+    {
+        "type": "LightCone",
+        "rarity": "Gold",
+        "name": "Yet Hope Is Priceless",
+        "path": "Erudition"
+    }
+]

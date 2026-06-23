@@ -69,6 +69,7 @@ namespace HSR_Gacha_Simulator
                 { rbArcherLC,      new(archerLightConeSystem, "ui.banner.archer_lc") },
                 { rbSaberAvatar,   new(saberAvatarSystem,     "ui.banner.saber_avatar") },
                 { rbSaberLC,       new(saberLightConeSystem,  "ui.banner.saber_lc") },
+                { rbAllGold,      new(allGoldSystem,        "ui.banner.all_gold") },
             };
         }
 
@@ -81,6 +82,7 @@ namespace HSR_Gacha_Simulator
         private GachaSystem archerLightConeSystem = null!;
         private GachaSystem saberAvatarSystem = null!;
         private GachaSystem saberLightConeSystem = null!;
+        private GachaSystem allGoldSystem = null!;
 
         private void InitializeSystems()
         {
@@ -117,6 +119,20 @@ namespace HSR_Gacha_Simulator
             archerLightConeSystem  = CreateBannerSystem(GachaType.EventLightCone, "ArcherEventLightConePoolConfig.json",  goldAvatars, goldLightCones, celestialGold, purpleAvatars, purpleLightCones, blueItems, hasEventPurple: false);
             saberAvatarSystem      = CreateBannerSystem(GachaType.EventAvatar,    "SaberEventAvatarPoolConfig.json",     goldAvatars, goldLightCones, celestialGold, purpleAvatars, purpleLightCones, blueItems, hasEventPurple: false);
             saberLightConeSystem   = CreateBannerSystem(GachaType.EventLightCone, "SaberEventLightConePoolConfig.json",   goldAvatars, goldLightCones, celestialGold, purpleAvatars, purpleLightCones, blueItems, hasEventPurple: false);
+
+            // 10. All-Gold banner (ordinary type with the full gold pool)
+            var allGoldRaw = DataLoader.LoadFromFile(Path.Combine(poolDir, "AllGoldPoolConfig.json"));
+            var allGoldGoldAvatars    = allGoldRaw.Where(i => i.Type == ItemType.Avatar).ToList();
+            var allGoldGoldLightCones = allGoldRaw.Where(i => i.Type == ItemType.LightCone).ToList();
+
+            allGoldSystem = GachaSystem.Create(GachaType.Ordinary);
+            allGoldSystem.LoadPools(
+                allGoldGoldAvatars, allGoldGoldLightCones,
+                celestialGoldAvatars: new List<ItemData>(),
+                eventGoldItems:   new List<ItemData>(),
+                purpleAvatars, purpleLightCones,
+                eventPurpleItems: new List<ItemData>(),
+                blueItems);
         }
 
         private GachaSystem CreateBannerSystem(
