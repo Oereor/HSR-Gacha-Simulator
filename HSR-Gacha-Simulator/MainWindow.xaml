@@ -509,6 +509,21 @@
                                        FontSize="14"
                                        VerticalAlignment="Center" />
                         </StackPanel>
+                        <!-- Missed gold stats row (hidden for ordinary banners) -->
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="14,1,0,0"
+                                    Visibility="{Binding MissedStatsVisibility}">
+                            <TextBlock Text="↳"
+                                       Foreground="#c77dff"
+                                       FontSize="13"
+                                       VerticalAlignment="Center"
+                                       Margin="0,0,4,0" />
+                            <TextBlock Text="{Binding MissedGoldStats}"
+                                       Foreground="#c77dff"
+                                       FontWeight="SemiBold"
+                                       FontSize="13"
+                                       VerticalAlignment="Center" />
+                        </StackPanel>
                         <!-- 4★ row -->
                         <StackPanel Orientation="Horizontal" Margin="0,1,0,0">
                             <TextBlock Text="★★★★"

@@ -153,6 +153,27 @@ namespace HSR_Gacha_Simulator
         /// <summary>Number of 3★ (Blue) items pulled.</summary>
         public int BlueCount => History.Count(i => i.Rarity == ItemRarity.Blue);
 
+        /// <summary>
+        /// Number of pulled 5★ items that are off-rate (not in the event gold pool).
+        /// Chinese players call this "歪" — missing the rate-up.
+        /// Returns 0 for ordinary-type banners (no event items, so there's nothing to miss).
+        /// </summary>
+        public int MissedGoldCount
+        {
+            get
+            {
+                int goldCount = History.Count(i => i.Rarity == ItemRarity.Gold);
+                int eventCount = History.Count(i => i.Rarity == ItemRarity.Gold && eventGoldItemPool.Contains(i));
+                return goldCount - eventCount;
+            }
+        }
+
+        /// <summary>
+        /// True if this banner has event gold items (Event Avatar / Event Light Cone).
+        /// Ordinary banners return false.
+        /// </summary>
+        public bool HasEventItems => eventGoldItemPool.Count > 0;
+
         // ── Internal probability constants ──────────────────────
 
         private readonly int GoldAvatarRateUpThreshold = 73;  // So that the probability should reach 100% at the 90th gacha
