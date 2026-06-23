@@ -1021,6 +1021,10 @@
       "en": "3★ Blue",
       "zh": "3★ 蓝"
     },
+    "ui.stats.missed": {
+      "en": "Missed: {0}/{1} ({2:F1}%)",
+      "zh": "歪：{0}/{1}（{2:F1}%）"
+    },
     "ui.result.default": {
       "en": "Pull to begin",
       "zh": "点击跃迁开始"

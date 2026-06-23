@@ -131,6 +131,27 @@ namespace HSR_Gacha_Simulator
             set { _blueRate = value; OnPropertyChanged(); }
         }
 
+        private string _missedGoldStats = "";
+        private Visibility _missedStatsVisibility = Visibility.Collapsed;
+
+        /// <summary>
+        /// Formatted missed-gold string, e.g. "歪: 2/5 (40.0%)" (ZH) / "Missed: 2/5 (40.0%)" (EN).
+        /// </summary>
+        public string MissedGoldStats
+        {
+            get => _missedGoldStats;
+            set { _missedGoldStats = value; OnPropertyChanged(); }
+        }
+
+        /// <summary>
+        /// Visibility for the missed-stats row. Visible for event banners, collapsed for ordinary.
+        /// </summary>
+        public Visibility MissedStatsVisibility
+        {
+            get => _missedStatsVisibility;
+            set { _missedStatsVisibility = value; OnPropertyChanged(); }
+        }
+
         // ── Result Card ─────────────────────────────────────────────
         private string _resultRarity = "";
         public string ResultRarity
@@ -363,6 +384,8 @@ namespace HSR_Gacha_Simulator
                 GoldCount = "0"; GoldRate = "  (—)";
                 PurpleCount = "0"; PurpleRate = "  (—)";
                 BlueCount = "0"; BlueRate = "  (—)";
+                MissedGoldStats = "";
+                MissedStatsVisibility = Visibility.Collapsed;
             }
             else
             {
@@ -373,6 +396,20 @@ namespace HSR_Gacha_Simulator
                 PurpleRate = $"  ({purple * 100.0 / total:F1}%)";
                 BlueCount = blue.ToString();
                 BlueRate = $"  ({blue * 100.0 / total:F1}%)";
+
+                // ── Missed gold stats ("歪") ───────────────────────
+                if (sys.HasEventItems && gold > 0)
+                {
+                    int missed = sys.MissedGoldCount;
+                    double rate = missed * 100.0 / gold;
+                    MissedGoldStats = L10n.Get("ui.stats.missed", missed, gold, rate);
+                    MissedStatsVisibility = Visibility.Visible;
+                }
+                else
+                {
+                    MissedGoldStats = "";
+                    MissedStatsVisibility = Visibility.Collapsed;
+                }
             }
         }
 
