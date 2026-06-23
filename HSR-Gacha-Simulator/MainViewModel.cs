@@ -29,6 +29,19 @@ namespace HSR_Gacha_Simulator
             set { _currentResultIndex = value; OnPropertyChanged(); }
         }
 
+        // ── Loading state ──────────────────────────────────────────
+        private bool _isLoading;
+
+        /// <summary>
+        /// True while a history reload is in progress.
+        /// Bind UI controls to this to disable them during loading.
+        /// </summary>
+        public bool IsLoading
+        {
+            get => _isLoading;
+            set { _isLoading = value; OnPropertyChanged(); }
+        }
+
         // ── Status ──────────────────────────────────────────────────
         private string _statusText = "";
         public string StatusText
@@ -241,16 +254,27 @@ namespace HSR_Gacha_Simulator
         //  Public methods — called from code-behind
         // ═══════════════════════════════════════════════════════════════
 
-        /// <summary>Switch to a different banner system.</summary>
+        /// <summary>Switch to a different banner system (synchronous — for initialisation only).</summary>
         public void SwitchBanner(GachaSystem system)
         {
             _currentSystem = system;
             CurrentResultIndex = -1;
-            ReloadAllHistory();
+            ClearHistory();
             RefreshPity();
             RefreshStatistics();
             ShowLatestOrStoredResult();
             StatusText = L10n.Get("ui.status.ready");
+        }
+
+        /// <summary>Switch to a different banner system asynchronously.</summary>
+        public async Task SwitchBannerAsync(GachaSystem system)
+        {
+            _currentSystem = system;
+            CurrentResultIndex = -1;
+            ClearResult();
+            await ReloadAllHistoryAsync();
+            RefreshPity();
+            RefreshStatistics();
         }
 
         /// <summary>Called after every pull (×1 or ×10).</summary>
@@ -294,7 +318,7 @@ namespace HSR_Gacha_Simulator
         {
             CurrentResultIndex = -1;
             ClearResult();
-            ReloadAllHistory();
+            ClearHistory();
             RefreshPity();
             RefreshStatistics();
             StatusText = L10n.Get("ui.status.banner_reset", bannerName);
@@ -315,15 +339,59 @@ namespace HSR_Gacha_Simulator
             }
         }
 
-        /// <summary>Clear and reload the entire history list.</summary>
-        public void ReloadAllHistory()
+        /// <summary>Clear the history list (used after reset when list is already empty).</summary>
+        public void ClearHistory()
         {
             HistoryItems.Clear();
-            var history = _currentSystem.History;
-            // Display newest first (highest index at top)
-            for (int i = history.Count - 1; i >= 0; i--)
+        }
+
+        /// <summary>
+        /// Asynchronously reloads the entire history list from the current
+        /// <see cref="GachaSystem.History"/>.  The heavy work (creating
+        /// <see cref="HistoryItemDisplay"/> objects) runs on a thread-pool
+        /// thread so the UI stays responsive.  The final
+        /// <see cref="ObservableCollection{T}"/> update is dispatched back
+        /// to the UI thread.
+        /// </summary>
+        public async Task ReloadAllHistoryAsync()
+        {
+            if (_currentSystem == null) return;
+
+            IsLoading = true;
+            StatusText = L10n.Get("ui.status.loading");
+
+            // Capture the history snapshot on the UI thread before
+            // dispatching to the thread pool.  This avoids cross-thread
+            // access to GachaSystem.History (which is not thread-safe).
+            var snapshot = _currentSystem.History.ToArray();
+
+            List<HistoryItemDisplay> newItems;
+
+            try
             {
-                HistoryItems.Add(HistoryItemDisplay.FromItemData(history[i], i + 1));
+                // CPU-bound work — runs off the UI thread
+                newItems = await Task.Run(() =>
+                {
+                    var list = new List<HistoryItemDisplay>(snapshot.Length);
+                    // Newest first (same ordering as the original RefreshHistory)
+                    for (int i = snapshot.Length - 1; i >= 0; i--)
+                    {
+                        list.Add(HistoryItemDisplay.FromItemData(snapshot[i], i + 1));
+                    }
+                    return list;
+                });
+
+                // UI-thread work
+                HistoryItems.Clear();
+                foreach (var item in newItems)
+                {
+                    HistoryItems.Add(item);
+                }
+            }
+            finally
+            {
+                IsLoading = false;
+                StatusText = L10n.Get("ui.status.ready");
             }
         }
 

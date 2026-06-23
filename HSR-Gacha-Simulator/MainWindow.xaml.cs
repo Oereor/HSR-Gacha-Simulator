@@ -184,7 +184,7 @@ namespace HSR_Gacha_Simulator
         //  Event handlers
         // ═══════════════════════════════════════════════════════════════
 
-        private void Banner_Changed(object sender, RoutedEventArgs e)
+        private async void Banner_Changed(object sender, RoutedEventArgs e)
         {
             if (initialising) return;
 
@@ -192,13 +192,13 @@ namespace HSR_Gacha_Simulator
             {
                 currentSystem = entry.System;
                 _currentBannerKey = entry.LocKey;
-                viewModel.SwitchBanner(currentSystem);
+                await viewModel.SwitchBannerAsync(currentSystem);
             }
         }
 
         private void BtnWarp1_Click(object sender, RoutedEventArgs e)
         {
-            if (initialising) return;
+            if (initialising || viewModel.IsLoading) return;
 
             viewModel.StatusText = L10n.Get("ui.status.pulling");
             currentSystem.Pull();
@@ -208,7 +208,7 @@ namespace HSR_Gacha_Simulator
 
         private void BtnWarp10_Click(object sender, RoutedEventArgs e)
         {
-            if (initialising) return;
+            if (initialising || viewModel.IsLoading) return;
 
             viewModel.StatusText = L10n.Get("ui.status.pulling_x10");
             currentSystem.Pull10();

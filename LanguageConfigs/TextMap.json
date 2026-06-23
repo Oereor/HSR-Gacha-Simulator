@@ -1073,6 +1073,10 @@
       "en": "L.Cone",
       "zh": "光锥"
     },
+    "ui.status.loading": {
+      "en": "Loading...",
+      "zh": "加载中..."
+    },
     "ui.status.ready": {
       "en": "Ready",
       "zh": "就绪"
