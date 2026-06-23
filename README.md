@@ -4,8 +4,9 @@ A **Honkai: Star Rail** warp (gacha) simulator built with WPF on .NET. Simulate 
 
 ## Features
 
-- **9 banners** covering the full HSR warp experience:
-  - **Ordinary** — standard banner with the full gold pool (avatars + light cones)
+- **10 banners** covering the full HSR warp experience:
+  - **Ordinary** — standard banner with the base gold pool (avatars + light cones)
+  - **All Gold (Expanded Pool)** — ordinary-type banner containing every 5★ item released so far
   - **Event Avatar** — Cyrene, Phainon, Archer, Saber
   - **Event Light Cone** — Cyrene, Phainon, Archer, Saber signature light cones
 - **Accurate probability model**:
@@ -95,7 +96,9 @@ Or open `HSR-Gacha-Simulator.slnx` in Visual Studio / JetBrains Rider and press 
 │   ├── ArcherEventAvatarPoolConfig.json
 │   ├── ArcherEventLightConePoolConfig.json
 │   ├── SaberEventAvatarPoolConfig.json
-│   └── SaberEventLightConePoolConfig.json
+│   ├── SaberEventAvatarPoolConfig.json
+│   ├── SaberEventLightConePoolConfig.json
+│   └── AllGoldPoolConfig.json              # Expanded 5★ pool (all released 5★ items)
 ├── LanguageConfigs/                      # Localization data
 │   ├── TextMap.json                      # Unified EN/ZH translation file (loaded at runtime)
 │   ├── BlueItemsTextmap.json             # Reference: 3★ light cone name translations
@@ -154,6 +157,7 @@ All gacha pools are defined as JSON files in `PoolConfigs/`. Each file is a JSON
 - **Light Cones** omit `element-type`
 - **Blue items** are all Light Cones (real 3-star Light Cones)
 - **Event banners with no rate-up purples** (Archer/Saber) have JSON files containing only the gold event item — purple pools are left empty and the system falls back to the full standard purple pool
+- **All Gold banner** (`AllGoldPoolConfig.json`) is an ordinary-type banner whose gold pool includes every 5★ avatar and light cone released — no rate-up, no 50/50, just the widest possible pool
 
 To customize pools, edit the JSON files and rebuild. The `DataLoader` reads them at runtime from the `PoolConfigs/` directory next to the executable.
 
