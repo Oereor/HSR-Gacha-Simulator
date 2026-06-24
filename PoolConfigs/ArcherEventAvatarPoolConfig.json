@@ -1,9 +1,12 @@
-[
-    {
-        "type": "Avatar",
-        "rarity": "Gold",
-        "name": "Archer",
-        "path": "TheHunt",
-        "element-type": "Quantum"
-    }
-]
+{
+    "enabled": true,
+    "items": [
+        {
+            "type": "Avatar",
+            "rarity": "Gold",
+            "name": "Archer",
+            "path": "TheHunt",
+            "element-type": "Quantum"
+        }
+    ]
+}

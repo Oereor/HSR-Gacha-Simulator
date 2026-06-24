@@ -1,8 +1,11 @@
-[
-    {
-        "type": "LightCone",
-        "rarity": "Gold",
-        "name": "A Thankless Coronation",
-        "path": "Destruction"
-    }
-]
+{
+    "enabled": true,
+    "items": [
+        {
+            "type": "LightCone",
+            "rarity": "Gold",
+            "name": "A Thankless Coronation",
+            "path": "Destruction"
+        }
+    ]
+}

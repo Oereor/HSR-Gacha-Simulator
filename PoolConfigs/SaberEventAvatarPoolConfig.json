@@ -1,9 +1,12 @@
-[
-    {
-        "type": "Avatar",
-        "rarity": "Gold",
-        "name": "Saber",
-        "path": "Destruction",
-        "element-type": "Wind"
-    }
-]
+{
+    "enabled": true,
+    "items": [
+        {
+            "type": "Avatar",
+            "rarity": "Gold",
+            "name": "Saber",
+            "path": "Destruction",
+            "element-type": "Wind"
+        }
+    ]
+}
