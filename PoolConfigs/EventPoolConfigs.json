@@ -1,0 +1,188 @@
+[
+    {
+        "banner-key":   "cyrene_avatar",
+        "banner-title": "Cyrene (Avatar)",
+        "enabled": true,
+        "items": [
+            {
+                "type": "Avatar",
+                "rarity": "Gold",
+                "name": "Cyrene",
+                "path": "Remembrance",
+                "element-type": "Ice"
+            },
+            {
+                "type": "Avatar",
+                "rarity": "Purple",
+                "name": "March 7th",
+                "path": "Preservation",
+                "element-type": "Ice"
+            },
+            {
+                "type": "Avatar",
+                "rarity": "Purple",
+                "name": "Arlan",
+                "path": "Destruction",
+                "element-type": "Lightning"
+            },
+            {
+                "type": "Avatar",
+                "rarity": "Purple",
+                "name": "Yukong",
+                "path": "Harmony",
+                "element-type": "Imaginary"
+            }
+        ]
+    },
+    {
+        "banner-key":   "cyrene_lc",
+        "banner-title": "Cyrene (LC)",
+        "enabled": true,
+        "items": [
+            {
+                "type": "LightCone",
+                "rarity": "Gold",
+                "name": "This Love, Forever",
+                "path": "Remembrance"
+            },
+            {
+                "type": "LightCone",
+                "rarity": "Purple",
+                "name": "A Serect Vow",
+                "path": "Destruction"
+            },
+            {
+                "type": "LightCone",
+                "rarity": "Purple",
+                "name": "Subscribe for More!",
+                "path": "TheHunt"
+            },
+            {
+                "type": "LightCone",
+                "rarity": "Purple",
+                "name": "Dance! Dance! Dance!",
+                "path": "Harmony"
+            }
+        ]
+    },
+    {
+        "banner-key":   "phainon_avatar",
+        "banner-title": "Phainon (Avatar)",
+        "enabled": true,
+        "items": [
+            {
+                "type": "Avatar",
+                "rarity": "Gold",
+                "name": "Phainon",
+                "path": "Destruction",
+                "element-type": "Physical"
+            },
+            {
+                "type": "Avatar",
+                "rarity": "Purple",
+                "name": "March 7th",
+                "path": "Preservation",
+                "element-type": "Ice"
+            },
+            {
+                "type": "Avatar",
+                "rarity": "Purple",
+                "name": "Arlan",
+                "path": "Destruction",
+                "element-type": "Lightning"
+            },
+            {
+                "type": "Avatar",
+                "rarity": "Purple",
+                "name": "Yukong",
+                "path": "Harmony",
+                "element-type": "Imaginary"
+            }
+        ]
+    },
+    {
+        "banner-key":   "phainon_lc",
+        "banner-title": "Phainon (LC)",
+        "enabled": true,
+        "items": [
+            {
+                "type": "LightCone",
+                "rarity": "Gold",
+                "name": "Thus Burns the Dawn",
+                "path": "Destruction"
+            },
+            {
+                "type": "LightCone",
+                "rarity": "Purple",
+                "name": "A Serect Vow",
+                "path": "Destruction"
+            },
+            {
+                "type": "LightCone",
+                "rarity": "Purple",
+                "name": "Subscribe for More!",
+                "path": "TheHunt"
+            },
+            {
+                "type": "LightCone",
+                "rarity": "Purple",
+                "name": "Dance! Dance! Dance!",
+                "path": "Harmony"
+            }
+        ]
+    },
+    {
+        "banner-key":   "archer_avatar",
+        "banner-title": "Archer (Avatar)",
+        "enabled": true,
+        "items": [
+            {
+                "type": "Avatar",
+                "rarity": "Gold",
+                "name": "Archer",
+                "path": "TheHunt",
+                "element-type": "Quantum"
+            }
+        ]
+    },
+    {
+        "banner-key":   "archer_lc",
+        "banner-title": "Archer (LC)",
+        "enabled": true,
+        "items": [
+            {
+                "type": "LightCone",
+                "rarity": "Gold",
+                "name": "The Hell Where Ideals Burn",
+                "path": "TheHunt"
+            }
+        ]
+    },
+    {
+        "banner-key":   "saber_avatar",
+        "banner-title": "Saber (Avatar)",
+        "enabled": true,
+        "items": [
+            {
+                "type": "Avatar",
+                "rarity": "Gold",
+                "name": "Saber",
+                "path": "Destruction",
+                "element-type": "Wind"
+            }
+        ]
+    },
+    {
+        "banner-key":   "saber_lc",
+        "banner-title": "Saber (LC)",
+        "enabled": true,
+        "items": [
+            {
+                "type": "LightCone",
+                "rarity": "Gold",
+                "name": "A Thankless Coronation",
+                "path": "Destruction"
+            }
+        ]
+    }
+]

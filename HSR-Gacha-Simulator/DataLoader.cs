@@ -28,6 +28,41 @@ namespace HSR_Gacha_Simulator
             return items;
         }
 
+        /// <summary>
+        /// Loads the consolidated event pool config file and returns a list of
+        /// parsed banner descriptors (only entries with <c>enabled: true</c>).
+        /// </summary>
+        public static List<EventPoolConfigEntry> LoadEventPoolConfigs(string filePath)
+        {
+            string json = File.ReadAllText(filePath);
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            var dtos = JsonSerializer.Deserialize<List<EventPoolEntryDto>>(json, options);
+
+            if (dtos == null)
+                return new List<EventPoolConfigEntry>();
+
+            var entries = new List<EventPoolConfigEntry>();
+            foreach (var dto in dtos)
+            {
+                if (!dto.Enabled)
+                    continue;
+
+                var items = new List<ItemData>(dto.Items.Count);
+                foreach (var itemDto in dto.Items)
+                {
+                    items.Add(ToItemData(itemDto));
+                }
+
+                entries.Add(new EventPoolConfigEntry
+                {
+                    BannerKey   = dto.BannerKey,
+                    BannerTitle = dto.BannerTitle,
+                    Items       = items
+                });
+            }
+            return entries;
+        }
+
         private static ItemData ToItemData(ItemDataDto dto)
         {
             return new ItemData
@@ -70,6 +105,22 @@ namespace HSR_Gacha_Simulator
 
             [JsonPropertyName("element-type")]
             public string? ElementType { get; set; }
+        }
+
+        /// <summary>DTO for a single banner entry in EventPoolConfigs.json.</summary>
+        private class EventPoolEntryDto
+        {
+            [JsonPropertyName("banner-key")]
+            public string BannerKey { get; set; } = "";
+
+            [JsonPropertyName("banner-title")]
+            public string BannerTitle { get; set; } = "";
+
+            [JsonPropertyName("enabled")]
+            public bool Enabled { get; set; }
+
+            [JsonPropertyName("items")]
+            public List<ItemDataDto> Items { get; set; } = new();
         }
     }
 }

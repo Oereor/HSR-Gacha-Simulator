@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Media;
@@ -16,8 +17,28 @@ namespace HSR_Gacha_Simulator
         // ── Localisation shorthand ──────────────────────────────────
         private static LocalizationService L10n => LocalizationService.Instance;
 
-        // ── Current system ──────────────────────────────────────────
-        private GachaSystem _currentSystem = null!;
+        // ── Banners ─────────────────────────────────────────────────
+        /// <summary>All banners shown in the horizontal scroll strip, in display order.</summary>
+        public ObservableCollection<BannerInfo> Banners { get; } = new();
+
+        private BannerInfo? _selectedBanner;
+        private bool _initialising;
+
+        /// <summary>The currently selected banner. Set by the ListBox binding.</summary>
+        public BannerInfo? SelectedBanner
+        {
+            get => _selectedBanner;
+            set
+            {
+                if (_selectedBanner == value) return;
+                _selectedBanner = value;
+                OnPropertyChanged();
+                if (!_initialising)
+                    OnBannerSwitched(value);
+            }
+        }
+
+        private GachaSystem CurrentSystem => _selectedBanner?.System ?? Banners[0].System;
 
         // ── History ─────────────────────────────────────────────────
         public ObservableCollection<HistoryItemDisplay> HistoryItems { get; } = new();
@@ -272,30 +293,126 @@ namespace HSR_Gacha_Simulator
         }
 
         // ═══════════════════════════════════════════════════════════════
+        //  Initialisation
+        // ═══════════════════════════════════════════════════════════════
+
+        public void InitializeSystems()
+        {
+            _initialising = true;
+
+            string poolDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PoolConfigs");
+
+            // ── Load shared pools ─────────────────────────────────────
+            var ordinaryGoldRaw   = DataLoader.LoadFromFile(Path.Combine(poolDir, "OrdinaryGoldPoolConfig.json"));
+            var ordinaryPurpleRaw = DataLoader.LoadFromFile(Path.Combine(poolDir, "OrdinaryPurplePoolConfig.json"));
+            var celestialGoldRaw  = DataLoader.LoadFromFile(Path.Combine(poolDir, "CelestialGoldPoolConfig.json"));
+            var blueRaw           = DataLoader.LoadFromFile(Path.Combine(poolDir, "BluePoolConfig.json"));
+            var allGoldRaw        = DataLoader.LoadFromFile(Path.Combine(poolDir, "AllGoldPoolConfig.json"));
+
+            var goldAvatars       = ordinaryGoldRaw.Where(i => i.Type == ItemType.Avatar).ToList();
+            var goldLightCones    = ordinaryGoldRaw.Where(i => i.Type == ItemType.LightCone).ToList();
+            var purpleAvatars     = ordinaryPurpleRaw.Where(i => i.Type == ItemType.Avatar).ToList();
+            var purpleLightCones  = ordinaryPurpleRaw.Where(i => i.Type == ItemType.LightCone).ToList();
+            var blueItems         = blueRaw.Where(i => i.Rarity == ItemRarity.Blue).ToList();
+            var allGoldAvatars    = allGoldRaw.Where(i => i.Type == ItemType.Avatar).ToList();
+            var allGoldLightCones = allGoldRaw.Where(i => i.Type == ItemType.LightCone).ToList();
+
+            // ── Helper: create a system ───────────────────────────────
+            GachaSystem CreateSystem(GachaType type,
+                List<ItemData> eventGold, List<ItemData> eventPurple,
+                List<ItemData>? celestial = null)
+            {
+                var sys = GachaSystem.Create(type);
+                sys.LoadPools(goldAvatars, goldLightCones,
+                    celestial ?? new List<ItemData>(),
+                    eventGold, purpleAvatars, purpleLightCones,
+                    eventPurple, blueItems);
+                return sys;
+            }
+
+            // ── Ordinary ──────────────────────────────────────────────
+            Banners.Add(new BannerInfo
+            {
+                System = CreateSystem(GachaType.Ordinary,
+                    new List<ItemData>(), new List<ItemData>()),
+                BannerKey = "ordinary", BannerTitle = "Ordinary",
+                GachaType = GachaType.Ordinary
+            });
+
+            // ── All Gold ──────────────────────────────────────────────
+            Banners.Add(new BannerInfo
+            {
+                System = CreateSystem(GachaType.Ordinary,
+                    new List<ItemData>(), new List<ItemData>()),
+                BannerKey = "all_gold", BannerTitle = "All Gold (Expanded Pool)",
+                GachaType = GachaType.Ordinary
+            });
+            // Patch the All-Gold system's gold pools after creation
+            var agSys = Banners[^1].System;
+            agSys.LoadPools(allGoldAvatars, allGoldLightCones,
+                new List<ItemData>(), new List<ItemData>(),
+                purpleAvatars, purpleLightCones,
+                new List<ItemData>(), blueItems);
+
+            // ── Event banners (data-driven) ───────────────────────────
+            var eventConfigs = DataLoader.LoadEventPoolConfigs(
+                Path.Combine(poolDir, "EventPoolConfigs.json"));
+
+            foreach (var config in eventConfigs)
+            {
+                var goldItems = config.Items.Where(i => i.Rarity == ItemRarity.Gold).ToList();
+                if (goldItems.Count == 0) continue;
+
+                GachaType gachaType = goldItems.Any(i => i.Type == ItemType.Avatar)
+                    ? GachaType.EventAvatar
+                    : GachaType.EventLightCone;
+
+                var eventGold   = config.Items.Where(i => i.Rarity == ItemRarity.Gold).ToList();
+                var eventPurple = config.Items.Where(i => i.Rarity == ItemRarity.Purple).ToList();
+
+                Banners.Add(new BannerInfo
+                {
+                    System = CreateSystem(gachaType, eventGold, eventPurple,
+                        celestial: gachaType == GachaType.EventAvatar ? celestialGoldRaw : null),
+                    BannerKey   = config.BannerKey,
+                    BannerTitle = config.BannerTitle,
+                    GachaType   = gachaType
+                });
+            }
+
+            // Select the first banner by default
+            if (Banners.Count > 0)
+                _selectedBanner = Banners[0];
+
+            _initialising = false;
+        }
+
+        // ═══════════════════════════════════════════════════════════════
         //  Public methods — called from code-behind
         // ═══════════════════════════════════════════════════════════════
 
-        /// <summary>Switch to a different banner system (synchronous — for initialisation only).</summary>
-        public void SwitchBanner(GachaSystem system)
+        public string CurrentBannerKey => _selectedBanner?.BannerKey ?? "ordinary";
+
+        /// <summary>Perform a pull (×1 or ×10).</summary>
+        public void Pull(int count)
         {
-            _currentSystem = system;
-            CurrentResultIndex = -1;
-            ClearHistory();
-            RefreshPity();
-            RefreshStatistics();
-            ShowLatestOrStoredResult();
-            StatusText = L10n.Get("ui.status.ready");
+            if (count == 1)
+            {
+                CurrentSystem.Pull();
+            }
+            else
+            {
+                CurrentSystem.Pull10();
+            }
+            CurrentResultIndex = CurrentSystem.History.Count - 1;
+            AfterPull(count);
         }
 
-        /// <summary>Switch to a different banner system asynchronously.</summary>
-        public async Task SwitchBannerAsync(GachaSystem system)
+        /// <summary>Reset the current banner (called from code-behind after confirmation).</summary>
+        public void ResetCurrentBanner()
         {
-            _currentSystem = system;
-            CurrentResultIndex = -1;
-            ClearResult();
-            await ReloadAllHistoryAsync();
-            RefreshPity();
-            RefreshStatistics();
+            CurrentSystem.Reset();
+            ResetBanner(L10n.Get($"ui.banner.{CurrentBannerKey}"));
         }
 
         /// <summary>Called after every pull (×1 or ×10).</summary>
@@ -311,12 +428,12 @@ namespace HSR_Gacha_Simulator
         /// <summary>Navigate to previous result in history.</summary>
         public void NavigatePrev()
         {
-            if (_currentSystem.History.Count == 0)
+            if (CurrentSystem.History.Count == 0)
                 return;
 
             int idx = CurrentResultIndex - 1;
             if (idx < 0)
-                idx = _currentSystem.History.Count - 1;
+                idx = CurrentSystem.History.Count - 1;
 
             ShowResult(idx);
         }
@@ -324,11 +441,11 @@ namespace HSR_Gacha_Simulator
         /// <summary>Navigate to next result in history.</summary>
         public void NavigateNext()
         {
-            if (_currentSystem.History.Count == 0)
+            if (CurrentSystem.History.Count == 0)
                 return;
 
             int idx = CurrentResultIndex + 1;
-            if (idx >= _currentSystem.History.Count)
+            if (idx >= CurrentSystem.History.Count)
                 idx = 0;
 
             ShowResult(idx);
@@ -345,6 +462,17 @@ namespace HSR_Gacha_Simulator
             StatusText = L10n.Get("ui.status.banner_reset", bannerName);
         }
 
+        private void OnBannerSwitched(BannerInfo? banner)
+        {
+            if (banner == null) return;
+            CurrentResultIndex = -1;
+            ClearResult();
+            _ = ReloadAllHistoryAsync();
+            RefreshPity();
+            RefreshStatistics();
+            StatusText = L10n.Get("ui.status.ready");
+        }
+
         // ═══════════════════════════════════════════════════════════════
         //  History helpers
         // ═══════════════════════════════════════════════════════════════
@@ -352,7 +480,7 @@ namespace HSR_Gacha_Simulator
         /// <summary>Append the most recent <paramref name="count"/> pulls to the top of the list.</summary>
         public void AppendNewHistoryItems(int count)
         {
-            var history = _currentSystem.History;
+            var history = CurrentSystem.History;
             // 'count' new items were added to the end of History
             for (int i = history.Count - count; i < history.Count; i++)
             {
@@ -376,7 +504,8 @@ namespace HSR_Gacha_Simulator
         /// </summary>
         public async Task ReloadAllHistoryAsync()
         {
-            if (_currentSystem == null) return;
+            var sys = CurrentSystem;
+            if (sys == null) return;
 
             IsLoading = true;
             StatusText = L10n.Get("ui.status.loading");
@@ -384,7 +513,7 @@ namespace HSR_Gacha_Simulator
             // Capture the history snapshot on the UI thread before
             // dispatching to the thread pool.  This avoids cross-thread
             // access to GachaSystem.History (which is not thread-safe).
-            var snapshot = _currentSystem.History.ToArray();
+            var snapshot = sys.History.ToArray();
 
             List<HistoryItemDisplay> newItems;
 
@@ -422,7 +551,7 @@ namespace HSR_Gacha_Simulator
 
         public void RefreshPity()
         {
-            var sys = _currentSystem;
+            var sys = CurrentSystem;
 
             GoldPity = sys.NonGoldGachaCount.ToString();
             GoldGuarantee = sys.IsGuaranteed
@@ -443,7 +572,7 @@ namespace HSR_Gacha_Simulator
 
         public void RefreshStatistics()
         {
-            var sys = _currentSystem;
+            var sys = CurrentSystem;
             int total = sys.TotalPulls;
             TotalPulls = L10n.Get("ui.stats.total_pulls", total);
 
@@ -487,7 +616,7 @@ namespace HSR_Gacha_Simulator
 
         public void ShowResult(int index)
         {
-            var sys = _currentSystem;
+            var sys = CurrentSystem;
             if (sys.History.Count == 0 || index < 0 || index >= sys.History.Count)
             {
                 ClearResult();
@@ -568,14 +697,15 @@ namespace HSR_Gacha_Simulator
 
         private void ShowLatestOrStoredResult()
         {
-            if (_currentSystem.History.Count == 0)
+            var sys = CurrentSystem;
+            if (sys.History.Count == 0)
             {
                 ClearResult();
                 return;
             }
 
-            if (CurrentResultIndex < 0 || CurrentResultIndex >= _currentSystem.History.Count)
-                CurrentResultIndex = _currentSystem.History.Count - 1;
+            if (CurrentResultIndex < 0 || CurrentResultIndex >= sys.History.Count)
+                CurrentResultIndex = sys.History.Count - 1;
 
             ShowResult(CurrentResultIndex);
         }
@@ -590,5 +720,47 @@ namespace HSR_Gacha_Simulator
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+    }
+
+    // ═══════════════════════════════════════════════════════════════════
+    //  BannerInfo — ViewModel for one selectable banner pill
+    // ═══════════════════════════════════════════════════════════════════
+
+    /// <summary>
+    /// ViewModel for one selectable banner in the horizontal scroll strip.
+    /// </summary>
+    public class BannerInfo : INotifyPropertyChanged
+    {
+        private bool _isSelected;
+
+        /// <summary>The GachaSystem backing this banner.</summary>
+        public GachaSystem System { get; set; } = null!;
+
+        /// <summary>Stable key for localization, e.g. "cyrene_avatar".</summary>
+        public string BannerKey { get; set; } = "";
+
+        /// <summary>English display title, e.g. "Cyrene (Avatar)" — fallback if loc key missing.</summary>
+        public string BannerTitle { get; set; } = "";
+
+        /// <summary>True when this banner is the currently active one.</summary>
+        public bool IsSelected
+        {
+            get => _isSelected;
+            set { _isSelected = value; OnPropertyChanged(); }
+        }
+
+        /// <summary>Avatar or LightCone — determines probability model.</summary>
+        public GachaType GachaType { get; set; }
+
+        /// <summary>Localized display name for live language switching.</summary>
+        public string DisplayName =>
+            LocalizationService.Instance[$"ui.banner.{BannerKey}"] is string loc && loc != $"ui.banner.{BannerKey}"
+                ? loc
+                : BannerTitle;
+
+        // ── INotifyPropertyChanged ──────────────────────────────
+        public event PropertyChangedEventHandler? PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string? name = null)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 }

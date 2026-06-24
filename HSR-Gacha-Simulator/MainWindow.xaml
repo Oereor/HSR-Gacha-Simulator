@@ -9,7 +9,7 @@
         Height="750" Width="850"
         MinHeight="550" MinWidth="700"
         Background="#1a1a2e"
-        Language="zh-CN"
+        FontFamily="Microsoft YaHei"
         WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
@@ -99,38 +99,6 @@
                     <Setter Property="Background" Value="#4a4a8e" />
                 </Trigger>
             </Style.Triggers>
-        </Style>
-
-        <Style x:Key="RadioBannerStyle" TargetType="RadioButton">
-            <Setter Property="Foreground"       Value="#c0c0c0" />
-            <Setter Property="FontSize"         Value="14" />
-            <Setter Property="FontWeight"       Value="SemiBold" />
-            <Setter Property="Margin"           Value="8,0" />
-            <Setter Property="Cursor"           Value="Hand" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="RadioButton">
-                        <Border x:Name="border"
-                                Background="#16213e"
-                                BorderBrush="#3a3a6e"
-                                BorderThickness="1"
-                                CornerRadius="4"
-                                Padding="16,6">
-                            <ContentPresenter HorizontalAlignment="Center"
-                                              VerticalAlignment="Center" />
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#3a3a6e" />
-                                <Setter TargetName="border" Property="BorderBrush" Value="#ffd700" />
-                            </Trigger>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="BorderBrush" Value="#5a5a8e" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
         </Style>
 
         <Style TargetType="ListView">
@@ -333,75 +301,97 @@
                     <RowDefinition Height="*" />      <!-- 3: Pull History -->
                 </Grid.RowDefinitions>
 
-            <!-- ── Row 0 : Banner Selection ──────────────────────── -->
+            <!-- ── Row 0 : Banner Selection (horizontal scroll strip) ── -->
             <GroupBox Grid.Row="0"
-                      Header="{local:Loc ui.group.banner_selection}">
-                <StackPanel>
-                    <!-- Event Warps row -->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <RadioButton x:Name="rbOrdinary"
-                                     Content="{local:Loc ui.banner.ordinary}"
-                                     Style="{StaticResource RadioBannerStyle}"
-                                     GroupName="Banner"
-                                     IsChecked="True"
-                                     Checked="Banner_Changed" />
-                        <RadioButton x:Name="rbCyreneAvatar"
-                                     Content="{local:Loc ui.banner.cyrene_avatar}"
-                                     Style="{StaticResource RadioBannerStyle}"
-                                     GroupName="Banner"
-                                     Checked="Banner_Changed" />
-                        <RadioButton x:Name="rbPhainonAvatar"
-                                     Content="{local:Loc ui.banner.phainon_avatar}"
-                                     Style="{StaticResource RadioBannerStyle}"
-                                     GroupName="Banner"
-                                     Checked="Banner_Changed" />
-                        <RadioButton x:Name="rbCyreneLC"
-                                     Content="{local:Loc ui.banner.cyrene_lc}"
-                                     Style="{StaticResource RadioBannerStyle}"
-                                     GroupName="Banner"
-                                     Checked="Banner_Changed" />
-                        <RadioButton x:Name="rbPhainonLC"
-                                     Content="{local:Loc ui.banner.phainon_lc}"
-                                     Style="{StaticResource RadioBannerStyle}"
-                                     GroupName="Banner"
-                                     Checked="Banner_Changed" />
-                    </StackPanel>
+                      Header="{local:Loc ui.group.banner_selection}"
+                      Padding="8,6">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
 
-                    <!-- Collab Warps row -->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
-                                Margin="0,6,0,0">
-                        <RadioButton x:Name="rbArcherAvatar"
-                                     Content="{local:Loc ui.banner.archer_avatar}"
-                                     Style="{StaticResource RadioBannerStyle}"
-                                     GroupName="Banner"
-                                     Checked="Banner_Changed" />
-                        <RadioButton x:Name="rbArcherLC"
-                                     Content="{local:Loc ui.banner.archer_lc}"
-                                     Style="{StaticResource RadioBannerStyle}"
-                                     GroupName="Banner"
-                                     Checked="Banner_Changed" />
-                        <RadioButton x:Name="rbSaberAvatar"
-                                     Content="{local:Loc ui.banner.saber_avatar}"
-                                     Style="{StaticResource RadioBannerStyle}"
-                                     GroupName="Banner"
-                                     Checked="Banner_Changed" />
-                        <RadioButton x:Name="rbSaberLC"
-                                     Content="{local:Loc ui.banner.saber_lc}"
-                                     Style="{StaticResource RadioBannerStyle}"
-                                     GroupName="Banner"
-                                     Checked="Banner_Changed" />
-                    </StackPanel>
+                    <!-- Left scroll arrow -->
+                    <Button Grid.Column="0"
+                            Content="◀"
+                            Style="{StaticResource NavButtonStyle}"
+                            Width="28" Height="28"
+                            Padding="0"
+                            FontSize="12"
+                            VerticalAlignment="Center"
+                            Click="BannerScrollLeft_Click" />
 
-                    <!-- All Gold row -->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
-                                Margin="0,6,0,0">
-                        <RadioButton x:Name="rbAllGold"
-                                     Content="{local:Loc ui.banner.all_gold}"
-                                     Style="{StaticResource RadioBannerStyle}"
-                                     GroupName="Banner"
-                                     Checked="Banner_Changed" />
-                    </StackPanel>
-                </StackPanel>
+                    <!-- Scrollable banner list -->
+                    <ScrollViewer Grid.Column="1"
+                                  x:Name="BannerScrollViewer"
+                                  HorizontalScrollBarVisibility="Hidden"
+                                  VerticalScrollBarVisibility="Disabled"
+                                  PreviewMouseWheel="BannerScroll_MouseWheel"
+                                  Margin="6,0">
+                        <ListBox x:Name="BannerListBox"
+                                 ItemsSource="{Binding Banners}"
+                                 SelectedItem="{Binding SelectedBanner}"
+                                 BorderThickness="0"
+                                 Background="Transparent">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="Background" Value="Transparent" />
+                                    <Setter Property="Padding" Value="0" />
+                                    <Setter Property="Margin" Value="3,0" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="ListBoxItem">
+                                                <ContentPresenter />
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <!-- Pill button bound to BannerInfo -->
+                                    <Border x:Name="pill"
+                                            Background="#16213e"
+                                            BorderBrush="#3a3a6e"
+                                            BorderThickness="1"
+                                            CornerRadius="14"
+                                            Padding="14,5"
+                                            Cursor="Hand">
+                                        <TextBlock Text="{Binding DisplayName}"
+                                                   Foreground="#c0c0c0"
+                                                   FontSize="13"
+                                                   FontWeight="SemiBold"
+                                                   VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center" />
+                                    </Border>
+                                    <DataTemplate.Triggers>
+                                        <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                                            <Setter TargetName="pill" Property="Background" Value="#3a3a6e" />
+                                            <Setter TargetName="pill" Property="BorderBrush" Value="#ffd700" />
+                                            <Setter TargetName="pill" Property="TextBlock.Foreground" Value="#ffffff" />
+                                        </DataTrigger>
+                                    </DataTemplate.Triggers>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>
+
+                    <!-- Right scroll arrow -->
+                    <Button Grid.Column="2"
+                            Content="▶"
+                            Style="{StaticResource NavButtonStyle}"
+                            Width="28" Height="28"
+                            Padding="0"
+                            FontSize="12"
+                            VerticalAlignment="Center"
+                            Click="BannerScrollRight_Click" />
+                </Grid>
             </GroupBox>
 
             <!-- ── Row 1 : Pull Controls + Statistics side by side ── -->

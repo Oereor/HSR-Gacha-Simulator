@@ -14,14 +14,6 @@
       <Link>PoolConfigs\BluePoolConfig.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\PoolConfigs\CyreneEventAvatarPoolConfig.json">
-      <Link>PoolConfigs\CyreneEventAvatarPoolConfig.json</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\PoolConfigs\CyreneEventLightConePoolConfig.json">
-      <Link>PoolConfigs\CyreneEventLightConePoolConfig.json</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\PoolConfigs\OrdinaryGoldPoolConfig.json">
       <Link>PoolConfigs\OrdinaryGoldPoolConfig.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -30,36 +22,16 @@
       <Link>PoolConfigs\OrdinaryPurplePoolConfig.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\PoolConfigs\PhainonEventAvatarPoolConfig.json">
-      <Link>PoolConfigs\PhainonEventAvatarPoolConfig.json</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\PoolConfigs\PhainonEventLightConePoolConfig.json">
-      <Link>PoolConfigs\PhainonEventLightConePoolConfig.json</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\PoolConfigs\CelestialGoldPoolConfig.json">
       <Link>PoolConfigs\CelestialGoldPoolConfig.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\PoolConfigs\ArcherEventAvatarPoolConfig.json">
-      <Link>PoolConfigs\ArcherEventAvatarPoolConfig.json</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\PoolConfigs\ArcherEventLightConePoolConfig.json">
-      <Link>PoolConfigs\ArcherEventLightConePoolConfig.json</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\PoolConfigs\SaberEventAvatarPoolConfig.json">
-      <Link>PoolConfigs\SaberEventAvatarPoolConfig.json</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\PoolConfigs\SaberEventLightConePoolConfig.json">
-      <Link>PoolConfigs\SaberEventLightConePoolConfig.json</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\PoolConfigs\AllGoldPoolConfig.json">
       <Link>PoolConfigs\AllGoldPoolConfig.json</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\PoolConfigs\EventPoolConfigs.json">
+      <Link>PoolConfigs\EventPoolConfigs.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\LanguageConfigs\TextMap.json">
