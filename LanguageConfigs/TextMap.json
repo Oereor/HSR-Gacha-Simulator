@@ -999,11 +999,11 @@
     },
     "ui.pity.guaranteed": {
       "en": "✅ Guaranteed",
-      "zh": "✅ 已保底"
+      "zh": "✅ 大保底"
     },
     "ui.pity.not_guaranteed": {
       "en": "Not Guaranteed",
-      "zh": "未保底"
+      "zh": "小保底"
     },
     "ui.stats.total_pulls": {
       "en": "Total Pulls: {0}",
