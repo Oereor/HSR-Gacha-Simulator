@@ -9,6 +9,7 @@
         Height="750" Width="850"
         MinHeight="550" MinWidth="700"
         Background="#1a1a2e"
+        Language="zh-CN"
         WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
