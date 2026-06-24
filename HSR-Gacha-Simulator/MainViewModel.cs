@@ -31,7 +31,11 @@ namespace HSR_Gacha_Simulator
             set
             {
                 if (_selectedBanner == value) return;
+                if (_selectedBanner != null)
+                    _selectedBanner.IsSelected = false;
                 _selectedBanner = value;
+                if (_selectedBanner != null)
+                    _selectedBanner.IsSelected = true;
                 OnPropertyChanged();
                 if (!_initialising)
                     OnBannerSwitched(value);
@@ -380,11 +384,11 @@ namespace HSR_Gacha_Simulator
                 });
             }
 
-            // Select the first banner by default
-            if (Banners.Count > 0)
-                _selectedBanner = Banners[0];
-
             _initialising = false;
+
+            // Select the first banner by default (via the setter so IsSelected propagates)
+            if (Banners.Count > 0)
+                SelectedBanner = Banners[0];
         }
 
         // ═══════════════════════════════════════════════════════════════

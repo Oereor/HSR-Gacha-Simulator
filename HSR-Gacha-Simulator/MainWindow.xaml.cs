@@ -27,8 +27,6 @@ namespace HSR_Gacha_Simulator
             {
                 viewModel.InitializeSystems();
                 initialising = false;
-                // Trigger the initial banner switch now that we're ready
-                viewModel.SelectedBanner = viewModel.Banners[0];
             }
             catch (Exception ex)
             {
@@ -44,6 +42,12 @@ namespace HSR_Gacha_Simulator
         // ═══════════════════════════════════════════════════════════════
         //  Scroll handlers
         // ═══════════════════════════════════════════════════════════════
+
+        /// <summary>Suppress WPF auto-scroll when ListBox selection changes.</summary>
+        private void BannerListBox_RequestBringIntoView(object sender, RequestBringIntoViewEventArgs e)
+        {
+            e.Handled = true;
+        }
 
         private void BannerScrollLeft_Click(object sender, RoutedEventArgs e)
         {

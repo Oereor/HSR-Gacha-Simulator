@@ -333,7 +333,8 @@
                                  ItemsSource="{Binding Banners}"
                                  SelectedItem="{Binding SelectedBanner}"
                                  BorderThickness="0"
-                                 Background="Transparent">
+                                 Background="Transparent"
+                                 RequestBringIntoView="BannerListBox_RequestBringIntoView">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <StackPanel Orientation="Horizontal" />
