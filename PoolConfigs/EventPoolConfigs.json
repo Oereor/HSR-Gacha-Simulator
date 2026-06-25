@@ -316,5 +316,113 @@
                 "name": "Memories of the Past"
             }
         ]
+    },
+    {
+        "banner-key":   "hyacine_avatar",
+        "banner-title": "Hyacine (Avatar)",
+        "enabled": true,
+        "items": [
+            {
+                "type": "Avatar",
+                "rarity": "Gold",
+                "name": "Hyacine"
+            },
+            {
+                "type": "Avatar",
+                "rarity": "Purple",
+                "name": "Serval"
+            },
+            {
+                "type": "Avatar",
+                "rarity": "Purple",
+                "name": "Natasha"
+            },
+            {
+                "type": "Avatar",
+                "rarity": "Purple",
+                "name": "Misha"
+            }
+        ]
+    },
+    {
+        "banner-key":   "hyacine_lc",
+        "banner-title": "Hyacine (LC)",
+        "enabled": true,
+        "items": [
+            {
+                "type": "LightCone",
+                "rarity": "Gold",
+                "name": "Long May Rainbows Adorn the Sky"
+            },
+            {
+                "type": "LightCone",
+                "rarity": "Purple",
+                "name": "Make the World Clamor"
+            },
+            {
+                "type": "LightCone",
+                "rarity": "Purple",
+                "name": "Shadowed by Night"
+            },
+            {
+                "type": "LightCone",
+                "rarity": "Purple",
+                "name": "Day One of My New Life"
+            }
+        ]
+    },
+    {
+        "banner-key":   "silverWolfLv999_avatar",
+        "banner-title": "Silver Wolf LV.999 (Avatar)",
+        "enabled": true,
+        "items": [
+            {
+                "type": "Avatar",
+                "rarity": "Gold",
+                "name": "Silver Wolf LV.999"
+            },
+            {
+                "type": "Avatar",
+                "rarity": "Purple",
+                "name": "Hook"
+            },
+            {
+                "type": "Avatar",
+                "rarity": "Purple",
+                "name": "Xueyi"
+            },
+            {
+                "type": "Avatar",
+                "rarity": "Purple",
+                "name": "Gallagher"
+            }
+        ]
+    },
+    {
+        "banner-key":   "silverWolfLv999_lc",
+        "banner-title": "Silver Wolf LV.999 (LC)",
+        "enabled": true,
+        "items": [
+            {
+                "type": "LightCone",
+                "rarity": "Gold",
+                "name": "Welcome to the Cosmic City"
+            },
+            {
+                "type": "LightCone",
+                "rarity": "Purple",
+                "name": "Poised to Bloom"
+            },
+            {
+                "type": "LightCone",
+                "rarity": "Purple",
+                "name": "Indelible Promise"
+            },
+            {
+                "type": "LightCone",
+                "rarity": "Purple",
+                "name": "Eyes of the Prey"
+            }
+        ]
     }
 ]

@@ -969,6 +969,21 @@
       "en": "Firefly (LC)",
       "zh": "流萤（光锥）"
     },
+    "ui.banner.hyacine_avatar": {
+      "en": "Hyacine (Avatar)",
+      "zh": "风堇（角色）"
+    },
+    "ui.banner.hyacine_lc": {
+      "en": "Hyacine (LC)",
+      "zh": "风堇（光锥）"
+    },"ui.banner.silverWolfLv999_avatar": {
+      "en": "Silver Wolf LV.999 (Avatar)",
+      "zh": "银狼 LV.999（角色）"
+    },
+    "ui.banner.silverWolfLv999_lc": {
+      "en": "Silver Wolf LV.999 (LC)",
+      "zh": "银狼 LV.999（光锥）"
+    },
     "ui.banner.all_gold": {
       "en": "All Gold (Expanded Pool)",
       "zh": "全五星（扩充池）"
