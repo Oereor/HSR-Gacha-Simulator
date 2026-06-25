@@ -31,11 +31,9 @@ namespace HSR_Gacha_Simulator
             set
             {
                 if (_selectedBanner == value) return;
-                if (_selectedBanner != null)
-                    _selectedBanner.IsSelected = false;
+                _selectedBanner?.IsSelected = false;
                 _selectedBanner = value;
-                if (_selectedBanner != null)
-                    _selectedBanner.IsSelected = true;
+                _selectedBanner?.IsSelected = true;
                 OnPropertyChanged();
                 if (!_initialising)
                     OnBannerSwitched(value);
