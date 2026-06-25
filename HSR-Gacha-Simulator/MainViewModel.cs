@@ -359,8 +359,14 @@ namespace HSR_Gacha_Simulator
                 new List<ItemData>(), blueItems);
 
             // ── Event banners (data-driven) ───────────────────────────
+            // Build master lookup from the Gold + Purple full-data files
+            var masterLookup = DataLoader.BuildMasterLookup(
+                Path.Combine(poolDir, "AllGoldPoolConfig.json"),
+                Path.Combine(poolDir, "OrdinaryPurplePoolConfig.json"));
+
             var eventConfigs = DataLoader.LoadEventPoolConfigs(
-                Path.Combine(poolDir, "EventPoolConfigs.json"));
+                Path.Combine(poolDir, "EventPoolConfigs.json"),
+                masterLookup);
 
             foreach (var config in eventConfigs)
             {

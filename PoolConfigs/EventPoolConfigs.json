@@ -2,186 +2,318 @@
     {
         "banner-key":   "cyrene_avatar",
         "banner-title": "Cyrene (Avatar)",
-        "enabled": true,
+        "enabled": false,
         "items": [
             {
                 "type": "Avatar",
                 "rarity": "Gold",
-                "name": "Cyrene",
-                "path": "Remembrance",
-                "element-type": "Ice"
+                "name": "Cyrene"
             },
             {
                 "type": "Avatar",
                 "rarity": "Purple",
-                "name": "March 7th",
-                "path": "Preservation",
-                "element-type": "Ice"
+                "name": "March 7th"
             },
             {
                 "type": "Avatar",
                 "rarity": "Purple",
-                "name": "Arlan",
-                "path": "Destruction",
-                "element-type": "Lightning"
+                "name": "Arlan"
             },
             {
                 "type": "Avatar",
                 "rarity": "Purple",
-                "name": "Yukong",
-                "path": "Harmony",
-                "element-type": "Imaginary"
+                "name": "Yukong"
             }
         ]
     },
     {
         "banner-key":   "cyrene_lc",
         "banner-title": "Cyrene (LC)",
-        "enabled": true,
+        "enabled": false,
         "items": [
             {
                 "type": "LightCone",
                 "rarity": "Gold",
-                "name": "This Love, Forever",
-                "path": "Remembrance"
+                "name": "This Love, Forever"
             },
             {
                 "type": "LightCone",
                 "rarity": "Purple",
-                "name": "A Serect Vow",
-                "path": "Destruction"
+                "name": "A Secret Vow"
             },
             {
                 "type": "LightCone",
                 "rarity": "Purple",
-                "name": "Subscribe for More!",
-                "path": "TheHunt"
+                "name": "Subscribe for More!"
             },
             {
                 "type": "LightCone",
                 "rarity": "Purple",
-                "name": "Dance! Dance! Dance!",
-                "path": "Harmony"
+                "name": "Dance! Dance! Dance!"
             }
         ]
     },
     {
         "banner-key":   "phainon_avatar",
         "banner-title": "Phainon (Avatar)",
-        "enabled": true,
+        "enabled": false,
         "items": [
             {
                 "type": "Avatar",
                 "rarity": "Gold",
-                "name": "Phainon",
-                "path": "Destruction",
-                "element-type": "Physical"
+                "name": "Phainon"
             },
             {
                 "type": "Avatar",
                 "rarity": "Purple",
-                "name": "March 7th",
-                "path": "Preservation",
-                "element-type": "Ice"
+                "name": "March 7th"
             },
             {
                 "type": "Avatar",
                 "rarity": "Purple",
-                "name": "Arlan",
-                "path": "Destruction",
-                "element-type": "Lightning"
+                "name": "Arlan"
             },
             {
                 "type": "Avatar",
                 "rarity": "Purple",
-                "name": "Yukong",
-                "path": "Harmony",
-                "element-type": "Imaginary"
+                "name": "Yukong"
             }
         ]
     },
     {
         "banner-key":   "phainon_lc",
         "banner-title": "Phainon (LC)",
-        "enabled": true,
+        "enabled": false,
         "items": [
             {
                 "type": "LightCone",
                 "rarity": "Gold",
-                "name": "Thus Burns the Dawn",
-                "path": "Destruction"
+                "name": "Thus Burns the Dawn"
             },
             {
                 "type": "LightCone",
                 "rarity": "Purple",
-                "name": "A Serect Vow",
-                "path": "Destruction"
+                "name": "A Secret Vow"
             },
             {
                 "type": "LightCone",
                 "rarity": "Purple",
-                "name": "Subscribe for More!",
-                "path": "TheHunt"
+                "name": "Subscribe for More!"
             },
             {
                 "type": "LightCone",
                 "rarity": "Purple",
-                "name": "Dance! Dance! Dance!",
-                "path": "Harmony"
+                "name": "Dance! Dance! Dance!"
             }
         ]
     },
     {
         "banner-key":   "archer_avatar",
         "banner-title": "Archer (Avatar)",
-        "enabled": true,
+        "enabled": false,
         "items": [
             {
                 "type": "Avatar",
                 "rarity": "Gold",
-                "name": "Archer",
-                "path": "TheHunt",
-                "element-type": "Quantum"
+                "name": "Archer"
             }
         ]
     },
     {
         "banner-key":   "archer_lc",
         "banner-title": "Archer (LC)",
-        "enabled": true,
+        "enabled": false,
         "items": [
             {
                 "type": "LightCone",
                 "rarity": "Gold",
-                "name": "The Hell Where Ideals Burn",
-                "path": "TheHunt"
+                "name": "The Hell Where Ideals Burn"
             }
         ]
     },
     {
         "banner-key":   "saber_avatar",
         "banner-title": "Saber (Avatar)",
-        "enabled": true,
+        "enabled": false,
         "items": [
             {
                 "type": "Avatar",
                 "rarity": "Gold",
-                "name": "Saber",
-                "path": "Destruction",
-                "element-type": "Wind"
+                "name": "Saber"
             }
         ]
     },
     {
         "banner-key":   "saber_lc",
         "banner-title": "Saber (LC)",
+        "enabled": false,
+        "items": [
+            {
+                "type": "LightCone",
+                "rarity": "Gold",
+                "name": "A Thankless Coronation"
+            }
+        ]
+    },
+    {
+        "banner-key":   "castorice_avatar",
+        "banner-title": "Castorice (Avatar)",
+        "enabled": true,
+        "items": [
+            {
+                "type": "Avatar",
+                "rarity": "Gold",
+                "name": "Castorice"
+            },
+            {
+                "type": "Avatar",
+                "rarity": "Purple",
+                "name": "Pela"
+            },
+            {
+                "type": "Avatar",
+                "rarity": "Purple",
+                "name": "Lynx"
+            },
+            {
+                "type": "Avatar",
+                "rarity": "Purple",
+                "name": "Gallagher"
+            }
+        ]
+    },
+    {
+        "banner-key":   "castorice_lc",
+        "banner-title": "Castorice (LC)",
         "enabled": true,
         "items": [
             {
                 "type": "LightCone",
                 "rarity": "Gold",
-                "name": "A Thankless Coronation",
-                "path": "Destruction"
+                "name": "Make Farewells More Beautiful"
+            },
+            {
+                "type": "LightCone",
+                "rarity": "Purple",
+                "name": "Good Night and Sleep Well"
+            },
+            {
+                "type": "LightCone",
+                "rarity": "Purple",
+                "name": "Post-Op Conversation"
+            },
+            {
+                "type": "LightCone",
+                "rarity": "Purple",
+                "name": "Boundless Choreo"
+            }
+        ]
+    },
+    {
+        "banner-key":   "evernight_avatar",
+        "banner-title": "Evernight (Avatar)",
+        "enabled": true,
+        "items": [
+            {
+                "type": "Avatar",
+                "rarity": "Gold",
+                "name": "Evernight"
+            },
+            {
+                "type": "Avatar",
+                "rarity": "Purple",
+                "name": "Guinaifen"
+            },
+            {
+                "type": "Avatar",
+                "rarity": "Purple",
+                "name": "Xueyi"
+            },
+            {
+                "type": "Avatar",
+                "rarity": "Purple",
+                "name": "Misha"
+            }
+        ]
+    },
+    {
+        "banner-key":   "evernight_lc",
+        "banner-title": "Evernight (LC)",
+        "enabled": true,
+        "items": [
+            {
+                "type": "LightCone",
+                "rarity": "Gold",
+                "name": "To Evernight's Stars"
+            },
+            {
+                "type": "LightCone",
+                "rarity": "Purple",
+                "name": "Dream's Montage"
+            },
+            {
+                "type": "LightCone",
+                "rarity": "Purple",
+                "name": "After the Charmony Fall"
+            },
+            {
+                "type": "LightCone",
+                "rarity": "Purple",
+                "name": "Dance! Dance! Dance!"
+            }
+        ]
+    },
+    {
+        "banner-key":   "firefly_avatar",
+        "banner-title": "Firefly (Avatar)",
+        "enabled": true,
+        "items": [
+            {
+                "type": "Avatar",
+                "rarity": "Gold",
+                "name": "Firefly"
+            },
+            {
+                "type": "Avatar",
+                "rarity": "Purple",
+                "name": "March 7th"
+            },
+            {
+                "type": "Avatar",
+                "rarity": "Purple",
+                "name": "Luka"
+            },
+            {
+                "type": "Avatar",
+                "rarity": "Purple",
+                "name": "Gallagher"
+            }
+        ]
+    },
+    {
+        "banner-key":   "firefly_lc",
+        "banner-title": "Firefly (LC)",
+        "enabled": true,
+        "items": [
+            {
+                "type": "LightCone",
+                "rarity": "Gold",
+                "name": "Whereabouts Should Dreams Rest"
+            },
+            {
+                "type": "LightCone",
+                "rarity": "Purple",
+                "name": "Concert for Two"
+            },
+            {
+                "type": "LightCone",
+                "rarity": "Purple",
+                "name": "Good Night and Sleep Well"
+            },
+            {
+                "type": "LightCone",
+                "rarity": "Purple",
+                "name": "Memories of the Past"
             }
         ]
     }

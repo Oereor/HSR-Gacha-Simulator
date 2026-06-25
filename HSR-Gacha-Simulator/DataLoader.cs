@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -29,10 +31,40 @@ namespace HSR_Gacha_Simulator
         }
 
         /// <summary>
+        /// Builds a lookup dictionary from gold + purple master pool files.
+        /// Call this ONCE in MainViewModel, then pass the result to LoadEventPoolConfigs.
+        /// </summary>
+        public static Dictionary<(ItemType, ItemRarity), Dictionary<string, ItemData>>
+            BuildMasterLookup(string allGoldPath, string ordinaryPurplePath)
+        {
+            var allGold   = LoadFromFile(allGoldPath);
+            var allPurple = LoadFromFile(ordinaryPurplePath);
+            var merged    = allGold.Concat(allPurple).ToList();
+
+            var lookup = new Dictionary<(ItemType, ItemRarity), Dictionary<string, ItemData>>();
+
+            foreach (var item in merged)
+            {
+                var key = (item.Type, item.Rarity);
+                if (!lookup.ContainsKey(key))
+                    lookup[key] = new Dictionary<string, ItemData>();
+
+                // If there's a duplicate name within the same (type, rarity) group,
+                // later entries overwrite earlier ones (shouldn't happen, but be safe).
+                lookup[key][item.Name] = item;
+            }
+            return lookup;
+        }
+
+        /// <summary>
         /// Loads the consolidated event pool config file and returns a list of
         /// parsed banner descriptors (only entries with <c>enabled: true</c>).
+        /// Each simplified item (type, rarity, name) is enriched with full data
+        /// (path, element-type) from the <paramref name="masterLookup"/>.
         /// </summary>
-        public static List<EventPoolConfigEntry> LoadEventPoolConfigs(string filePath)
+        public static List<EventPoolConfigEntry> LoadEventPoolConfigs(
+            string filePath,
+            Dictionary<(ItemType, ItemRarity), Dictionary<string, ItemData>> masterLookup)
         {
             string json = File.ReadAllText(filePath);
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
@@ -50,7 +82,33 @@ namespace HSR_Gacha_Simulator
                 var items = new List<ItemData>(dto.Items.Count);
                 foreach (var itemDto in dto.Items)
                 {
-                    items.Add(ToItemData(itemDto));
+                    // Parse type and rarity from the simplified item
+                    var type   = ParseEnum<ItemType>(itemDto.Type);
+                    var rarity = ParseEnum<ItemRarity>(itemDto.Rarity);
+                    var name   = itemDto.Name ?? "";
+
+                    // Look up the full data from the master pools
+                    if (masterLookup.TryGetValue((type, rarity), out var nameDict)
+                        && nameDict.TryGetValue(name, out var fullItem))
+                    {
+                        // Use the master pool's ItemData — it has path + element
+                        items.Add(fullItem);
+                    }
+                    else
+                    {
+                        // Fallback: item not found in master pool — log warning,
+                        // create a partial ItemData (path/element = Unknown)
+                        // so the banner still loads without crashing.
+                        LogWarning($"Item '{name}' ({type}, {rarity}) from event config not found in master pools.");
+                        items.Add(new ItemData
+                        {
+                            Type        = type,
+                            Rarity      = rarity,
+                            Name        = name,
+                            Path        = PathType.Unknown,
+                            ElementType = ElementType.Unknown
+                        });
+                    }
                 }
 
                 entries.Add(new EventPoolConfigEntry
@@ -86,6 +144,21 @@ namespace HSR_Gacha_Simulator
                 return result;
 
             return default;
+        }
+
+        private static void LogWarning(string message)
+        {
+            try
+            {
+                string logDir = Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                    "HSR-Gacha-Simulator");
+                Directory.CreateDirectory(logDir);
+                File.AppendAllText(
+                    Path.Combine(logDir, "error.log"),
+                    $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} [DataLoader] WARNING: {message}{Environment.NewLine}");
+            }
+            catch { /* best-effort */ }
         }
 
         // ── DTO matching the on‑disk JSON schema ────────────────

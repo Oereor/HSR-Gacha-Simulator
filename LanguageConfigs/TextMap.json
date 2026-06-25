@@ -617,10 +617,6 @@
       "en": "A Secret Vow",
       "zh": "秘密誓心"
     },
-    "lightcone.A Serect Vow": {
-      "en": "A Secret Vow",
-      "zh": "秘密誓心"
-    },
     "lightcone.Make the World Clamor": {
       "en": "Make the World Clamor",
       "zh": "别让世界静下来"
@@ -948,6 +944,30 @@
     "ui.banner.saber_lc": {
       "en": "Saber (LC)",
       "zh": "Saber（光锥）"
+    },
+    "ui.banner.evernight_avatar": {
+      "en": "Evernight (Avatar)",
+      "zh": "长夜月（角色）"
+    },
+    "ui.banner.evernight_lc": {
+      "en": "Evernight (LC)",
+      "zh": "长夜月（光锥）"
+    },
+    "ui.banner.castorice_avatar": {
+      "en": "Castorice (Avatar)",
+      "zh": "遐蝶（角色）"
+    },
+    "ui.banner.castorice_lc": {
+      "en": "Castorice (LC)",
+      "zh": "遐蝶（光锥）"
+    },
+    "ui.banner.firefly_avatar": {
+      "en": "Firefly (Avatar)",
+      "zh": "流萤（角色）"
+    },
+    "ui.banner.firefly_lc": {
+      "en": "Firefly (LC)",
+      "zh": "流萤（光锥）"
     },
     "ui.banner.all_gold": {
       "en": "All Gold (Expanded Pool)",
