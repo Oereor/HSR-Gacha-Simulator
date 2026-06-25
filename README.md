@@ -8,8 +8,8 @@ A **Honkai: Star Rail** warp (gacha) simulator built with WPF on .NET. Simulate 
 - **12 banners** covering the full HSR warp experience (enable/disable per banner via JSON):
   - **Ordinary** — standard banner with the base gold pool (avatars + light cones)
   - **All Gold (Expanded Pool)** — ordinary-type banner containing every 5★ item released so far
-  - **Event Avatar** — Cyrene, Phainon, Archer, Saber, Evernight
-  - **Event Light Cone** — Cyrene, Phainon, Archer, Saber, Evernight signature light cones
+  - **Event Avatar** — Castorice, Evernight, Hyacine, Firefly, etc.
+  - **Event Light Cone** — Castorice, Evernight, Hyacine, Firefly signature light cones, etc.
 - **Horizontally-scrollable banner strip** — pill-style tabs with arrow buttons and mouse-wheel scroll; selected banner auto-scrolls into view
 - **Accurate probability model**:
   - Gold (5★) base rate 0.6%, soft pity from pull 74, hard pity at pull 90 (avatar) / 80 (light cone)
