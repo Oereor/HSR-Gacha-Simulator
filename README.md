@@ -5,11 +5,11 @@ A **Honkai: Star Rail** warp (gacha) simulator built with WPF on .NET. Simulate 
 ## Features
 
 - **Data-driven banner system** — all event banners are defined in a single `EventPoolConfigs.json` file; adding, removing, or disabling a banner requires only a JSON edit (no C# or XAML changes)
-- **10 banners** covering the full HSR warp experience:
+- **12 banners** covering the full HSR warp experience (enable/disable per banner via JSON):
   - **Ordinary** — standard banner with the base gold pool (avatars + light cones)
   - **All Gold (Expanded Pool)** — ordinary-type banner containing every 5★ item released so far
-  - **Event Avatar** — Cyrene, Phainon, Archer, Saber
-  - **Event Light Cone** — Cyrene, Phainon, Archer, Saber signature light cones
+  - **Event Avatar** — Cyrene, Phainon, Archer, Saber, Evernight
+  - **Event Light Cone** — Cyrene, Phainon, Archer, Saber, Evernight signature light cones
 - **Horizontally-scrollable banner strip** — pill-style tabs with arrow buttons and mouse-wheel scroll; selected banner auto-scrolls into view
 - **Accurate probability model**:
   - Gold (5★) base rate 0.6%, soft pity from pull 74, hard pity at pull 90 (avatar) / 80 (light cone)
@@ -54,8 +54,8 @@ See [INTERNATIONALIZATION_LOCALIZATION.md](INTERNATIONALIZATION_LOCALIZATION.md)
 
 The presentation layer uses the **MVVM** (Model–View–ViewModel) pattern:
 
-- **Model** — `GachaSystem`, `ItemData`, `DataLoader`, `LocalizationService` (pure logic, no UI dependencies)
-- **ViewModel** — `MainViewModel` exposes UI-bound state via `INotifyPropertyChanged`; banners are an `ObservableCollection<BannerInfo>` driven by `EventPoolConfigs.json`; history uses `ObservableCollection<HistoryItemDisplay>` for incremental updates without full-list rebuilds
+- **Model** — `GachaSystem`, `ItemData`, `DataLoader` (incl. master-pool enrichment for event items), `LocalizationService` (pure logic, no UI dependencies)
+- **ViewModel** — `MainViewModel` (also contains `BannerInfo`) exposes UI-bound state via `INotifyPropertyChanged`; banners are an `ObservableCollection<BannerInfo>` driven by `EventPoolConfigs.json`; history uses `ObservableCollection<HistoryItemDisplay>` for incremental updates without full-list rebuilds
 - **View** — `MainWindow.xaml` uses WPF data binding, value converters, and `{local:Loc}` markup extensions to render the ViewModel state; the code-behind (`MainWindow.xaml.cs`) is a thin layer of event handlers that delegate to the ViewModel
 
 ## Tech Stack
@@ -119,12 +119,11 @@ Or open `HSR-Gacha-Simulator.slnx` in Visual Studio / JetBrains Rider and press 
 ├── HSR-Gacha-Simulator/
 │   ├── ItemData.cs                       # Data model (enums + ItemData class)
 │   ├── EventPoolConfigEntry.cs           # Banner config model (parsed from EventPoolConfigs.json)
-│   ├── BannerInfo.cs                     # ViewModel for each selectable banner pill
 │   ├── GachaSystem.cs                    # Core gacha engine (probability, pity, pulls)
-│   ├── DataLoader.cs                     # JSON deserialization (incl. EventPoolConfigs loader)
+│   ├── DataLoader.cs                     # JSON deserialization + master-pool lookup for event items
 │   ├── LocalizationService.cs            # Localization singleton (TextMap loader, lookup, persistence)
 │   ├── LocExtension.cs                   # WPF markup extension for {local:Loc key}
-│   ├── MainViewModel.cs                  # MVVM ViewModel — UI state, data binding, navigation
+│   ├── MainViewModel.cs                  # MVVM ViewModel + BannerInfo (UI state, data binding, navigation)
 │   ├── IconLoader.cs                     # Cached PNG icon loading for path/element assets
 │   ├── MainWindow.xaml                   # UI layout (WPF data binding, scrollable banner strip)
 │   ├── MainWindow.xaml.cs                # UI event handlers (thin code-behind)
@@ -133,12 +132,15 @@ Or open `HSR-Gacha-Simulator.slnx` in Visual Studio / JetBrains Rider and press 
 │   └── RarityConverters.cs               # Rarity → brush converters
 ├── INTERNATIONALIZATION_LOCALIZATION.md  # i18n/l10n design & implementation spec
 ├── RESULT_CARD_ICONS.md                  # Result card icon feature spec
+├── REFACTOR_EVENT_POOL_CONFIG.md         # Refactor guide: simplified event pool config format
 └── README.md
 ```
 
 ## Pool Configuration
 
-Shared item pools and the ordinary/all-gold banners use flat JSON arrays of items:
+### Master item pools (full data)
+
+Shared item pools and the ordinary/all-gold banners use flat JSON arrays of items with complete metadata:
 
 ```json
 {
@@ -153,9 +155,16 @@ Shared item pools and the ordinary/all-gold banners use flat JSON arrays of item
 - **Light Cones** omit `element-type`
 - **Blue items** are all Light Cones (real 3-star Light Cones)
 
-### Event Banner Configuration
+Two master pool files serve as the authoritative source of item metadata:
 
-All event banners are defined in a single file: `PoolConfigs/EventPoolConfigs.json`. Each entry describes one banner:
+| File | Contents |
+|------|----------|
+| `AllGoldPoolConfig.json` | Every Gold (5★) Avatar and Light Cone — full `path` and `element-type` |
+| `OrdinaryPurplePoolConfig.json` | Every Purple (4★) Avatar and Light Cone — full `path` and `element-type` |
+
+### Event Banner Configuration (simplified references)
+
+All event banners are defined in a single file: `PoolConfigs/EventPoolConfigs.json`. Event pool items are **subsets** of the master pools above, so each item only carries a reference — `path` and `element-type` are omitted and resolved at load time via name-based look-up into the master pools:
 
 ```json
 {
@@ -163,8 +172,8 @@ All event banners are defined in a single file: `PoolConfigs/EventPoolConfigs.js
     "banner-title": "Cyrene (Avatar)",
     "enabled": true,
     "items": [
-        { "type": "Avatar", "rarity": "Gold", "name": "Cyrene", "path": "Remembrance", "element-type": "Ice" },
-        { "type": "Avatar", "rarity": "Purple", "name": "March 7th", "path": "Preservation", "element-type": "Ice" }
+        { "type": "Avatar", "rarity": "Gold", "name": "Cyrene" },
+        { "type": "Avatar", "rarity": "Purple", "name": "March 7th" }
     ]
 }
 ```
@@ -174,16 +183,19 @@ All event banners are defined in a single file: `PoolConfigs/EventPoolConfigs.js
 | `banner-key` | Stable identifier — maps to `ui.banner.<key>` in `TextMap.json` for localization |
 | `banner-title` | English display name shown on the banner pill |
 | `enabled` | `false` hides the banner without deleting its config |
-| `items` | All pool items (gold + purple, avatars + light cones). The gold item's type determines whether the banner is Event Avatar or Event Light Cone. |
+| `items` | Simplified references (`type`, `rarity`, `name` only). `DataLoader` enriches each item with `path` and `element-type` from the master pools at load time. The gold item's type determines whether the banner is Event Avatar or Event Light Cone. |
+
+The lookup key is the composite `(type, rarity, name)` — the English display name must match exactly between the event config and the master pool file it references (for example, `"A Secret Vow"` not `"A Serect Vow"`).
 
 Purple rate-up items are optional — banners with no purple items (e.g. Archer/Saber) fall back to the full standard purple pool. Celestial pool and 50/50 vs. 75/25 rules are applied automatically based on the detected banner type.
 
 ### Adding a New Event Banner
 
-1. Add an entry to `EventPoolConfigs.json` (set `enabled: true`)
-2. Add `ui.banner.<banner-key>` to `LanguageConfigs/TextMap.json` (EN + ZH)
-3. Add any new item name translations (`avatar.<Name>`, `lightcone.<Name>`) to `TextMap.json`
-4. Rebuild. **No C# or XAML changes needed.**
+1. Ensure the items you want to feature already exist in the master pool files (`AllGoldPoolConfig.json` for Gold, `OrdinaryPurplePoolConfig.json` for Purple).
+2. Add an entry to `EventPoolConfigs.json` with simplified references (`type`, `rarity`, `name` only — no `path` or `element-type`). Set `enabled: true`.
+3. Add `ui.banner.<banner-key>` to `LanguageConfigs/TextMap.json` (EN + ZH).
+4. Add any new item name translations (`avatar.<Name>`, `lightcone.<Name>`) to `TextMap.json`.
+5. Rebuild. **No C# or XAML changes needed.**
 
 Removing a banner = set `"enabled": false` (or delete the entry).
 

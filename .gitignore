@@ -204,21 +204,23 @@ ModelManifest.xml
 # ============================================================
 # Project-specific — agent instruction documents (not for publish)
 # ============================================================
-/IMPLEMENTATION_GUIDE.md
-/REVISION_1.md
-/REVISION_2.md
-/REVISION_3.md
-/REVISION_4.md
-/REVISION_5.md
-/REVISION_6.md
-/REVISION_7.md
-/REVISION_8.md
-/REVISION_9.md
-/REVISION_10.md
-/REVISION_11.md
-/REVISION_12.md
-/REVISION_13.md
-/REVISION_14.md
-/Refactor_Specification.md
-/Refactor_Plan.md
-/Element_Color_Correspondence.md
+IMPLEMENTATION_GUIDE.md
+REVISION_1.md
+REVISION_2.md
+REVISION_3.md
+REVISION_4.md
+REVISION_5.md
+REVISION_6.md
+REVISION_7.md
+REVISION_8.md
+REVISION_9.md
+REVISION_10.md
+REVISION_11.md
+REVISION_12.md
+REVISION_13.md
+REVISION_14.md
+Refactor_Specification.md
+Refactor_Plan.md
+Element_Color_Correspondence.md
+RESULT_CARD_ICONS.md
+REFACTOR_EVENT_POOL_CONFIG.md
