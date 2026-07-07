@@ -1,41 +1,36 @@
 using System.Windows;
 using System.Windows.Controls;
+using HSR_Gacha_Simulator.Services;
+using HSR_Gacha_Simulator.ViewModels;
 
-namespace HSR_Gacha_Simulator
+namespace HSR_Gacha_Simulator.Views
 {
     public partial class MainWindow : Window
     {
-        // ── ViewModel ───────────────────────────────────────────────
-        private readonly MainViewModel viewModel = new();
+        private readonly MainViewModel _viewModel;
+        private readonly ILocalizationService _l10n;
 
-        // Prevents event handlers from running before initialisation is complete.
-        private bool initialising;
-
-        // ── Localisation shorthand ──────────────────────────────────
-        private static LocalizationService L10n => LocalizationService.Instance;
-
-        public MainWindow()
+        public MainWindow(MainViewModel viewModel, ILocalizationService localizationService)
         {
-            initialising = true;
+            _viewModel = viewModel;
+            _l10n = localizationService;
+
             InitializeComponent();
 
-            // Set up data binding
-            DataContext = viewModel;
-            lvHistory.ItemsSource = viewModel.HistoryItems;
+            DataContext = _viewModel;
+            lvHistory.ItemsSource = _viewModel.HistoryPanel.HistoryItems;
 
             try
             {
-                viewModel.InitializeSystems();
-                initialising = false;
+                _viewModel.InitializeSystems();
             }
             catch (Exception ex)
             {
-                initialising = false;
                 MessageBox.Show(
-                    L10n.Get("dialog.error.init_failed", ex.Message),
-                    L10n.Get("dialog.error.title"),
+                    _l10n.Get("dialog.error.init_failed", ex.Message),
+                    _l10n.Get("dialog.error.title"),
                     MessageBoxButton.OK, MessageBoxImage.Error);
-                viewModel.StatusText = L10n.Get("ui.status.init_failed");
+                _viewModel.StatusText = _l10n.Get("ui.status.init_failed");
             }
         }
 
@@ -75,44 +70,44 @@ namespace HSR_Gacha_Simulator
 
         private void BtnWarp1_Click(object sender, RoutedEventArgs e)
         {
-            if (initialising || viewModel.IsLoading) return;
+            if (_viewModel.IsLoading) return;
 
-            viewModel.StatusText = L10n.Get("ui.status.pulling");
-            viewModel.Pull(1);
+            _viewModel.StatusText = _l10n.Get("ui.status.pulling");
+            _viewModel.Pull(1);
         }
 
         private void BtnWarp10_Click(object sender, RoutedEventArgs e)
         {
-            if (initialising || viewModel.IsLoading) return;
+            if (_viewModel.IsLoading) return;
 
-            viewModel.StatusText = L10n.Get("ui.status.pulling_x10");
-            viewModel.Pull(10);
+            _viewModel.StatusText = _l10n.Get("ui.status.pulling_x10");
+            _viewModel.Pull(10);
         }
 
         private void BtnReset_Click(object sender, RoutedEventArgs e)
         {
-            string bannerName = viewModel.SelectedBanner?.DisplayName ?? L10n.Get("ui.banner.ordinary");
+            string bannerName = _viewModel.SelectedBanner?.DisplayName ?? _l10n.Get("ui.banner.ordinary");
 
             var result = MessageBox.Show(
-                L10n.Get("dialog.reset_banner.message", bannerName),
-                L10n.Get("dialog.reset_banner.title"),
+                _l10n.Get("dialog.reset_banner.message", bannerName),
+                _l10n.Get("dialog.reset_banner.title"),
                 MessageBoxButton.OKCancel,
                 MessageBoxImage.Warning);
 
             if (result != MessageBoxResult.OK)
                 return;
 
-            viewModel.ResetCurrentBanner();
+            _viewModel.ResetCurrentBanner();
         }
 
         private void BtnPrevResult_Click(object sender, RoutedEventArgs e)
         {
-            viewModel.NavigatePrev();
+            _viewModel.NavigatePrev();
         }
 
         private void BtnNextResult_Click(object sender, RoutedEventArgs e)
         {
-            viewModel.NavigateNext();
+            _viewModel.NavigateNext();
         }
     }
 }

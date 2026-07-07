@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using HSR_Gacha_Simulator.Models;
 
-namespace HSR_Gacha_Simulator
+namespace HSR_Gacha_Simulator.Services
 {
-    /// <summary>Static loader that deserializes JSON pool-config files into ItemData lists.</summary>
-    public static class DataLoader
+    /// <summary>Instance service that deserializes JSON pool-config files into ItemData lists.</summary>
+    public class PoolDataService : IPoolDataService
     {
         /// <summary>Load all items from a single pool-config JSON file.</summary>
-        public static List<ItemData> LoadFromFile(string filePath)
+        public List<ItemData> LoadFromFile(string filePath)
         {
             string json = File.ReadAllText(filePath);
             var options = new JsonSerializerOptions
@@ -34,7 +35,7 @@ namespace HSR_Gacha_Simulator
         /// Builds a lookup dictionary from gold + purple master pool files.
         /// Call this ONCE in MainViewModel, then pass the result to LoadEventPoolConfigs.
         /// </summary>
-        public static Dictionary<(ItemType, ItemRarity), Dictionary<string, ItemData>>
+        public Dictionary<(ItemType, ItemRarity), Dictionary<string, ItemData>>
             BuildMasterLookup(string allGoldPath, string ordinaryPurplePath)
         {
             var allGold   = LoadFromFile(allGoldPath);
@@ -62,7 +63,7 @@ namespace HSR_Gacha_Simulator
         /// Each simplified item (type, rarity, name) is enriched with full data
         /// (path, element-type) from the <paramref name="masterLookup"/>.
         /// </summary>
-        public static List<EventPoolConfigEntry> LoadEventPoolConfigs(
+        public List<EventPoolConfigEntry> LoadEventPoolConfigs(
             string filePath,
             Dictionary<(ItemType, ItemRarity), Dictionary<string, ItemData>> masterLookup)
         {
@@ -156,7 +157,7 @@ namespace HSR_Gacha_Simulator
                 Directory.CreateDirectory(logDir);
                 File.AppendAllText(
                     Path.Combine(logDir, "error.log"),
-                    $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} [DataLoader] WARNING: {message}{Environment.NewLine}");
+                    $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} [PoolDataService] WARNING: {message}{Environment.NewLine}");
             }
             catch { /* best-effort */ }
         }

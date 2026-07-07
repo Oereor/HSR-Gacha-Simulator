@@ -1,4 +1,4 @@
-﻿namespace HSR_Gacha_Simulator
+namespace HSR_Gacha_Simulator.Models
 {
     public enum ItemType
     {
@@ -10,15 +10,15 @@
     public enum ItemRarity
     {
         Unknown = 0,
-        Blue, 
-        Purple, 
+        Blue,
+        Purple,
         Gold
     }
 
     public enum PathType
     {
         Unknown = 0,
-        Destruction, 
+        Destruction,
         TheHunt,
         Erudition,
         Harmony,

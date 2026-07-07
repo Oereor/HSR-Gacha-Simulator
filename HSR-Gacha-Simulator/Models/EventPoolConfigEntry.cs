@@ -1,4 +1,4 @@
-namespace HSR_Gacha_Simulator
+namespace HSR_Gacha_Simulator.Models
 {
     /// <summary>
     /// Parsed representation of one enabled event banner from EventPoolConfigs.json.

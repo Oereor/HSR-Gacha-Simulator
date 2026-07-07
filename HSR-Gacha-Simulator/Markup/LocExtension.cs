@@ -2,19 +2,20 @@ using System;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
+using HSR_Gacha_Simulator.Services;
 
-namespace HSR_Gacha_Simulator
+namespace HSR_Gacha_Simulator.Markup
 {
     /// <summary>
     /// WPF markup extension that returns a live <see cref="Binding"/> to
-    /// <c>LocalizationService.Instance[key]</c> so text updates automatically
+    /// <c>LocalizationService.Current[key]</c> so text updates automatically
     /// when <c>CurrentLanguage</c> changes.
     /// </summary>
     /// <remarks>
     /// Usage in XAML:
-    /// <code>{local:Loc ui.button.warp_x1}</code>
+    /// <code>{markup:Loc ui.button.warp_x1}</code>
     /// or
-    /// <code>{local:Loc Key=ui.button.warp_x1}</code>
+    /// <code>{markup:Loc Key=ui.button.warp_x1}</code>
     /// </remarks>
     [MarkupExtensionReturnType(typeof(object))]
     public class LocExtension : MarkupExtension
@@ -59,7 +60,7 @@ namespace HSR_Gacha_Simulator
                 var binding = new Binding
                 {
                     Path = new PropertyPath($"[{Key}]"),
-                    Source = LocalizationService.Instance,
+                    Source = LocalizationService.Current,
                     Mode = BindingMode.OneWay
                 };
                 return binding.ProvideValue(serviceProvider);
@@ -67,7 +68,7 @@ namespace HSR_Gacha_Simulator
 
             // Fallback for non-DP targets (e.g. inside templates/styles):
             // return the string directly.
-            return LocalizationService.Instance[Key];
+            return LocalizationService.Current[Key];
         }
     }
 }

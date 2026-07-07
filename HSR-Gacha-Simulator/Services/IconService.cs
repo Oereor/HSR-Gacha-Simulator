@@ -1,15 +1,15 @@
 using System.IO;
 using System.Windows.Media.Imaging;
 
-namespace HSR_Gacha_Simulator
+namespace HSR_Gacha_Simulator.Services
 {
-    public static class IconLoader
+    public class IconService : IIconService
     {
-        private static readonly Dictionary<string, BitmapImage> Cache = new();
-        private static readonly string IconsDir = Path.Combine(
+        private readonly Dictionary<string, BitmapImage> Cache = new();
+        private readonly string IconsDir = Path.Combine(
             AppDomain.CurrentDomain.BaseDirectory, "Icons");
 
-        public static BitmapImage? LoadOrNull(string fileName)
+        public BitmapImage? LoadOrNull(string fileName)
         {
             string fullPath = Path.Combine(IconsDir, fileName);
             if (!File.Exists(fullPath)) return null;

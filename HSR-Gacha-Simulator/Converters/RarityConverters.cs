@@ -1,8 +1,9 @@
 using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Media;
+using HSR_Gacha_Simulator.Models;
 
-namespace HSR_Gacha_Simulator
+namespace HSR_Gacha_Simulator.Converters
 {
     /// <summary>Static helpers for rarity → brush lookups.</summary>
     public static class RarityConverters

@@ -1,8 +1,9 @@
 using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Media;
+using HSR_Gacha_Simulator.Models;
 
-namespace HSR_Gacha_Simulator
+namespace HSR_Gacha_Simulator.Converters
 {
     /// <summary>
     /// Maps an <see cref="ElementType"/> enum value to a <see cref="SolidColorBrush"/>

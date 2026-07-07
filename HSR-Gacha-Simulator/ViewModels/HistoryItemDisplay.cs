@@ -1,14 +1,15 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using HSR_Gacha_Simulator.Models;
+using HSR_Gacha_Simulator.Services;
 
-namespace HSR_Gacha_Simulator
+namespace HSR_Gacha_Simulator.ViewModels
 {
     /// <summary>
     /// Lightweight display wrapper used by the history <see cref="System.Windows.Controls.ListView"/>.
     /// Pre‑formats rarity stars, type labels, and path labels so the XAML can bind directly.
-    /// Implements <see cref="INotifyPropertyChanged"/> so the view refreshes when the source list is rebuilt.
     /// </summary>
-    public class HistoryItemDisplay : INotifyPropertyChanged
+    public class HistoryItemDisplay : BaseViewModel
     {
         private int _index;
         private string _name = "";
@@ -22,68 +23,65 @@ namespace HSR_Gacha_Simulator
         public int Index
         {
             get => _index;
-            set { _index = value; OnPropertyChanged(); }
+            set => SetProperty(ref _index, value);
         }
 
         public string Name
         {
             get => _name;
-            set { _name = value; OnPropertyChanged(); }
+            set => SetProperty(ref _name, value);
         }
 
         public string RarityStars
         {
             get => _rarityStars;
-            set { _rarityStars = value; OnPropertyChanged(); }
+            set => SetProperty(ref _rarityStars, value);
         }
 
         public ItemRarity Rarity
         {
             get => _rarity;
-            set { _rarity = value; OnPropertyChanged(); }
+            set => SetProperty(ref _rarity, value);
         }
 
         public string TypeLabel
         {
             get => _typeLabel;
-            set { _typeLabel = value; OnPropertyChanged(); }
+            set => SetProperty(ref _typeLabel, value);
         }
 
         public string PathLabel
         {
             get => _pathLabel;
-            set { _pathLabel = value; OnPropertyChanged(); }
+            set => SetProperty(ref _pathLabel, value);
         }
 
         public ElementType ElementType
         {
             get => _elementType;
-            set { _elementType = value; OnPropertyChanged(); }
+            set => SetProperty(ref _elementType, value);
         }
 
         public string ElementLabel
         {
             get => _elementLabel;
-            set { _elementLabel = value; OnPropertyChanged(); }
+            set => SetProperty(ref _elementLabel, value);
         }
-
-        // ── Localisation shorthand ──────────────────────────────
-
-        private static LocalizationService L10n => LocalizationService.Instance;
 
         // ── Factory ─────────────────────────────────────────────
 
         public static HistoryItemDisplay FromItemData(ItemData item, int index)
         {
+            var l10n = LocalizationService.Current;
             return new HistoryItemDisplay
             {
                 Index        = index,
-                Name         = L10n.GetItemName(item.Name),
+                Name         = l10n.GetItemName(item.Name),
                 RarityStars  = RarityToStars(item.Rarity),
                 Rarity       = item.Rarity,
                 TypeLabel    = item.Type == ItemType.Avatar
-                    ? L10n.Get("ui.history.type.avatar")
-                    : L10n.Get("ui.history.type.lightcone_short"),
+                    ? l10n.Get("ui.history.type.avatar")
+                    : l10n.Get("ui.history.type.lightcone_short"),
                 PathLabel    = FormatPath(item.Path),
                 ElementType  = item.ElementType,
                 ElementLabel = FormatElement(item.ElementType, item.Type)
@@ -107,7 +105,7 @@ namespace HSR_Gacha_Simulator
         {
             if (path == PathType.Unknown)
                 return "—";
-            return L10n[$"path.{path}"];
+            return LocalizationService.Current[$"path.{path}"];
         }
 
         public static string FormatElement(ElementType element, ItemType type)
@@ -115,16 +113,7 @@ namespace HSR_Gacha_Simulator
             if (type == ItemType.LightCone || element == ElementType.Unknown)
                 return "—";
 
-            return L10n[$"element.{element}"];
-        }
-
-        // ── INotifyPropertyChanged ──────────────────────────────
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            return LocalizationService.Current[$"element.{element}"];
         }
     }
 }

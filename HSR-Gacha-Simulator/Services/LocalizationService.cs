@@ -4,22 +4,23 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 
-namespace HSR_Gacha_Simulator
+namespace HSR_Gacha_Simulator.Services
 {
     /// <summary>
     /// Singleton localisation service. Loads <c>LanguageConfigs/TextMap.json</c> and
     /// exposes translated strings via an indexer that XAML bindings can consume.
     /// Changing <see cref="CurrentLanguage"/> raises <c>PropertyChanged</c> for
-    /// <c>"Item[]"</c> so all <c>{local:Loc}</c> bindings re-evaluate live.
+    /// <c>"Item[]"</c> so all <c>{markup:Loc}</c> bindings re-evaluate live.
     /// </summary>
-    public class LocalizationService : INotifyPropertyChanged
+    public class LocalizationService : ILocalizationService
     {
-        // ── Singleton ──────────────────────────────────────────────
+        // ── Static accessor (for MarkupExtension + XAML x:Static) ──
 
-        private static readonly Lazy<LocalizationService> _instance =
-            new(() => new LocalizationService());
-
-        public static LocalizationService Instance => _instance.Value;
+        /// <summary>
+        /// Set by the DI-managed constructor so LocExtension and XAML
+        /// {x:Static} bindings can reach the singleton instance.
+        /// </summary>
+        public static ILocalizationService Current { get; internal set; } = default!;
 
         // ── Private fields ─────────────────────────────────────────
 
@@ -40,8 +41,10 @@ namespace HSR_Gacha_Simulator
 
         // ── Constructor ────────────────────────────────────────────
 
-        private LocalizationService()
+        public LocalizationService()
         {
+            Current = this;
+
             // Restore saved language preference before first load
             string? saved = LoadSavedLanguage();
             if (!string.IsNullOrEmpty(saved))
@@ -81,7 +84,7 @@ namespace HSR_Gacha_Simulator
             }
         }
 
-        // ── Indexer (for XAML {local:Loc key}) ────────────────────
+        // ── Indexer (for XAML {markup:Loc key}) ────────────────────
 
         /// <summary>
         /// Returns the translated string for <paramref name="key"/> in the

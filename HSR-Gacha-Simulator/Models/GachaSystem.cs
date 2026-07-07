@@ -1,4 +1,4 @@
-namespace HSR_Gacha_Simulator
+namespace HSR_Gacha_Simulator.Models
 {
     public enum GachaType
     {
